@@ -1,0 +1,5 @@
+export const bojen = {
+    '1535067': 'JR0958HI80A0IHF5',
+    '1534209': 'D3S4TG7VS8FQTGVD',
+    '1539607': 'CNSX2LDPQDYNPESI',
+};

@@ -1,0 +1,38 @@
+.content {
+    position: absolute;
+    top: 50px;
+
+    background-color: rgba(36, 115, 255, 1);
+    width: 100vw;
+    height: 100%;
+}
+
+.markerPopup {
+    background-color: rgba(36, 115, 255, 0.88);
+}
+
+.mapboxgl-popup {
+    max-width: 300px;
+}
+
+.mapboxgl-popup-content {
+    background-color: rgba(36, 115, 255, 0.88);
+    color: white;
+    font-family: Peakrounded, sans-serif;
+}
+
+.infos {
+    color: #00ff48;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+}
+.myTicker {
+    width: 100%;
+}
+.ticker {
+    position: static;
+    width: 100%;
+}
