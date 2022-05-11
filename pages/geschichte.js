@@ -61,7 +61,7 @@ export default function Geschichte(props) {
     );
 }
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
     const server = 'http://localhost:3000';
 
     const res = await fetch(`${server}/api/article`);
