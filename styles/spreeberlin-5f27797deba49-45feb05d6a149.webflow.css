@@ -2196,7 +2196,8 @@ blockquote {
         ),
         url('/static/images//Historische-Fussbäder.png');
 }
-*/ .content-wrapper-2-spreeacker._1:hover {
+*/
+.content-wrapper-2-spreeacker._1:hover {
     background-image: -webkit-gradient(
             linear,
             left top,
@@ -2213,7 +2214,8 @@ blockquote {
         url('/static/images//Historische-Fussbäder.png');
     background-position: 0px 0px, 50% 50%;
     background-size: auto, auto;
-} */
+}
+*/
 
 /* .content-wrapper-2-spreeacker._2 {
     background-image: -webkit-gradient(
@@ -2376,12 +2378,14 @@ blockquote {
     text-align: center;
 }
 
-/* .link-block {
-    display: -webkit-box;
+.link-block {
+    /* display: -webkit-box;
     display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    height: 350px;
+    display: -ms-flexbox; */
+    /* display: flex; */
+    height: 468px;
+    width: 624px;
+    border: black solid 3px;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -webkit-flex-direction: column;
@@ -2396,7 +2400,10 @@ blockquote {
     -ms-flex-align: center;
     align-items: center;
     border-radius: 10px;
-    background-image: -webkit-gradient(
+    position: relative;
+    text-align: center;
+    color: white;
+    /* background-image: -webkit-gradient(
             linear,
             left top,
             left bottom,
@@ -2409,13 +2416,13 @@ blockquote {
             rgba(36, 115, 255, 0.7),
             rgba(36, 115, 255, 0.7)
         ),
-        url('static/images/Bibertreppe.jpg');
+        url('static/images/Bibertreppe.jpg'); */
     background-position: 0px 0px, 50% 50%;
     background-size: auto, cover;
 }
 
 .link-block:hover {
-    background-image: -webkit-gradient(
+    /* background-image: -webkit-gradient(
             linear,
             left top,
             left bottom,
@@ -2428,18 +2435,21 @@ blockquote {
             rgba(36, 115, 255, 0.1),
             rgba(36, 115, 255, 0.1)
         ),
-        url('static/images/Historische-Fussbäder.jpg');
+        url('static/images/Historische-Fussbäder.jpg'); */
     background-position: 0px 0px, 50% 50%;
     background-size: auto, cover;
-} */
+}
 
 .heading-10 {
-    display: block;
-    height: auto;
+    /* display: block;
+    height: auto; */
     font-family: Peakrounded, sans-serif;
     color: #fff;
     font-size: 36px;
     text-align: center;
+    margin-top: -1.6rem;
+    z-index: 100;
+    position: absolute;
 }
 
 .heading-11 {
@@ -2447,6 +2457,9 @@ blockquote {
     color: #fff;
     font-size: 20px;
     text-align: center;
+    margin-top: -1.6rem;
+    z-index: 100;
+    position: relative;
 }
 
 .grid-3 {

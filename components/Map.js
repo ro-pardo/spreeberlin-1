@@ -111,6 +111,7 @@ const Map = (props) => {
         setSmallPopUp(false);
     };
     const fetchData = async () => {
+        console.log("fetching data in Map Component")
         const thingspeakResult = await axios.get(
             `https://api.thingspeak.com/channels.json?api_key=OVE9Q2S2S33RE0U3`
         );

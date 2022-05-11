@@ -26,6 +26,7 @@
         "react-map-gl": "^6.1.17",
         "react-reveal": "^1.2.2",
         "react-ticker": "^1.2.2"
+ 
     },
     "devDependencies": {
         "eslint": "7.32.0",

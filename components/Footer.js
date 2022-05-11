@@ -16,7 +16,7 @@ const Footer = () => {
         <>
             <div className='newsControl'>
                 <Ticker>
-                    {({ index }) => (
+                    {() => (
                         <>
                             <div ticker>
                                 <div className="news-control">● FOLLOW US ON INSTAGRAM ● NEWS: A POLITICAL VOICE FOR THE SPREE ● FOLLOW US ON INSTAGRAM ● NEWS: A POLITICAL VOICE FOR THE SPREE ● FOLLOW US ON INSTAGRAM ● NEWS: A POLITICAL VOICE FOR THE SPREE ● FOLLOW US ON INSTAGRAM ● NEWS: A POLITICAL VOICE FOR THE SPREE ● FOLLOW US ON INSTAGRAM ● NEWS: A POLITICAL VOICE FOR THE SPREE ● FOLLOW US ON INSTAGRAM ● NEWS: A POLITICAL VOICE FOR THE SPREE </div>
