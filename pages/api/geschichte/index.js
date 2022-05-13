@@ -26,7 +26,6 @@ if (MODE == 'production') {
 export default async function handler(req, res) {
     // const result = db.getGeschichteMarker();
 
-
     // if (process.env.NODE_ENV == 'production') {
     // const client = new Client({
     //     user: 'postgres',
@@ -44,9 +43,12 @@ export default async function handler(req, res) {
     //     port: 5432,
     // });
     // }
+    console.log(process.env.DATABASE_URL);
+
+
     const client = new Client({
         user: 'rtknowvkwcapnb',
-        host: 'localhost',
+        host: 'ec2-176-34-211-0.eu-west-1.compute.amazonaws.com',
         database: 'd3o15bh1avgeaj',
         password:
             '0768373982233b574dca3037ac28178802ddedbd2ddcdab0f6397ac02f89384a',
