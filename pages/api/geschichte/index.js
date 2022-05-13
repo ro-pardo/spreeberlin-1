@@ -24,27 +24,7 @@ if (MODE == 'production') {
     };
 
 export default async function handler(req, res) {
-    // const result = db.getGeschichteMarker();
-
-    // if (process.env.NODE_ENV == 'production') {
-    // const client = new Client({
-    //     user: 'postgres',
-    //     host: 'localhost',
-    //     database: 'spreewater',
-    //     password: 'postgres',
-    //     port: 5432,
-    // });
-    // }else{
-    //     const client = new Client({
-    //     user: 'postgres',
-    //     host: 'localhost',
-    //     database: 'spreewater',
-    //     password: 'postgres',
-    //     port: 5432,
-    // });
-    // }
     console.log(process.env.DATABASE_URL);
-
 
     const client = new Client({
         user: 'rtknowvkwcapnb',
@@ -62,15 +42,6 @@ export default async function handler(req, res) {
     //console.log("postgres result", result.fields); // Hello world!
 
     await client.end();
-
-    // const conn = await mariadb.createConnection({
-    //     host: connData.host,
-    //     user: connData.user,
-    //     password: connData.password,
-    //     database: connData.database,
-    // });
-
-    // const result = await conn.query('select * from marker_geschichte');
 
     return res.status(200).json(result.rows);
 }
