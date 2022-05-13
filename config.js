@@ -1,4 +1,4 @@
-const MODE = 'development';
+const MODE = 'production';
 
 //const MODE = 'production';
 
@@ -14,7 +14,7 @@ if (MODE == 'development') {
 if (MODE == 'production') {
     config = {
         'mode': 'production',
-        'server': 'https://spreeberlin.de',
+        'server': 'https://spreeberlin.herokuapp.com',
     };
 }
 
