@@ -2,7 +2,7 @@
 const mariadb = require('mariadb');
 
 import config from '../../../config';
-const { Client } = require('pg')
+const { Client } = require('pg');
 
 const MODE = config.mode;
 
@@ -26,13 +26,19 @@ if (MODE == 'production') {
 export default async function handler(req, res) {
     // const result = db.getGeschichteMarker();
 
-    ;
+    // const client = new Client({
+    //     user: 'postgres',
+    //     host: 'localhost',
+    //     database: 'spreewater',
+    //     password: 'postgres',
+    //     port: 5432,
+    // });
 
     const client = new Client({
-        user: 'postgres',
-        host: 'localhost',
-        database: 'spreewater',
-        password: 'postgres',
+        user: 'rtknowvkwcapnb',
+        host: 'ec2-176-34-211-0.eu-west-1.compute.amazonaws.com',
+        database: 'd3o15bh1avgeaj',
+        password: '0768373982233b574dca3037ac28178802ddedbd2ddcdab0f6397ac02f89384a',
         port: 5432,
     });
 
