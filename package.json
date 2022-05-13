@@ -8,6 +8,7 @@
         "lint": "next lint"
     },
     "dependencies": {
+        "@next-auth/sequelize-adapter": "^1.0.2",
         "axios": "^0.24.0",
         "chart.js": "^2.9.4",
         "chartjs-adapter-date-fns": "^1.1.0-beta.1",
@@ -15,11 +16,13 @@
         "date-fns": "^2.21.1",
         "express": "^4.18.1",
         "hamburger-react": "^2.5.0",
-        "mariadb": "^2.5.5",
+        "mariadb": "^2.5.6",
         "next": "12.0.2",
+        "next-auth": "^4.3.4",
         "next-routes": "^1.4.2",
         "nice-react-ticker": "^1.1.0",
         "pg": "^8.7.3",
+        "pg-hstore": "^2.3.4",
         "react": "17.0.2",
         "react-advanced-news-ticker": "^1.0.1",
         "react-chartjs-2": "^2.11.1",
@@ -28,6 +31,7 @@
         "react-map-gl": "^6.1.17",
         "react-reveal": "^1.2.2",
         "react-ticker": "^1.2.2",
+        "sequelize": "^6.19.0",
         "spiced-pg": "^1.0.4"
     },
     "devDependencies": {
