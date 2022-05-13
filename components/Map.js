@@ -9,6 +9,9 @@ import ReactMapGL, {
 import ClickAwayListener from 'react-click-away-listener';
 import { useEffect, useState } from 'react';
 
+    
+     
+
 import Link from 'next/link';
 import Image from 'next/image';
 //import 'mapbox-gl/dist/mapbox-gl.css';
@@ -116,15 +119,14 @@ const Map = (props) => {
         const thingspeakResult2 = await thingspeakResult.json();
 
         console.log('thingspeak', thingspeakResult2);
-
+        
+        
         //const projekteResult = await axios.get(`/api/projekte`);
         const geschichteResult = await fetch(`/api/geschichte`);
 
         const result_geschichte = await geschichteResult.json();
 
         console.log('result: ', result_geschichte);
-
-  
 
         setBojen(thingspeakResult2);
         const bojenIds = [];
