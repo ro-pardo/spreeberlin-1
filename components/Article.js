@@ -7,7 +7,7 @@ import Image from 'next/image';
 const Article = (props) => {
     return (
         <>
-            <Link href={props.link}>
+            <Link href={props.link} passHref>
                 <div className='card_content'>
                     <Image
                         src={`/static/images/${props.pic}`}
@@ -21,7 +21,7 @@ const Article = (props) => {
                     ></Image>
                     <div className='mid noHover'>
                         <h3>{props.name}</h3>
-                        <h4>Mein Artikel</h4>
+                        <h4>{props.subheading}</h4>
                     </div>
                 </div>
             </Link>

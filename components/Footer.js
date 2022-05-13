@@ -18,7 +18,7 @@ const Footer = () => {
                 <Ticker>
                     {() => (
                         <>
-                            <div ticker>
+                            <div className= "myTicker">
                                 <div className="news-control">● FOLLOW US ON INSTAGRAM ● NEWS: A POLITICAL VOICE FOR THE SPREE ● FOLLOW US ON INSTAGRAM ● NEWS: A POLITICAL VOICE FOR THE SPREE ● FOLLOW US ON INSTAGRAM ● NEWS: A POLITICAL VOICE FOR THE SPREE ● FOLLOW US ON INSTAGRAM ● NEWS: A POLITICAL VOICE FOR THE SPREE ● FOLLOW US ON INSTAGRAM ● NEWS: A POLITICAL VOICE FOR THE SPREE ● FOLLOW US ON INSTAGRAM ● NEWS: A POLITICAL VOICE FOR THE SPREE </div>
                             </div>
                         </>

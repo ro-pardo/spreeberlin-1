@@ -35,10 +35,9 @@ const Map = (props) => {
 
     const [geschichteIds, setGeschichteIds] = useState([]);
 
-        const [future, setFuture] = useState([]);
+    const [future, setFuture] = useState([]);
 
     const [futureIds, setFutureIds] = useState([]);
-
 
     const [smallPopUp, setSmallPopUp] = useState({
         smallPopUp: false,
@@ -111,30 +110,41 @@ const Map = (props) => {
         setSmallPopUp(false);
     };
     const fetchData = async () => {
-        console.log("fetching data in Map Component")
-        const thingspeakResult = await axios.get(
+        console.log('fetching data in Map Component');
+        const thingspeakResult = await fetch(
             `https://api.thingspeak.com/channels.json?api_key=OVE9Q2S2S33RE0U3`
         );
-        const projekteResult = await axios.get(`/api/projekte`);
-        const geschichteResult = await axios.get(`/api/geschichte`);
 
-        setBojen(thingspeakResult.data);
+        const thingspeakResult2 = await thingspeakResult.json();
+
+        console.log('thingspeak', thingspeakResult2);
+
+        //const projekteResult = await axios.get(`/api/projekte`);
+        const geschichteResult = await fetch(`/api/geschichte`);
+
+        const result_geschichte = await geschichteResult.json();
+
+        console.log('result: ', result_geschichte);
+
+  
+
+        setBojen(thingspeakResult2);
         const bojenIds = [];
-        thingspeakResult.data.map((item) => {
+        thingspeakResult2.map((item) => {
             bojenIds.push(item.id);
         });
         setBojenIds(bojenIds);
 
-        setProjekte(projekteResult.data);
-        const projekteIds = [];
-        projekteResult.data.map((item) => {
-            projekteIds.push(item.id);
-        });
-        setProjekteIds(projekteIds);
+        // setProjekte(projekteResult.data);
+        // const projekteIds = [];
+        // projekteResult.data.map((item) => {
+        //     projekteIds.push(item.id);
+        // });
+        // setProjekteIds(projekteIds);
 
-        setGeschichte(geschichteResult.data);
+        setGeschichte(result_geschichte);
         const geschichteIds = [];
-        geschichteResult.data.map((item) => {
+        result_geschichte.map((item) => {
             geschichteIds.push(item.id);
         });
         setGeschichteIds(geschichteIds);
@@ -142,7 +152,7 @@ const Map = (props) => {
     useEffect(() => {
         console.log('map mounting new');
         fetchData();
-        // setGeschichteVisible(true);
+        setGeschichteVisible(true);
         // setBojenVisible(true);
         // setProjekteVisible(true);
     }, []);
@@ -155,7 +165,7 @@ const Map = (props) => {
             <ReactMapGL
                 {...viewport}
                 width='100vw'
-                height='100vh'
+                height='97vh'
                 onViewportChange={(nextViewport) => setViewport(nextViewport)}
                 mapboxApiAccessToken={
                     'pk.eyJ1IjoianVsaXVzYm9ybiIsImEiOiJja3pjczM2cXQyMmlwMnZueGZpcWw5ZmM2In0.hJKj_m9lxXdIN0EOws_CYA'
@@ -187,8 +197,8 @@ const Map = (props) => {
                             </Marker>
                         );
                     })}
-
-                {projekteVisible == true &&
+                {/* 
+                 {projekteVisible == true &&
                     projekte.map((item, index) => {
                         return (
                             <Marker
@@ -211,7 +221,7 @@ const Map = (props) => {
                                 ></Image>
                             </Marker>
                         );
-                    })}
+                    })} */}
 
                 {geschichteVisible == true &&
                     geschichte.map((item, index) => {
@@ -286,7 +296,7 @@ const Map = (props) => {
                         <div className='map-control-projects'>Projekte</div>
                     </div>
 
-                                        <div
+                    <div
                         className='map-control-item-future'
                         onClick={() => setFutureVisible(!futureVisible)}
                     >

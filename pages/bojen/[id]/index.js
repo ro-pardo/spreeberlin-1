@@ -6,17 +6,82 @@ import Image from 'next/image';
 
 import { bojen } from '../../../bojen';
 
-import Fade from 'react-reveal/Fade';
+import { Line } from 'react-chartjs-2';
+import { de } from 'date-fns/locale';
 
 import { useEffect, useState } from 'react';
+import axios from 'axios';
+
+//pure
+const genChart = (timeData, title, color) => {
+    console.log('generating Chart Data', timeData);
+
+    return {
+        labels: timeData.map((d) => {
+            return d.x;
+        }),
+        height: '15',
+        datasets: [
+            {
+                label: title,
+                display: false,
+                data: timeData.map((d) => {
+                    return d.y;
+                }),
+                backgroundColor: [color],
+                borderColor: color,
+                fill: false,
+                tension: 0.3,
+            },
+        ],
+    };
+};
+
+const options = {
+    elements: {
+        point: {
+            radius: 3,
+        },
+    },
+    scales: {
+        xAxes: [
+            {
+                type: 'time',
+
+                time: {
+                    unit: 'month',
+                },
+            },
+        ],
+    },
+
+    adapters: {
+        date: {
+            locale: de,
+        },
+    },
+    parsing: {
+        xAxisKey: 't',
+    },
+    legend: {
+        display: false,
+    },
+    layout: {
+        autoPadding: true,
+        padding: 10,
+    },
+};
 
 const Modal = ({ data }) => {
     const router = useRouter();
-    const { id, latitude, longitude, name } = router.query;
     // const { name } = router.query;
+    const [chartActive, setChartActive] = useState(0);
 
-    //const [data, setData] = useState({});
-
+    const handleClick = (e) => {
+        console.log('chart clicked');
+        console.log(e);
+        setChartActive(e);
+    };
     return (
         <>
             <div className='content'>
@@ -24,7 +89,10 @@ const Modal = ({ data }) => {
                     <div className='boje-container-3'>
                         <div className='boje-control-2'>
                             <div className='boje-control-icon-3'>&lt;</div>
-                            <div className='boje-control-icon-3'>X</div>
+                            <Link href='/'>
+                                <div className='boje-control-icon-3'>X</div>
+                            </Link>
+
                             <div className='boje-control-icon-3'>&gt;</div>
                         </div>
                         <h1 className='boje-text-2 headline'>
@@ -39,20 +107,26 @@ const Modal = ({ data }) => {
                                     id='w-node-_9ee6c07b-d823-8a56-cdd5-e22d148cccc6-c59f1401'
                                     className='boje-ph-wert-3'
                                 >
-                                    <div className='ph-text-2'>{data.field1}</div>
+                                    <div className='ph-text-2'>
+                                        {data.field1}
+                                    </div>
                                     <div className='boje-info-footer-2'>pH</div>
                                 </div>
                                 <div
                                     id='w-node-_9ee6c07b-d823-8a56-cdd5-e22d148ccccb-c59f1401'
                                     className='boje-t-wert'
                                 >
-                                    <div className='t-text-2'>{data.field2}</div>
+                                    <div className='t-text-2'>
+                                        {data.field2}
+                                    </div>
                                 </div>
                                 <div
                                     id='w-node-_9ee6c07b-d823-8a56-cdd5-e22d148cccce-c59f1401'
                                     className='boje-mg-wert-3'
                                 >
-                                    <div className='mg-text-3'>{data.field3}</div>
+                                    <div className='mg-text-3'>
+                                        {data.field3}
+                                    </div>
                                     <div className='boje-info-footer-2 blue'>
                                         mg/l
                                     </div>
@@ -61,37 +135,71 @@ const Modal = ({ data }) => {
                                     id='w-node-_9ee6c07b-d823-8a56-cdd5-e22d148cccd3-c59f1401'
                                     className='boje-s-wert'
                                 >
-                                    <div className='s-text-2'>{data.field4}</div>
-                                    <div className='boje-info-footer-2'>µS/cm</div>
+                                    <div className='s-text-2'>
+                                        {data.field4}
+                                    </div>
+                                    <div className='boje-info-footer-2'>
+                                        µS/cm
+                                    </div>
                                 </div>
                             </div>
                             <div className='boje-inner-container'>
-                                <div className='time-control-diagram'>
-                                    <a
-                                        href='#'
-                                        className='button-messdaten-time-2 w-button'
-                                    >
-                                        Day
-                                    </a>
-                                    <a
-                                        href='#'
-                                        className='button-messdaten-time-2 w-button'
-                                    >
-                                        Week
-                                    </a>
-                                    <a
-                                        href='#'
-                                        className='button-messdaten-time-2 w-button'
-                                    >
-                                        Month
-                                    </a>
-                                    <a
-                                        href='#'
-                                        className='button-messdaten-time-2 w-button'
-                                    >
-                                        All
-                                    </a>
+                                <div
+                                    data-w-tab='PH-Wert'
+                                    className='button-global-4 is-boje w-inline-block'
+                                    onClick={() => {
+                                        handleClick(0);
+                                    }}
+                                >
+                                    <div>
+                                        <div className='small-circle-2'></div>
+                                        <div className='description-3 boje'>
+                                            PH - Wert
+                                        </div>
+                                    </div>
                                 </div>
+                                <div
+                                    data-w-tab='Temperatur'
+                                    className='button-global-4 is-boje red w-inline-block w-tab-link w--current'
+                                    onClick={() => {
+                                        handleClick(1);
+                                    }}
+                                >
+                                    <div className='button-boje-container'>
+                                        <div className='small-circle-2 red'></div>
+                                        <div className='description-3 boje'>
+                                            Temperatur
+                                        </div>
+                                    </div>
+                                </div>
+                                <a
+                                    data-w-tab='Sauerstoffgehalt'
+                                    className='button-global-4 is-boje white w-inline-block w-tab-link'
+                                    onClick={() => {
+                                        handleClick(3);
+                                    }}
+                                >
+                                    <div className='button-boje-container'>
+                                        <div className='small-circle-2 white'></div>
+                                        <div className='description-3 boje'>
+                                            O2
+                                        </div>
+                                    </div>
+                                </a>
+                                <a
+                                    data-w-tab='Leitfähigkeit'
+                                    className='button-global-4 is-boje black w-inline-block w-tab-link'
+                                    onClick={() => {
+                                        handleClick(4);
+                                    }}
+                                >
+                                    <div className='button-boje-container'>
+                                        <div className='small-circle-2 black'></div>
+                                        <div className='description-3 boje'>
+                                            Leitfähigkeit
+                                        </div>
+                                    </div>
+                                </a>
                                 <div
                                     data-duration-in='300'
                                     data-duration-out='100'
@@ -99,88 +207,39 @@ const Modal = ({ data }) => {
                                     data-easing='ease'
                                     className='tabs w-tabs'
                                 >
-                                    <div className='w-tab-content'>
-                                        <div
-                                            data-w-tab='PH-Wert'
-                                            className='w-tab-pane'
-                                        >
-                                            <Image
-                                                sizes='(max-width: 479px) 94vw, (max-width: 767px) 96vw, (max-width: 991px) 97vw, 48vw'
-                                                srcSet='static/images/Screenshot-2021-11-18-at-17.37.19-p-500.png 500w, images/Screenshot-2021-11-18-at-17.37.19-p-800.png 800w, images/Screenshot-2021-11-18-at-17.37.19.png 938w'
-                                                src='/static/images/Screenshot-2021-11-18-at-17.37.19.png'
-                                                loading='lazy'
-                                                alt=''
-                                                layout="fill"
-                                            ></Image>
-                                        </div>
-                                        <div
-                                            data-w-tab='Temperatur'
-                                            className='w-tab-pane w--tab-active'
-                                        >
-                                            <Image
-                                                sizes='(max-width: 479px) 94vw, (max-width: 767px) 96vw, (max-width: 991px) 97vw, (max-width: 1919px) 48vw, 910px'
-                                                srcSet='static/images/Screenshot-2021-11-18-at-17.36.49-p-500.png 500w, images/Screenshot-2021-11-18-at-17.36.49-p-800.png 800w, images/Screenshot-2021-11-18-at-17.36.49.png 910w'
-                                                src='/static/images/Screenshot-2021-11-18-at-17.36.49.png'
-                                                loading='lazy'
-                                                alt=''
-                                                layout="fill"
-                                            ></Image>
-                                        </div>
-                                        <div
-                                            data-w-tab='Sauerstoffgehalt'
-                                            className='w-tab-pane'
-                                        ></div>
-                                        <div
-                                            data-w-tab='Leitfähigkeit'
-                                            className='w-tab-pane'
-                                        ></div>
+                                    <div className='myChart'>
+                                        {/* <div className='mySpacer'></div> */}
+                                        {chartActive == 0 && (
+                                            <Line
+                                                data={data.chartData1}
+                                                height={120}
+                                                options={options}
+                                            />
+                                        )}
+                                        {chartActive == 1 && (
+                                            <Line
+                                                data={data.chartData2}
+                                                height={120}
+                                                options={options}
+                                            />
+                                        )}
+                                        {chartActive == 2 && (
+                                            <Line
+                                                data={data.chartData3}
+                                                height={120}
+                                                options={options}
+                                            />
+                                        )}
+                                        {chartActive == 3 && (
+                                            <Line
+                                                data={data.chartData4}
+                                                height={120}
+                                                options={options}
+                                            />
+                                        )}
                                     </div>
-                                    <div className='tabs-menu-2 w-tab-menu'>
-                                        <a
-                                            data-w-tab='PH-Wert'
-                                            className='button-global-4 is-boje w-inline-block w-tab-link'
-                                        >
-                                            <div className='button-boje-container'>
-                                                <div className='small-circle-2'></div>
-                                                <div className='description-3 boje'>
-                                                    PH - Wert
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <a
-                                            data-w-tab='Temperatur'
-                                            className='button-global-4 is-boje red w-inline-block w-tab-link w--current'
-                                        >
-                                            <div className='button-boje-container'>
-                                                <div className='small-circle-2 red'></div>
-                                                <div className='description-3 boje'>
-                                                    Temperatur
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <a
-                                            data-w-tab='Sauerstoffgehalt'
-                                            className='button-global-4 is-boje white w-inline-block w-tab-link'
-                                        >
-                                            <div className='button-boje-container'>
-                                                <div className='small-circle-2 white'></div>
-                                                <div className='description-3 boje'>
-                                                    O2
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <a
-                                            data-w-tab='Leitfähigkeit'
-                                            className='button-global-4 is-boje black w-inline-block w-tab-link'
-                                        >
-                                            <div className='button-boje-container'>
-                                                <div className='small-circle-2 black'></div>
-                                                <div className='description-3 boje'>
-                                                    Leitfähigkeit
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
+
+                                    <div className='myChartToggle'></div>
                                 </div>
                             </div>
                         </div>
@@ -194,14 +253,69 @@ const Modal = ({ data }) => {
 export default Modal;
 
 export const getServerSideProps = async (context) => {
+    ///LAST VALUES
     const response = await fetch(
-        `https://api.thingspeak.com/channels/${
+        `http://api.thingspeak.com/channels/${
             context.query.id
         }/feeds/last.json?api_key=${bojen[context.query.id]}`
     );
 
     const result = await response.json();
-    console.log('result from ts api: ', result);
+
+    //CHART VALUES
+
+    const api_key = bojen[context.query.id];
+    //console.log('api_key', api_key);
+
+    const dataArray = [];
+
+    for (var i = 1; i < 5; i++) {
+        const url = `https://api.thingspeak.com/channels/${context.query.id}/fields/${i}.json?api_key=${api_key}/`;
+
+        const response2 = await fetch(`${url}`);
+
+        const result2 = await response2.json();
+
+        //console.log('RESULT', result2);
+
+        let dataComplete = [];
+
+        for (let j = 0; j < result2.feeds.length; j++) {
+            let dataPiece = {};
+            dataPiece.x = result2.feeds[j].created_at;
+            dataPiece.y = result2.feeds[j][`field${i}`];
+
+            dataComplete.push(dataPiece);
+        }
+        //console.log('dataComplete', dataComplete);
+
+        let title;
+        let color;
+        if (i == 1) {
+            title = 'PH-Wert';
+            color = '#201f47'; //#e82b39
+        } else if (i == 2) {
+            title = 'Temperatur';
+            color = '#e82b39'; //#201f47 //#e82b39
+        } else if (i == 3) {
+            title = 'Sauerstoffgehalt';
+            color = '#28ff7d'; //#28ff7d
+        } else if (i == 4) {
+            title = 'Leitfähigkeit';
+            color = '#00f'; //#00f
+        }
+
+        //const dataJson = dataComplete
+        const chartData = genChart(dataComplete, title, color);
+        dataArray.push(chartData);
+    }
+    console.log(
+        `Chart number ${i} generated`,
+        dataArray[0].datasets[0],
+        dataArray[0].datasets[0],
+        dataArray[0].datasets[0],
+        dataArray[0].datasets[0]
+    );
 
     return {
         props: {
@@ -211,6 +325,10 @@ export const getServerSideProps = async (context) => {
                 field3: result.field3,
                 field4: result.field4,
                 date: result.created_at,
+                chartData1: dataArray[0],
+                chartData2: dataArray[1],
+                chartData3: dataArray[2],
+                chartData4: dataArray[3],
             },
         },
     };

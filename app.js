@@ -6,7 +6,7 @@ const routes = nextRoutes();
 const Router = routes.Router;
 const Link = routes.Link;
 const expressApp = express();
-const port = 3000;
+const port = 3306;
 const app = next({ dev: false });
 
 const handle = routes.getRequestHandler(app);

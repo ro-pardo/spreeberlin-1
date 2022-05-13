@@ -6,68 +6,64 @@ DROP TABLE IF EXISTS images;
 DROP TABLE IF EXISTS bojen;
 
 CREATE TABLE bojen(
-    id INT(11) NOT NULL,
+    id SERIAL PRIMARY KEY,
     ts_key VARCHAR(255) NOT NULL
 );
 CREATE TABLE images(
-    id INT(11) NOT NULL AUTO_INCREMENT,
+    id SERIAL PRIMARY KEY,
     filename VARCHAR(255) NOT NULL,
     type VARCHAR(255) NOT NULL,
-    article_id INT(11) NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY (id)
+    article_id INT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 CREATE TABLE marker_projekte(
-    id INT(11) NOT NULL AUTO_INCREMENT,
+    id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     latitude FLOAT NOT NULL,
     longitude FLOAT NOT NULL,
     excerpt VARCHAR(255) NOT NULL,
     url VARCHAR(255) NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY (id)
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE marker_geschichte(
-    id INT(11) NOT NULL AUTO_INCREMENT,
+    id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     latitude FLOAT NOT NULL,
     longitude FLOAT NOT NULL,
     excerpt VARCHAR(255) DEFAULT NULL,
     url VARCHAR(255) NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY (id)
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE aktuelles(
-    id INT(11) NOT NULL AUTO_INCREMENT,
+    id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     subheading VARCHAR(255) DEFAULT NULL,
     pic_url_small VARCHAR(255) DEFAULT NULL,
     pic_url_large VARCHAR(255) DEFAULT NULL,
     text TEXT NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY (id)
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE geschichte(
-    id INT(11) NOT NULL AUTO_INCREMENT,
+    id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     subheading VARCHAR(255) DEFAULT NULL,
     pic_url_small VARCHAR(255) DEFAULT NULL,
     pic_url_large VARCHAR(255) DEFAULT NULL,
     text TEXT NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY (id)
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+
 );
 
 INSERT INTO bojen (id,ts_key) VALUES (1535067, 'JR0958HI80A0IHF5');
 INSERT INTO bojen (id,ts_key) VALUES (1534209, 'D3S4TG7VS8FQTGVD');
 INSERT INTO bojen (id, ts_key) VALUES (1539607, 'CNSX2LDPQDYNPESI');
 
-INSERT INTO images (filename, type, article_id) VALUES ("RosaRöhreBerlin.jpg", "geschichte", 3);
-INSERT INTO images (filename, type, article_id) VALUES ("RosaRöhreBerlin02.jpg", "geschichte", 3);
-INSERT INTO images (filename, type, article_id) VALUES ("RosaRöhreBerlin03.jpg", "geschichte", 3);
+INSERT INTO images (filename, type, article_id) VALUES ('RosaRoehreBerlin.jpg', 'geschichte', 3);
+INSERT INTO images (filename, type, article_id) VALUES ('RosaRoehreBerlin02.jpg', 'geschichte', 3);
+INSERT INTO images (filename, type, article_id) VALUES ('RosaRoehreBerlin03.jpg', 'geschichte', 3);
 
 INSERT INTO marker_projekte (name, latitude, longitude,url,excerpt) VALUES ('Mediaspree', 52.5029,13.4428,'https://www.spreeberlin.de/news/eu-water','Mediaspree ist eines der größten Investorenprojekte in Berlin. Es strebt die Ansiedlung von Kommunikations- und Medienunternehmen entlang eines Teils des Spreeufers und eine diesem Bereich entsprechende Umstrukturierung an.');
 INSERT INTO marker_projekte (name, latitude, longitude,url,excerpt) VALUES ('Spreepark Berlin', 52.4846,13.4913,'https://www.spreepark.berlin/','Verwilderte Überreste einer stillgelegten Familienattraktion mit geführten Touren & saisonalen Events.');

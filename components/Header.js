@@ -1,9 +1,17 @@
 import React from 'react';
 
+import Hamburger from 'hamburger-react';
+
+import { useEffect, useState } from 'react';
+
 import Link from 'next/link';
 import Image from 'next/image';
 
 const Header = () => {
+    //const [menuVisible, setMenuVisible] = useState(true);
+
+    const [isOpen, setOpen] = useState(false);
+
     return (
         <>
             <div
@@ -56,7 +64,9 @@ const Header = () => {
                             <a className='nav-link special w-nav-link'>Info</a>
                         </Link>
                     </div>
-                    <div className='menu-button w-nav-button'>
+
+                    <div className='menu-button w-nav-button myMenu'>
+                        <Hamburger toggled={isOpen} toggle={setOpen} />
                         <div
                             data-is-ix2-target='1'
                             className='lottie-animation'
@@ -71,71 +81,74 @@ const Header = () => {
                             data-duration='0'
                         ></div>
                     </div>
-                    <nav
-                        role='navigation'
-                        className='mobile-nav-menu w-nav-menu'
-                    >
-                        <a
-                            href='index.html'
-                            aria-current='page'
-                            className='mobile-nav-link-extra w-nav-link w--current'
+                    {isOpen && (
+                        <nav
+                            role='navigation'
+                            className='myOpenMenu'
+                           
                         >
-                            Karte
-                        </a>
-                        <Image
-                            src='/static/images/Stroke-1.svg'
-                            loading='lazy'
-                            layout='fill'
-                            alt=''
-                            className='divider'
-                        ></Image>
-                        <a
-                            href='news/news-overview.html'
-                            className='mobile-nav-link-extra w-nav-link'
-                        >
-                            Aktuelles
-                        </a>
-                        <Image
-                            src='/static/images/Stroke-1.svg'
-                            loading='lazy'
-                            layout='fill'
-                            alt=''
-                            className='divider'
-                        ></Image>
-                        <a
-                            href='/static/history/geschichte.html'
-                            layout='fill'
-                            className='mobile-nav-link-extra w-nav-link'
-                        >
-                            Geschichte
-                        </a>
-                        <Image
-                            src='/static/images/Stroke-1.svg'
-                            layout='fill'
-                            loading='lazy'
-                            alt=''
-                            className='divider'
-                        ></Image>
-                        <a
-                            href='vision/vision.html'
-                            className='mobile-nav-link-extra w-nav-link'
-                        >
-                            VISION
-                        </a>
-                        <Image
-                            src='/static/images/Stroke-1.svg'
-                            layout='fill'
-                            loading='lazy'
-                            alt=''
-                            className='divider'
-                        ></Image>
-                        <a
-                            href='info.html'
-                            className='mobile-nav-link-extra w-nav-link'
-                        >
-                            info
-                        </a>
-                    </nav>
+                            <a
+                                href='index.html'
+                                aria-current='page'
+                                className='mobile-nav-link-extra w-nav-link w--current'
+                            >
+                                Karte
+                            </a>
+                            <Image
+                                src='/static/images/Stroke-1.svg'
+                                loading='lazy'
+                                layout='fill'
+                                alt=''
+                                className='divider'
+                            ></Image>
+                            <a
+                                href='news/news-overview.html'
+                                className='mobile-nav-link-extra w-nav-link'
+                            >
+                                Aktuelles
+                            </a>
+                            <Image
+                                src='/static/images/Stroke-1.svg'
+                                loading='lazy'
+                                layout='fill'
+                                alt=''
+                                className='divider'
+                            ></Image>
+                            <a
+                                href='/static/history/geschichte.html'
+                                layout='fill'
+                                className='mobile-nav-link-extra w-nav-link'
+                            >
+                                Geschichte
+                            </a>
+                            <Image
+                                src='/static/images/Stroke-1.svg'
+                                layout='fill'
+                                loading='lazy'
+                                alt=''
+                                className='divider'
+                            ></Image>
+                            <a
+                                href='vision/vision.html'
+                                className='mobile-nav-link-extra w-nav-link'
+                            >
+                                VISION
+                            </a>
+                            <Image
+                                src='/static/images/Stroke-1.svg'
+                                layout='fill'
+                                loading='lazy'
+                                alt=''
+                                className='divider'
+                            ></Image>
+                            <a
+                                href='info.html'
+                                className='mobile-nav-link-extra w-nav-link'
+                            >
+                                info
+                            </a>
+                        </nav>
+                    )}
                 </div>
             </div>
         </>

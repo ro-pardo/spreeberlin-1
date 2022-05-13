@@ -1,14 +1,16 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 const mariadb = require('mariadb');
 
-const MODE = 'development';
+import config from '../../../config';
+
+const MODE = config.mode;
 
 let connData = {};
 if (MODE == 'production') {
     connData = {
-        host: 'localhost:3306',
-        user: 'spree',
-        password: '?h25Er2x7',
+        host: 'localhost',
+        user: '^G2sQG3}',
+        password: '7h!1rwQ40',
         database: 'spreewater',
     };
 } else if (MODE == 'development')
@@ -22,27 +24,19 @@ if (MODE == 'production') {
 export default async function handler(req, res) {
     //console.log("mariadb api route");
     //console.log("ENV", process.env.NODE_ENV);
-    mariadb
-        .createConnection({
-            host: connData.host,
-            user: connData.user,
-            password: connData.password,
-            database: connData.database,
-        })
+    const conn = await mariadb.createConnection({
+        host: connData.host,
+        user: connData.user,
+        password: connData.password,
+        database: connData.database,
+    });
+    // const conn = await mariadb.createConnection({
+    //     host: 'localhost',
+    //     user: 'user',
+    //     password: '7h!1rwQ40',
+    //     database: 'spreewater',
+    // });
+    const result = await conn.query('select * from marker_projekte');
 
-        .then((conn) => {
-            conn.query('select * from marker_projekte')
-                .then((rows) => {
-                    //console.log('Result', rows);
-                    res.status(200).json(rows);
-                    conn.end();
-                })
-                .catch((err) => {
-                    console.log('mariadb connection error', err);
-                });
-        })
-        .catch((err) => {
-            console.log('mariadb connection error', err);
-            //handle connection error
-        });
+    return res.status(200).json(result);
 }

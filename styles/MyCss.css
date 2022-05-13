@@ -1,7 +1,6 @@
 .content {
     position: absolute;
-    top: 50px;
-
+    top: 100px;
     background-color: rgba(36, 115, 255, 1);
     width: 100vw;
     height: 100%;
@@ -157,4 +156,47 @@
 }
 .noHover {
     pointer-events: none;
+}
+
+.mySpacer {
+    height: 50px;
+}
+
+.myChart {
+    position: absolute;
+    top: 5px;
+    height: 100%;
+    width: 100%;
+    z-index: 100000;
+}
+
+.myArticle {
+    height: 100vh;
+    z-index: 100000;
+}
+
+.myTicker {
+    background-color: rgb(255, 255, 255);
+}
+
+.myMenu {
+    /* border: red solid 5px; */
+    color: white;
+    margin-top: 20px;
+}
+
+.myOpenMenu {
+    position: absolute;
+    z-index: 300;
+    top: 10vh;
+    background-color: rgba(36, 115, 255, 0.88);
+}
+
+.myButton {
+    border: red solid 3px;
+    z-index: 100000;
+}
+
+.myChartToggle {
+    top: 100px;
 }
