@@ -6,8 +6,6 @@ import ReactMapGL, {
     FlyToInterpolator,
 } from 'react-map-gl';
 
-import axios from 'axios';
-
 import ClickAwayListener from 'react-click-away-listener';
 import { useEffect, useState } from 'react';
 

@@ -3,8 +3,6 @@ const mariadb = require('mariadb');
 
 import config from '../../../config';
 
-const db = require("./db");
-
 
 const MODE = config.mode;
 
@@ -27,16 +25,14 @@ if (MODE == 'production') {
 
 export default async function handler(req, res) {
 
-
+    const conn = await mariadb.createConnection({
+        host: connData.host,
+        user: connData.user,
+        password: connData.password,
+        database: connData.database,
+    });
     
-    // const conn = await mariadb.createConnection({
-    //     host: connData.host,
-    //     user: connData.user,
-    //     password: connData.password,
-    //     database: connData.database,
-    // });
-    
-    // const result = await conn.query('select * from geschichte');
+    const result = await conn.query('select * from geschichte');
 
     return res.status(200).json(result);
 }
