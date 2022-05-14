@@ -50,6 +50,7 @@ export async function getServerSideProps(context) {
     const server = 'http://localhost:3000';
 
     const res = await fetch(`${server}/api/article`);
+    console.log(res)
     const posts = await res.json();
     console.log('getting static props', posts);
     return {

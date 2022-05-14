@@ -21,7 +21,7 @@ const Article = (props) => {
                     ></Image>
                     <div className='mid noHover'>
                         <h3>{props.name}</h3>
-                        <h4>{props.subheading}</h4>
+                        <h3>{props.subheading1}</h3>
                     </div>
                 </div>
             </Link>

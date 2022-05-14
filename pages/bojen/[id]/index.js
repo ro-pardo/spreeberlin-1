@@ -176,7 +176,7 @@ const Modal = ({ data }) => {
                                     data-w-tab='Sauerstoffgehalt'
                                     className='button-global-4 is-boje white w-inline-block w-tab-link'
                                     onClick={() => {
-                                        handleClick(3);
+                                        handleClick(2);
                                     }}
                                 >
                                     <div className='button-boje-container'>
@@ -190,7 +190,7 @@ const Modal = ({ data }) => {
                                     data-w-tab='Leitfähigkeit'
                                     className='button-global-4 is-boje black w-inline-block w-tab-link'
                                     onClick={() => {
-                                        handleClick(4);
+                                        handleClick(3);
                                     }}
                                 >
                                     <div className='button-boje-container'>
@@ -312,9 +312,9 @@ export const getServerSideProps = async (context) => {
     console.log(
         `Chart number ${i} generated`,
         dataArray[0].datasets[0],
-        dataArray[0].datasets[0],
-        dataArray[0].datasets[0],
-        dataArray[0].datasets[0]
+        dataArray[1].datasets[0],
+        dataArray[2].datasets[0],
+        dataArray[3].datasets[0]
     );
 
     return {
