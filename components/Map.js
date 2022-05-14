@@ -9,9 +9,6 @@ import ReactMapGL, {
 import ClickAwayListener from 'react-click-away-listener';
 import { useEffect, useState } from 'react';
 
-    
-     
-
 import Link from 'next/link';
 import Image from 'next/image';
 //import 'mapbox-gl/dist/mapbox-gl.css';
@@ -119,14 +116,14 @@ const Map = (props) => {
         const thingspeakResult2 = await thingspeakResult.json();
 
         console.log('thingspeak', thingspeakResult2);
-        
-        
-        //const projekteResult = await axios.get(`/api/projekte`);
+
+        const projekteResult = await fetch(`/api/projekte`);
         const geschichteResult = await fetch(`/api/geschichte`);
 
         const result_geschichte = await geschichteResult.json();
+        const result_projekte = await projekteResult.json();
 
-        console.log('result: ', result_geschichte);
+        //console.log('result: ', result_geschichte);
 
         setBojen(thingspeakResult2);
         const bojenIds = [];
@@ -135,12 +132,12 @@ const Map = (props) => {
         });
         setBojenIds(bojenIds);
 
-        // setProjekte(projekteResult.data);
-        // const projekteIds = [];
-        // projekteResult.data.map((item) => {
-        //     projekteIds.push(item.id);
-        // });
-        // setProjekteIds(projekteIds);
+        setProjekte(result_projekte);
+        const projekteIds = [];
+        result_projekte.map((item) => {
+            projekteIds.push(item.id);
+        });
+        setProjekteIds(projekteIds);
 
         setGeschichte(result_geschichte);
         const geschichteIds = [];
@@ -153,8 +150,8 @@ const Map = (props) => {
         console.log('map mounting new');
         fetchData();
         setGeschichteVisible(true);
-        // setBojenVisible(true);
-        // setProjekteVisible(true);
+        setBojenVisible(true);
+        setProjekteVisible(true);
     }, []);
 
     // useEffect(() => {
@@ -197,8 +194,8 @@ const Map = (props) => {
                             </Marker>
                         );
                     })}
-                {/* 
-                 {projekteVisible == true &&
+
+                {projekteVisible == true &&
                     projekte.map((item, index) => {
                         return (
                             <Marker
@@ -221,7 +218,7 @@ const Map = (props) => {
                                 ></Image>
                             </Marker>
                         );
-                    })} */}
+                    })}
 
                 {geschichteVisible == true &&
                     geschichte.map((item, index) => {
