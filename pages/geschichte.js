@@ -47,7 +47,7 @@ export default function Geschichte(props) {
 export async function getServerSideProps(context) {
     const dev = process.env.NODE_ENV !== 'production';
 
-    const server = 'http://localhost:3000';
+    const server = dev ? 'http://localhost:3000': 'https://spreeberlin.herokuapp.com';
 
     const res = await fetch(`${server}/api/article`);
     console.log(res)
