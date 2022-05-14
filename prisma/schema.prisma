@@ -14,7 +14,7 @@ model Bojen {
 }
 
 model marker_geschichte {
-  id            String       @default(cuid()) @id
+  id            Int @id @default(autoincrement())
   name          String
   latitude      Float
   longitude     Float
@@ -24,7 +24,7 @@ model marker_geschichte {
 }
 
 model marker_aktuelles {
-  id            String       @default(cuid()) @id
+  id            Int @id @default(autoincrement())
   name          String
   latitude      Float
   longitude     Float
@@ -34,7 +34,7 @@ model marker_aktuelles {
 }
 
 model marker_visionen {
-  id            String       @default(cuid()) @id
+  id            Int @id @default(autoincrement())
   name          String
   latitude      Float
   longitude     Float
