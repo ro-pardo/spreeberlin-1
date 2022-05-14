@@ -297,7 +297,7 @@ const Map = (props) => {
                         className='map-control-item-future'
                         onClick={() => setFutureVisible(!futureVisible)}
                     >
-                        <div className='map-control'>Future</div>
+                        <div className='map-control'>Visionen</div>
                     </div>
                 </div>
             </div>

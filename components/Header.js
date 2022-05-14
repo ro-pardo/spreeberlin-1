@@ -47,18 +47,18 @@ const Header = () => {
                                 aria-current='page'
                                 className='nav-link w-nav-link w--current'
                             >
-                                MAP
+                                KARTE
                             </a>
                         </Link>
                         <Link href='/geschichte'>
-                            <a className='nav-link w-nav-link'>HISTORY</a>
+                            <a className='nav-link w-nav-link'>GESCHICHTE</a>
                         </Link>
                         <Link href='/aktuelles'>
-                            <a className='nav-link w-nav-link'>PROJECTS</a>
+                            <a className='nav-link w-nav-link'>AKTUELLES</a>
                         </Link>
 
                         <Link href='/visionen'>
-                            <a className='nav-link w-nav-link'>ViSION</a>
+                            <a className='nav-link w-nav-link'>VISIONEN</a>
                         </Link>
                         <Link href='/info'>
                             <a className='nav-link special w-nav-link'>Info</a>

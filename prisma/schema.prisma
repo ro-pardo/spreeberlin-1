@@ -54,3 +54,24 @@ model geschichte {
   createdAt     DateTime  @default(now()) @map(name: "created_at")
 }
 
+model aktuelles {
+  id            Int @id @default(autoincrement())
+  name          String
+  pic_url       String
+  subheading1   String?
+  subheading2   String?
+  text          String
+  quellen       String?
+  createdAt     DateTime  @default(now()) @map(name: "created_at")
+}
+
+model visionen {
+  id            Int @id @default(autoincrement())
+  name          String
+  pic_url       String
+  subheading1   String?
+  subheading2   String?
+  text          String
+  quellen       String?
+  createdAt     DateTime  @default(now()) @map(name: "created_at")
+}
