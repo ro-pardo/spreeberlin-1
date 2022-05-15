@@ -82,7 +82,8 @@ const Map = (props) => {
             smallPopUpObj.name = bojen[bojenIds.indexOf(id)].name;
             smallPopUpObj.url = `/bojen/${id}`;
         } else if (type == 'aktuelles') {
-            smallPopUpObj.latitude = aktuelles[aktuellesIds.indexOf(id)].latitude;
+            smallPopUpObj.latitude =
+                aktuelles[aktuellesIds.indexOf(id)].latitude;
             smallPopUpObj.longitude =
                 aktuelles[aktuellesIds.indexOf(id)].longitude;
             smallPopUpObj.name = aktuelles[aktuellesIds.indexOf(id)].name;
@@ -97,6 +98,13 @@ const Map = (props) => {
             smallPopUpObj.excerpt =
                 geschichte[geschichteIds.indexOf(id)].excerpt;
             smallPopUpObj.url = geschichte[geschichteIds.indexOf(id)].url;
+        } else if (type == 'visionen') {
+            smallPopUpObj.latitude = visionen[visionenIds.indexOf(id)].latitude;
+            smallPopUpObj.longitude =
+                visionen[visionenIds.indexOf(id)].longitude;
+            smallPopUpObj.name = visionen[visionenIds.indexOf(id)].name;
+            smallPopUpObj.excerpt = visionen[visionenIds.indexOf(id)].excerpt;
+            smallPopUpObj.url = visionen[visionenIds.indexOf(id)].url;
         }
         setSmallPopUpObj(smallPopUpObj);
         setSmallPopUp(true);
@@ -119,9 +127,11 @@ const Map = (props) => {
 
         const aktuellesResult = await fetch(`/api/aktuelles`);
         const geschichteResult = await fetch(`/api/geschichte`);
+        const visionenResult = await fetch(`/api/visionen`);
 
         const result_geschichte = await geschichteResult.json();
         const result_aktuelles = await aktuellesResult.json();
+        const result_visionen = await visionenResult.json();
 
         //console.log('result: ', result_geschichte);
 
@@ -145,6 +155,13 @@ const Map = (props) => {
             geschichteIds.push(item.id);
         });
         setGeschichteIds(geschichteIds);
+
+        setVisionen(result_visionen);
+        const visionenIds = [];
+        result_visionen.map((item) => {
+            visionenIds.push(item.id);
+        });
+        setVisionenIds(visionenIds);
     };
     useEffect(() => {
         console.log('map mounting new');
@@ -152,6 +169,7 @@ const Map = (props) => {
         setGeschichteVisible(true);
         setBojenVisible(true);
         setAktuellesVisible(true);
+        setVisionenVisible(true);
     }, []);
 
     // useEffect(() => {
@@ -244,6 +262,30 @@ const Map = (props) => {
                             </Marker>
                         );
                     })}
+                {visionenVisible &&
+                    visionen.map((item, index) => {
+                        return (
+                            <Marker
+                                latitude={parseFloat(item.latitude)}
+                                longitude={parseFloat(item.longitude)}
+                                offsetLeft={-20}
+                                offsetTop={-10}
+                                key={item.id}
+                            >
+                                <Image
+                                    src='/Marker4.svg'
+                                    width={'20em'}
+                                    height={'20em'}
+                                    alt=''
+                                    onClick={() => {
+                                        //console.log(item);
+                                        toggleSmallPopUp(item.id, 'visionen');
+                                        zoomToLocation(item.id);
+                                    }}
+                                ></Image>
+                            </Marker>
+                        );
+                    })}
                 {smallPopUp == true && (
                     <Popup
                         latitude={smallPopUpObj.latitude}
@@ -275,10 +317,14 @@ const Map = (props) => {
             <div className='map-control-overlay'>
                 <div className='map-control-container'>
                     <div
-                        className='map-control-item-buoys'
+                        className={`map-control-item-buoys${
+                            bojenVisible ? `` : `_toggled`
+                        }`}
                         onClick={() => setBojenVisible(!bojenVisible)}
                     >
-                        <div className='map-control-buoys'>Bojen</div>
+                        <div className={`map-control-buoys${
+                            bojenVisible ? `` : `_toggled`
+                        }`}>Bojen</div>
                     </div>
                     <div
                         className='map-control-item-history'

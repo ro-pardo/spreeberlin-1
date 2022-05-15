@@ -151,7 +151,7 @@ const Modal = ({ data }) => {
                                         handleClick(0);
                                     }}
                                 >
-                                    <div>
+                                    <div className='button-boje-container'>
                                         <div className='small-circle-2'></div>
                                         <div className='description-3 boje'>
                                             PH - Wert
