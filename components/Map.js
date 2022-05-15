@@ -25,17 +25,17 @@ const Map = (props) => {
 
     const [bojenIds, setBojenIds] = useState([]);
 
-    const [projekte, setProjekte] = useState([]);
+    const [aktuelles, setAktuelles] = useState([]);
 
-    const [projekteIds, setProjekteIds] = useState([]);
+    const [aktuellesIds, setAktuellesIds] = useState([]);
 
     const [geschichte, setGeschichte] = useState([]);
 
     const [geschichteIds, setGeschichteIds] = useState([]);
 
-    const [future, setFuture] = useState([]);
+    const [visionen, setVisionen] = useState([]);
 
-    const [futureIds, setFutureIds] = useState([]);
+    const [visionenIds, setVisionenIds] = useState([]);
 
     const [smallPopUp, setSmallPopUp] = useState({
         smallPopUp: false,
@@ -46,9 +46,9 @@ const Map = (props) => {
     });
 
     const [bojenVisible, setBojenVisible] = useState(true);
-    const [projekteVisible, setProjekteVisible] = useState(true);
+    const [aktuellesVisible, setAktuellesVisible] = useState(true);
     const [geschichteVisible, setGeschichteVisible] = useState(true);
-    const [futureVisible, setFutureVisible] = useState(true);
+    const [visionenVisible, setVisionenVisible] = useState(true);
 
     const [viewport, setViewport] = useState({
         latitude: 52.5,
@@ -81,13 +81,13 @@ const Map = (props) => {
             );
             smallPopUpObj.name = bojen[bojenIds.indexOf(id)].name;
             smallPopUpObj.url = `/bojen/${id}`;
-        } else if (type == 'projekte') {
-            smallPopUpObj.latitude = projekte[projekteIds.indexOf(id)].latitude;
+        } else if (type == 'aktuelles') {
+            smallPopUpObj.latitude = aktuelles[aktuellesIds.indexOf(id)].latitude;
             smallPopUpObj.longitude =
-                projekte[projekteIds.indexOf(id)].longitude;
-            smallPopUpObj.name = projekte[projekteIds.indexOf(id)].name;
-            smallPopUpObj.excerpt = projekte[projekteIds.indexOf(id)].excerpt;
-            smallPopUpObj.url = projekte[projekteIds.indexOf(id)].url;
+                aktuelles[aktuellesIds.indexOf(id)].longitude;
+            smallPopUpObj.name = aktuelles[aktuellesIds.indexOf(id)].name;
+            smallPopUpObj.excerpt = aktuelles[aktuellesIds.indexOf(id)].excerpt;
+            smallPopUpObj.url = aktuelles[aktuellesIds.indexOf(id)].url;
         } else if (type == 'geschichte') {
             smallPopUpObj.latitude =
                 geschichte[geschichteIds.indexOf(id)].latitude;
@@ -117,11 +117,11 @@ const Map = (props) => {
 
         console.log('thingspeak', thingspeakResult2);
 
-        const projekteResult = await fetch(`/api/projekte`);
+        const aktuellesResult = await fetch(`/api/aktuelles`);
         const geschichteResult = await fetch(`/api/geschichte`);
 
         const result_geschichte = await geschichteResult.json();
-        const result_projekte = await projekteResult.json();
+        const result_aktuelles = await aktuellesResult.json();
 
         //console.log('result: ', result_geschichte);
 
@@ -132,12 +132,12 @@ const Map = (props) => {
         });
         setBojenIds(bojenIds);
 
-        setProjekte(result_projekte);
-        const projekteIds = [];
-        result_projekte.map((item) => {
-            projekteIds.push(item.id);
+        setAktuelles(result_aktuelles);
+        const aktuellesIds = [];
+        result_aktuelles.map((item) => {
+            aktuellesIds.push(item.id);
         });
-        setProjekteIds(projekteIds);
+        setAktuellesIds(aktuellesIds);
 
         setGeschichte(result_geschichte);
         const geschichteIds = [];
@@ -151,7 +151,7 @@ const Map = (props) => {
         fetchData();
         setGeschichteVisible(true);
         setBojenVisible(true);
-        setProjekteVisible(true);
+        setAktuellesVisible(true);
     }, []);
 
     // useEffect(() => {
@@ -195,8 +195,8 @@ const Map = (props) => {
                         );
                     })}
 
-                {projekteVisible == true &&
-                    projekte.map((item, index) => {
+                {aktuellesVisible == true &&
+                    aktuelles.map((item, index) => {
                         return (
                             <Marker
                                 latitude={parseFloat(item.latitude)}
@@ -212,7 +212,7 @@ const Map = (props) => {
                                     alt=''
                                     onClick={() => {
                                         //console.log(item);
-                                        toggleSmallPopUp(item.id, 'projekte');
+                                        toggleSmallPopUp(item.id, 'aktuelles');
                                         zoomToLocation(item.id);
                                     }}
                                 ></Image>
@@ -288,14 +288,14 @@ const Map = (props) => {
                     </div>
                     <div
                         className='map-control-item'
-                        onClick={() => setProjekteVisible(!projekteVisible)}
+                        onClick={() => setAktuellesVisible(!aktuellesVisible)}
                     >
                         <div className='map-control-projects'>Projekte</div>
                     </div>
 
                     <div
                         className='map-control-item-future'
-                        onClick={() => setFutureVisible(!futureVisible)}
+                        onClick={() => setVisionenVisible(!visionenVisible)}
                     >
                         <div className='map-control'>Visionen</div>
                     </div>

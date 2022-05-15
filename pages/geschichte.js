@@ -47,17 +47,13 @@ export default function Geschichte(props) {
 }
 
 export async function getServerSideProps(context) {
-    const dev = process.env.NODE_ENV !== 'production';
 
-    const server = dev
-        ? 'http://localhost:3000'
-        : 'https://spreeberlin.herokuapp.com';
+    const article = await prisma.geschichte.findMany();
 
-    const res = await fetch(`${server}/api/article`);
-    console.log(res);
-    let posts = await res.json();
-    posts = posts.reverse();
+    const posts = JSON.parse(JSON.stringify(article.reverse()));
+
     console.log('getting static props', posts);
+
     return {
         props: { posts }, // will be passed to the page component as props
     };
