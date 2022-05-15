@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 import Article from '../components/Article';
 
-//import styles from '../styles/Home.module.css';
+import prisma from '../../../lib/prisma.tsx';
 
 export default function Aktuelles(props) {
     return (
@@ -50,7 +50,7 @@ export async function getServerSideProps(context) {
     const article = await prisma.aktuelles.findMany();
 
     const posts = JSON.parse(JSON.stringify(article.reverse()));
-    
+
     console.log('getting static props', posts);
     return {
         props: { posts }, // will be passed to the page component as props
