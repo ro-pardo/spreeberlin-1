@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import Image from 'next/image';
 
 import prisma from '../../lib/prisma.tsx';
@@ -13,20 +12,25 @@ export default function Artikel(props) {
                         <strong>{props.subheading}</strong>
                     </div>
                     <div className='flowing-text'>{props.text}</div>
-
-                    {props.images != undefined &&
-                        props.images.map((index) => {
-                            <Image
-                                src={`/static/images/${props.images[index].pic_url}`}
-                                loading='lazy'
-                                sizes='100vw'
-                                // layout="fill"
-                                width='100%'
-                                height='66%'
-                                alt=''
-                                className='image-14'
-                            ></Image>;
-                        })}
+                    <div>
+                        {props.images != undefined &&
+                            props.images.map((item) => {
+                                return (
+                                    <>
+                                        <Image
+                                            src={`/static/images/${item.pic_url}`}
+                                            loading='lazy'
+                                            sizes='100vw'
+                                            // layout="fill"
+                                            width='100%'
+                                            height='66%'
+                                            alt=''
+                                            key={item.id}
+                                        ></Image>
+                                    </>
+                                );
+                            })}
+                    </div>
                 </div>
             </div>
         </>

@@ -201,3 +201,8 @@
 .myChartToggle {
     top: 100px;
 }
+
+.myImages {
+    border: red solid 3px;
+    z-index: 100000;
+}
