@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 import Article from '../components/Article';
 
-import prisma from '../../../lib/prisma.tsx';
+import prisma from '../lib/prisma.tsx';
 
 export default function Geschichte(props) {
     return (
