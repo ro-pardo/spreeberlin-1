@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 import Article from '../components/Article';
 
-//import styles from '../styles/Home.module.css';
+import prisma from '../../../lib/prisma.tsx';
 
 export default function Visionen(props) {
     return (
