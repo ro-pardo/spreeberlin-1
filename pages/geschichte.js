@@ -49,11 +49,14 @@ export default function Geschichte(props) {
 export async function getServerSideProps(context) {
     const dev = process.env.NODE_ENV !== 'production';
 
-    const server = dev ? 'http://localhost:3000': 'https://spreeberlin.herokuapp.com';
+    const server = dev
+        ? 'http://localhost:3000'
+        : 'https://spreeberlin.herokuapp.com';
 
     const res = await fetch(`${server}/api/article`);
-    console.log(res)
-    const posts = await res.json();
+    console.log(res);
+    let posts = await res.json();
+    posts = posts.reverse();
     console.log('getting static props', posts);
     return {
         props: { posts }, // will be passed to the page component as props

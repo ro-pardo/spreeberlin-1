@@ -12,14 +12,9 @@ export default function Artikel(props) {
                 <div className='container-11 w-container'>
                     <h1 className='heading-4'>{props.name}</h1>
                     <div className='description'>
-                        <strong>
-                            {props.subheading}
-                        </strong>
+                        <strong>{props.subheading}</strong>
                     </div>
-                    <div className='flowing-text'>
-                        {props.text}
-                       
-                    </div>
+                    <div className='flowing-text'>{props.text}</div>
 
                     <Image
                         src='/static/images/HistorischesFlussbad02.jpg'
@@ -55,16 +50,15 @@ export async function getServerSideProps(context) {
 
     const res = await fetch(`${server}/api/geschichte/${context.query.id}`);
 
-    const post = await res.json();
-
-    //console.log('getting specific article props', post);
-
+    console.log("response", res.json);
+    const post = res;
 
     return {
         props: {
             id: post.id,
             name: post.name,
-            subheading: post.subheading,
+            subheading1: post.subheading1,
+            subheading2: post.subheading2,
             text: post.text,
         },
     };

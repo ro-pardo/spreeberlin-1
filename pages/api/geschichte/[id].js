@@ -1,41 +1,13 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-const mariadb = require('mariadb');
 
-import config from '../../../config';
-
-const MODE = config.mode;
-
-let connData = {};
-if (MODE == 'production') {
-    connData = {
-        host: 'localhost',
-        user: '^G2sQG3}',
-        password: '7h!1rwQ40',
-        database: 'spreewater',
-    };
-} else if (MODE == 'development')
-    connData = {
-        host: 'localhost',
-        user: 'root',
-        password: '',
-        database: 'water',
-    };
+import prisma from '../../../lib/prisma.tsx';
 
 export default async function handler(req, res) {
-    
-
-    const conn = await mariadb.createConnection({
-        host: connData.host,
-        user: connData.user,
-        password: connData.password,
-        database: connData.database,
+    const article = await prisma.geschichte.findMany({
+        where: { id: 1 },
     });
 
-    const result = await conn.query(
-        `select * from geschichte WHERE id = ${req.query.id}`
-    );
+    console.log('prisma feed article', article);
 
-    console.log('specific Article', result);
-
-    return res.status(200).json(result[0]);
+    return res.status(200).json(article);
 }

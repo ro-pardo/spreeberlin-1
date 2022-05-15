@@ -162,7 +162,7 @@ const Map = (props) => {
             <ReactMapGL
                 {...viewport}
                 width='100vw'
-                height='97vh'
+                height='96vh'
                 onViewportChange={(nextViewport) => setViewport(nextViewport)}
                 mapboxApiAccessToken={
                     'pk.eyJ1IjoianVsaXVzYm9ybiIsImEiOiJja3pjczM2cXQyMmlwMnZueGZpcWw5ZmM2In0.hJKj_m9lxXdIN0EOws_CYA'
