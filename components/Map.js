@@ -322,18 +322,30 @@ const Map = (props) => {
                         }`}
                         onClick={() => setBojenVisible(!bojenVisible)}
                     >
-                        <div className={`map-control-buoys${
-                            bojenVisible ? `` : `_toggled`
-                        }`}>Bojen</div>
+                        <div
+                            className={`map-control-buoys${
+                                bojenVisible ? `` : `_toggled`
+                            }`}
+                        >
+                            Bojen
+                        </div>
                     </div>
                     <div
-                        className='map-control-item-history'
+                        className={`map-control-item-history${
+                            geschichteVisible ? `` : `_toggled`
+                        }`}
                         onClick={() => setGeschichteVisible(!geschichteVisible)}
                     >
-                        <div className='map-control-history'>History</div>
+                        <div
+                            className={`map-control-history${
+                                geschichteVisible ? `` : `_toggled`
+                            }`}
+                        >
+                            History
+                        </div>
                     </div>
                     <div
-                        className='map-control-item'
+                        className='map-control-item-aktuelles'
                         onClick={() => setAktuellesVisible(!aktuellesVisible)}
                     >
                         <div className='map-control-projects'>Projekte</div>
