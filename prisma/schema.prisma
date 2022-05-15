@@ -82,5 +82,4 @@ model images {
   alt   String?
   type   String
   article_id          Int
-  createdAt     DateTime  @default(now()) @map(name: "created_at")
 }

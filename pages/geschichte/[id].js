@@ -1,9 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 
-//import Article from '../components/Article';
-
-//import styles from '../styles/Home.module.css';
+import prisma from '../../lib/prisma.tsx';
 
 export default function Artikel(props) {
     return (
@@ -16,27 +14,19 @@ export default function Artikel(props) {
                     </div>
                     <div className='flowing-text'>{props.text}</div>
 
-                    <Image
-                        src='/static/images/HistorischesFlussbad02.jpg'
-                        loading='lazy'
-                        sizes='100vw'
-                        // layout="fill"
-                        width='100%'
-                        height='66%'
-                        srcSet='/images/HistorischesFlussbad02-p-500.jpeg 500w, ../images/HistorischesFlussbad02-p-800.jpeg 800w, ../images/HistorischesFlussbad02-p-1080.jpeg 1080w, ../images/HistorischesFlussbad02.jpg 1200w'
-                        alt=''
-                        className='image-14'
-                    ></Image>
-
-                    <Image
-                        src='/images/Historische-Fussbäder03.jpg'
-                        loading='lazy'
-                        sizes='100vw'
-                        layout='fill'
-                        srcSet='/images/Historische-Fussbäder03-p-500.jpeg 500w, ../images/Historische-Fussbäder03-p-800.jpeg 800w, ../images/Historische-Fussbäder03-p-1080.jpeg 1080w, ../images/Historische-Fussbäder03.jpg 1200w'
-                        alt=''
-                        className='image-14'
-                    ></Image>
+                    {props.images != undefined &&
+                        props.images.map((index) => {
+                            <Image
+                                src={`/static/images/${props.images[index].pic_url}`}
+                                loading='lazy'
+                                sizes='100vw'
+                                // layout="fill"
+                                width='100%'
+                                height='66%'
+                                alt=''
+                                className='image-14'
+                            ></Image>;
+                        })}
                 </div>
             </div>
         </>
@@ -44,14 +34,22 @@ export default function Artikel(props) {
 }
 
 export async function getServerSideProps(context) {
-    //console.log('Article loaded, ID: ', context.query.id);
+    const article = await prisma.geschichte.findMany({
+        where: { id: parseInt(context.query.id) },
+    });
 
-    const server = 'http://localhost:3000';
+    console.log(article[0]);
+    //const post = article[0];
 
-    const res = await fetch(`${server}/api/geschichte/${context.query.id}`);
+    //console.log('resulting post data', post);
 
-    console.log("response", res.json);
-    const post = res;
+    const images = await prisma.images.findMany({
+        where: { type: 'geschichte', article_id: parseInt(context.query.id) },
+    });
+
+    console.log('images', images);
+
+    const post = article[0];
 
     return {
         props: {
@@ -60,6 +58,7 @@ export async function getServerSideProps(context) {
             subheading1: post.subheading1,
             subheading2: post.subheading2,
             text: post.text,
+            images: images,
         },
     };
 }
