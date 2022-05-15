@@ -345,17 +345,33 @@ const Map = (props) => {
                         </div>
                     </div>
                     <div
-                        className='map-control-item-aktuelles'
+                        className={`map-control-item-aktuelles${
+                            aktuellesVisible ? `` : `_toggled`
+                        }`}
                         onClick={() => setAktuellesVisible(!aktuellesVisible)}
                     >
-                        <div className='map-control-projects'>Projekte</div>
+                        <div
+                            className={`map-control-aktuelles${
+                                aktuellesVisible ? `` : `_toggled`
+                            }`}
+                        >
+                            Projekte
+                        </div>
                     </div>
 
                     <div
-                        className='map-control-item-future'
+                        className={`map-control-item-visionen${
+                            visionenVisible ? `` : `_toggled`
+                        }`}
                         onClick={() => setVisionenVisible(!visionenVisible)}
                     >
-                        <div className='map-control'>Visionen</div>
+                        <div
+                            className={`map-control-visionen${
+                                visionenVisible ? `` : `_toggled`
+                            }`}
+                        >
+                            Visionen
+                        </div>
                     </div>
                 </div>
             </div>
