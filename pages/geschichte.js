@@ -17,7 +17,9 @@ export default function Geschichte(props) {
                                 <>
                                     <Article
                                         name={item.name}
-                                        pic={item.pic_url_small}
+                                        pic_url={item.pic_url}
+                                        subheading1={item.subheading1}
+                                        subheading2={item.subheading2}
                                         link={`/geschichte/${item.id}`}
                                     />
                                 </>

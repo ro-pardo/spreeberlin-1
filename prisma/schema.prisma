@@ -75,3 +75,12 @@ model visionen {
   quellen       String?
   createdAt     DateTime  @default(now()) @map(name: "created_at")
 }
+
+model images {
+  id            Int @id @default(autoincrement())
+  pic_url       String
+  alt   String?
+  type   String
+  article_id          Int
+  createdAt     DateTime  @default(now()) @map(name: "created_at")
+}

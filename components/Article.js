@@ -5,12 +5,14 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 const Article = (props) => {
+
+
     return (
         <>
             <Link href={props.link} passHref>
                 <div className='card_content'>
                     <Image
-                        src={`/static/images/${props.pic}`}
+                        src={`/static/images/${props.pic_url}`}
                         //  width='468px'
                         //  height='100%'
                         layout='fill'
@@ -21,7 +23,7 @@ const Article = (props) => {
                     ></Image>
                     <div className='mid noHover'>
                         <h3>{props.name}</h3>
-                        <h3>{props.subheading1}</h3>
+                        <h4>{props.subheading1}</h4>
                     </div>
                 </div>
             </Link>
