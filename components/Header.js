@@ -3,13 +3,14 @@ import React from 'react';
 import Hamburger from 'hamburger-react';
 
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 
 import Link from 'next/link';
 import Image from 'next/image';
 
 const Header = () => {
     //const [menuVisible, setMenuVisible] = useState(true);
-
+    const router = useRouter();
     const [isOpen, setOpen] = useState(false);
 
     return (
@@ -45,23 +46,57 @@ const Header = () => {
                         <Link href='/'>
                             <a
                                 aria-current='page'
-                                className='nav-link w-nav-link w--current'
+                                className={`nav-link w-nav-link ${
+                                    router.pathname == '/' ? `w--current` : ''
+                                }`}
                             >
                                 KARTE
                             </a>
                         </Link>
                         <Link href='/geschichte'>
-                            <a className='nav-link w-nav-link'>GESCHICHTE</a>
+                            <a
+                                className={`nav-link w-nav-link ${
+                                    router.pathname == '/geschichte'
+                                        ? `w--current`
+                                        : ''
+                                }`}
+                            >
+                                GESCHICHTE
+                            </a>
                         </Link>
                         <Link href='/aktuelles'>
-                            <a className='nav-link w-nav-link'>AKTUELLES</a>
+                            <a
+                                className={`nav-link w-nav-link ${
+                                    router.pathname == '/aktuelles'
+                                        ? `w--current`
+                                        : ''
+                                }`}
+                            >
+                                AKTUELLES
+                            </a>
                         </Link>
 
                         <Link href='/visionen'>
-                            <a className='nav-link w-nav-link'>VISIONEN</a>
+                            <a
+                                className={`nav-link w-nav-link ${
+                                    router.pathname == '/visionen'
+                                        ? `w--current`
+                                        : ''
+                                }`}
+                            >
+                                VISIONEN
+                            </a>
                         </Link>
                         <Link href='/info'>
-                            <a className='nav-link special w-nav-link'>Info</a>
+                            <a
+                                className={`nav-link w-nav-link ${
+                                    router.pathname == '/info'
+                                        ? `w--current`
+                                        : ''
+                                }`}
+                            >
+                                Info
+                            </a>
                         </Link>
                     </div>
 
@@ -82,11 +117,7 @@ const Header = () => {
                         ></div>
                     </div>
                     {isOpen && (
-                        <nav
-                            role='navigation'
-                            className='myOpenMenu'
-                           
-                        >
+                        <nav role='navigation' className='myOpenMenu'>
                             <a
                                 href='index.html'
                                 aria-current='page'
