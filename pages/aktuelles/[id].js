@@ -1,5 +1,6 @@
 import Image from 'next/image';
 
+
 import prisma from '../../lib/prisma.tsx';
 
 export default function Artikel(props) {
@@ -11,7 +12,7 @@ export default function Artikel(props) {
                     <div className='description'>
                         <strong>{props.subheading}</strong>
                     </div>
-                    <div className='flowing-text'>{props.text}</div>
+                    <p className='flowing-text'>{props.text}</p>
                     <div>
                         {props.images != undefined &&
                             props.images.map((item) => {
