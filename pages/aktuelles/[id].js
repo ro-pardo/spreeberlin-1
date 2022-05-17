@@ -27,14 +27,14 @@ export default function Artikel(props) {
                                             alt=''
                                             key={item.id}
                                         ></Image>
-                                        {/* <div className='mySpacer'></div> */}
+                                        <div className=' myImageSpacer'></div>
                                     </>
                                 );
                             })}
                     </div>
                     <div className='quellen'>{props.quellen}</div>
                     <div className='quellen'>
-                        Bilder: 
+                        Bilder:
                         {props.images != undefined &&
                             props.images.map((item) => {
                                 return (
@@ -42,7 +42,9 @@ export default function Artikel(props) {
                                         <Link
                                             href={`/static/images/${item.pic_url}`}
                                         >
-                                            <a className='quellen'>{` Weblink ${item.id} `} </a>
+                                            <a className='quellen'>
+                                                {` Weblink ${item.id} `}{' '}
+                                            </a>
                                         </Link>
                                     </>
                                 );

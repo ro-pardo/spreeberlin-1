@@ -27,6 +27,7 @@ export default function Artikel(props) {
                                             alt=''
                                             key={item.id}
                                         ></Image>
+                                        <div className=' myImageSpacer'></div>
                                     </>
                                 );
                             })}

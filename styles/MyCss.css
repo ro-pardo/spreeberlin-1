@@ -151,7 +151,7 @@
 }
 
 .mySpacer {
-    height: 50px;
+    height: 10px;
 }
 
 .myChart {
@@ -182,7 +182,8 @@
     position: absolute;
     z-index: -1;
     top: 0vh;
-    background-color: rgba(36, 115, 255, 0.88);
+    left: 0;
+    background-color: rgba(36, 115, 255, 1);
 }
 
 .myButton {
@@ -202,7 +203,9 @@
 .mySpacer {
     height: 100px;
 }
-
+.myImageSpacer {
+    height: 20px;
+}
 .myGrid {
     display: grid;
     grid-template-columns: 1fr 1fr;
