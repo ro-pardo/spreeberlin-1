@@ -295,10 +295,10 @@ const Map = (props) => {
                     >
                         <ClickAwayListener onClickAway={closeSmallPopUp}>
                             <div className='markerPopUp'>
-                                <h2 className='markerPopUp'>
+                                <h2 >
                                     {smallPopUpObj.name}
                                 </h2>
-                                <h5 className='markerPopUp'>
+                                <h5 >
                                     {smallPopUpObj.excerpt}
                                 </h5>
                                 <Link href={smallPopUpObj.url} passHref>

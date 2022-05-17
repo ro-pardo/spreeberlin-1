@@ -39,6 +39,7 @@ export default function Artikel(props) {
 }
 
 export async function getServerSideProps(context) {
+    console.log("loading article context", context.query.id)
     const article = await prisma.geschichte.findMany({
         where: { id: parseInt(context.query.id) },
     });

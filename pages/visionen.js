@@ -3,9 +3,12 @@ import Image from 'next/image';
 
 import Article from '../components/Article';
 
+import { useEffect, useState } from 'react';
+
 import prisma from '../lib/prisma.tsx';
 
 export default function Visionen(props) {
+    const [moreOpen, setMoreOpen] = useState(false);
     return (
         <>
             <div className='content'>
@@ -36,12 +39,35 @@ export default function Visionen(props) {
                         className='accordion-item-2 w-dropdown'
                     >
                         <div className='accordion-toggle-2 w-dropdown-toggle'>
-                            <div className='text-block-5'>WEITERES</div>
+                            <div
+                                className='heading-3'
+                                onClick={() => {
+                                    setMoreOpen(!moreOpen);
+                                }}
+                            >
+                                WEITERES
+                            </div>
                         </div>
+                        {moreOpen && (
+                            <div className='w-layout-grid grid'>
+                                {props.more.map((item) => {
+                                    return (
+                                        <>
+                                            <Article
+                                                name={item.name}
+                                                pic_url={item.pic_url}
+                                                subheading1={item.subheading1}
+                                                subheading2={item.subheading2}
+                                                link={`/aktuelles/${item.id}`}
+                                            />
+                                        </>
+                                    );
+                                })}
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>
-            <div className='div-block-20'></div>
         </>
     );
 }
@@ -53,7 +79,17 @@ export async function getServerSideProps(context) {
 
     console.log('getting static props', posts);
 
+    const moreCount = await prisma.aktuelles.count();
+    const skip = Math.floor(Math.random() * moreCount);
+
+    const moreArticle = await prisma.aktuelles.findMany({
+        skip: skip,
+        take: 3,
+    });
+
+    const more = JSON.parse(JSON.stringify(moreArticle.reverse()));
+
     return {
-        props: { posts }, // will be passed to the page component as props
+        props: { posts, more }, // will be passed to the page component as props
     };
 }

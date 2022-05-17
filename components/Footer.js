@@ -14,8 +14,8 @@ const data = [
 const Footer = () => {
     return (
         <>
-            <div className='newsControl'>
-                <Ticker>
+            
+                <Ticker offset={'-100%'}>
                     {() => (
                         <>
                             <div className='myTicker'>
@@ -39,7 +39,7 @@ const Footer = () => {
                         </>
                     )}
                 </Ticker>
-            </div>
+          
         </>
     );
 };

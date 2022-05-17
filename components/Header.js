@@ -118,66 +118,83 @@ const Header = () => {
                     </div>
                     {isOpen && (
                         <nav role='navigation' className='myOpenMenu'>
-                            <a
-                                href='index.html'
-                                aria-current='page'
-                                className='mobile-nav-link-extra w-nav-link w--current'
-                            >
-                                Karte
-                            </a>
-                            <Image
-                                src='/static/images/Stroke-1.svg'
-                                loading='lazy'
-                                layout='fill'
-                                alt=''
-                                className='divider'
-                            ></Image>
-                            <a
-                                href='news/news-overview.html'
-                                className='mobile-nav-link-extra w-nav-link'
-                            >
-                                Aktuelles
-                            </a>
-                            <Image
-                                src='/static/images/Stroke-1.svg'
-                                loading='lazy'
-                                layout='fill'
-                                alt=''
-                                className='divider'
-                            ></Image>
-                            <a
-                                href='/static/history/geschichte.html'
-                                layout='fill'
-                                className='mobile-nav-link-extra w-nav-link'
-                            >
-                                Geschichte
-                            </a>
-                            <Image
-                                src='/static/images/Stroke-1.svg'
-                                layout='fill'
-                                loading='lazy'
-                                alt=''
-                                className='divider'
-                            ></Image>
-                            <a
-                                href='vision/vision.html'
-                                className='mobile-nav-link-extra w-nav-link'
-                            >
-                                VISION
-                            </a>
-                            <Image
-                                src='/static/images/Stroke-1.svg'
-                                layout='fill'
-                                loading='lazy'
-                                alt=''
-                                className='divider'
-                            ></Image>
-                            <a
-                                href='info.html'
-                                className='mobile-nav-link-extra w-nav-link'
-                            >
-                                info
-                            </a>
+                            <div className='mySpacer'></div>
+                            <Link href='/'>
+                                <a
+                                    aria-current='page'
+                                    className={`mobile-nav-link-extra w-nav-link ${
+                                        router.pathname == '/'
+                                            ? `w--current`
+                                            : ''
+                                    }`}
+                                    onClick={() => {
+                                        setOpen(false);
+                                    }}
+                                >
+                                    Karte
+                                </a>
+                            </Link>
+                            <Link href='/aktuelles'>
+                                <a
+                                    href='news/news-overview.html'
+                                    className={`mobile-nav-link-extra w-nav-link ${
+                                        router.pathname == '/aktuelles'
+                                            ? `w--current`
+                                            : ''
+                                    }`}
+                                    onClick={() => {
+                                        setOpen(false);
+                                    }}
+                                >
+                                    Aktuelles
+                                </a>
+                            </Link>
+                            <Link href='/geschichte'>
+                                <a
+                                    href='/static/history/geschichte.html'
+                                    layout='fill'
+                                    className={`mobile-nav-link-extra w-nav-link ${
+                                        router.pathname == '/geschichte'
+                                            ? `w--current`
+                                            : ''
+                                    }`}
+                                    onClick={() => {
+                                        setOpen(false);
+                                    }}
+                                >
+                                    Geschichte
+                                </a>
+                            </Link>
+                            <Link href='/visionen'>
+                                <a
+                                    href='vision/vision.html'
+                                    className={`mobile-nav-link-extra w-nav-link ${
+                                        router.pathname == '/visionen'
+                                            ? `w--current`
+                                            : ''
+                                    }`}
+                                    onClick={() => {
+                                        setOpen(false);
+                                    }}
+                                >
+                                    VISION
+                                </a>
+                            </Link>
+                            <Link href='/info'>
+                                <a
+                                    href='info.html'
+                                    className={`mobile-nav-link-extra w-nav-link ${
+                                        router.pathname == '/info'
+                                            ? `w--current`
+                                            : ''
+                                    }`}
+                                    onClick={() => {
+                                        setOpen(false);
+                                    }}
+                                >
+                                    info
+                                </a>
+                            </Link>
                         </nav>
                     )}
                 </div>

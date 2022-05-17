@@ -1,11 +1,14 @@
-import Head from 'next/head';
+
 import Image from 'next/image';
 
 import Article from '../components/Article';
 
+import { useEffect, useState } from 'react';
+
 import prisma from '../lib/prisma.tsx';
 
 export default function Aktuelles(props) {
+    const [moreOpen, setMoreOpen] = useState(false);
     return (
         <>
             <div className='content'>
@@ -36,23 +39,57 @@ export default function Aktuelles(props) {
                         className='accordion-item-2 w-dropdown'
                     >
                         <div className='accordion-toggle-2 w-dropdown-toggle'>
-                            <div className='text-block-5'>WEITERES</div>
+                            <div
+                                className='heading-3'
+                                onClick={() => {
+                                    setMoreOpen(!moreOpen);
+                                }}
+                            >
+                                WEITERES
+                            </div>
                         </div>
+                        {moreOpen && (
+                            <div className='w-layout-grid grid'>
+                                {props.more.map((item) => {
+                                    return (
+                                        <>
+                                            <Article
+                                                name={item.name}
+                                                pic_url={item.pic_url}
+                                                subheading1={item.subheading1}
+                                                subheading2={item.subheading2}
+                                                link={`/geschichte/${item.id}`}
+                                            />
+                                        </>
+                                    );
+                                })}
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>
-            <div className='div-block-20'></div>
         </>
     );
 }
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
     const article = await prisma.aktuelles.findMany();
 
     const posts = JSON.parse(JSON.stringify(article.reverse()));
 
     console.log('getting static props', posts);
+
+    const moreCount = await prisma.geschichte.count();
+    const skip = Math.floor(Math.random() * moreCount);
+
+    const moreArticle = await prisma.geschichte.findMany({
+        skip: skip,
+        take: 3,
+        
+    });
+
+    const more = JSON.parse(JSON.stringify(moreArticle.reverse()));
     return {
-        props: { posts }, // will be passed to the page component as props
+        props: { posts,more }, // will be passed to the page component as props
     };
 }

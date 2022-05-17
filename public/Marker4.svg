@@ -13,7 +13,7 @@
    version="1.1"
    id="svg8"
    inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"
-   sodipodi:docname="Marker2.svg">
+   sodipodi:docname="Marker4.svg">
   <defs
      id="defs2" />
   <sodipodi:namedview
@@ -31,11 +31,11 @@
      inkscape:document-rotation="0"
      showgrid="false"
      units="px"
-     inkscape:window-width="1436"
-     inkscape:window-height="1030"
-     inkscape:window-x="224"
-     inkscape:window-y="0"
-     inkscape:window-maximized="0" />
+     inkscape:window-width="2400"
+     inkscape:window-height="1271"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1" />
   <metadata
      id="metadata5">
     <rdf:RDF>
@@ -44,7 +44,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -53,13 +53,13 @@
      inkscape:groupmode="layer"
      id="layer1">
     <circle
-       style="fill:#ffff6b;stroke-width:0.474901;fill-opacity:0.60000002"
+       style="fill:#e4e486;stroke-width:0.474901;fill-opacity:0.80000001"
        id="path835"
        cx="66.145836"
        cy="66.145836"
        r="66.145836" />
     <circle
-       style="fill:#ffff6b;fill-opacity:1;stroke-width:0.348324"
+       style="fill:#d1d133;fill-opacity:0.80000001;stroke-width:0.348324"
        id="path833"
        cx="66.145836"
        cy="66.145836"

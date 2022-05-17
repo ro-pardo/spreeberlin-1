@@ -351,6 +351,7 @@ blockquote {
 .mobile-nav-link-extra {
     padding-top: 10px;
     padding-bottom: 0px;
+    z-index: 100000;
     font-family: Acuminpro, sans-serif;
     color: #878787;
     font-size: 14px;
@@ -1067,8 +1068,8 @@ blockquote {
 .grid {
     margin-right: auto;
     margin-left: auto;
-    grid-column-gap: 6px;
-    grid-row-gap: 6px;
+    /* grid-column-gap: 0px;
+    grid-row-gap: 0px; */
     -ms-grid-columns: 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr;
     -ms-grid-rows: auto auto auto auto;
@@ -1114,7 +1115,7 @@ blockquote {
 }
 
 .heading-3 {
-    z-index: 9999;
+    z-index: 10;
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -1128,6 +1129,7 @@ blockquote {
     font-size: 30px;
     font-weight: 300;
     text-transform: uppercase;
+    margin-left: 0px;
 }
 
 .heading-3.info {
@@ -4302,7 +4304,7 @@ blockquote {
     }
 
     .mobile-nav-link-extra {
-        width: 90%;
+        width: 100%;
         margin-right: auto;
         margin-left: auto;
         padding-right: 0px;
@@ -4616,7 +4618,7 @@ blockquote {
     }
 
     .mobile-nav-link-extra-2 {
-        width: 90%;
+        width: 100%;
         margin-right: auto;
         margin-left: auto;
         padding-right: 0px;

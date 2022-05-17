@@ -8,11 +8,12 @@
 
 .markerPopup {
     background-color: rgba(36, 115, 255, 0.88);
+    width: 400px;
 }
 
-.mapboxgl-popup {
+/* .mapboxgl-popup {
     max-width: 300px;
-}
+} */
 
 .mapboxgl-popup-content {
     background-color: rgba(36, 115, 255, 0.88);
@@ -24,15 +25,7 @@
     color: #00ff48;
 }
 
-.footer {
-    position: absolute;
-    bottom: 0;
-}
 .myTicker {
-    width: 100%;
-}
-.ticker {
-    position: static;
     width: 100%;
 }
 
@@ -183,13 +176,13 @@
 .myMenu {
     /* border: red solid 5px; */
     color: white;
-    margin-top: 20px;
+    margin-top: -10px;
 }
 
 .myOpenMenu {
     position: absolute;
-    z-index: 300;
-    top: 10vh;
+    z-index: -1;
+    top: 0vh;
     background-color: rgba(36, 115, 255, 0.88);
 }
 
@@ -208,7 +201,7 @@
 }
 
 .mySpacer {
-    height: 30px;
+    height: 100px;
 }
 
 .myGrid {
@@ -218,4 +211,37 @@
 
 .myGrid_item {
     display: grid;
+}
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+.wrapper {
+    min-height: 100%;
+
+    /* Equal to height of footer */
+    /* But also accounting for potential margin-bottom of last child */
+    margin-bottom: -20px;
+}
+.myFooter,
+.push {
+    height: 20px;
+    background-color: white;
+}
+
+@media screen and (max-width: 767px) {
+    .myMenu {
+        /* border: red solid 5px; */
+        color: white;
+        margin-top: 10px;
+    }
+}
+
+@media screen and (max-width: 479px) {
+    .myMenu {
+        /* border: red solid 5px; */
+        color: white;
+        margin-top: 25px;
+    }
 }
