@@ -1,8 +1,8 @@
-
 import Image from 'next/image';
 
 import Article from '../components/Article';
 
+import Fade from 'react-reveal/Fade';
 import { useEffect, useState } from 'react';
 
 import prisma from '../lib/prisma.tsx';
@@ -49,21 +49,27 @@ export default function Aktuelles(props) {
                             </div>
                         </div>
                         {moreOpen && (
-                            <div className='w-layout-grid grid'>
-                                {props.more.map((item) => {
-                                    return (
-                                        <>
-                                            <Article
-                                                name={item.name}
-                                                pic_url={item.pic_url}
-                                                subheading1={item.subheading1}
-                                                subheading2={item.subheading2}
-                                                link={`/geschichte/${item.id}`}
-                                            />
-                                        </>
-                                    );
-                                })}
-                            </div>
+                            <Fade>
+                                <div className='w-layout-grid grid'>
+                                    {props.more.map((item) => {
+                                        return (
+                                            <>
+                                                <Article
+                                                    name={item.name}
+                                                    pic_url={item.pic_url}
+                                                    subheading1={
+                                                        item.subheading1
+                                                    }
+                                                    subheading2={
+                                                        item.subheading2
+                                                    }
+                                                    link={`/geschichte/${item.id}`}
+                                                />
+                                            </>
+                                        );
+                                    })}
+                                </div>
+                            </Fade>
                         )}
                     </div>
                 </div>
@@ -77,7 +83,7 @@ export async function getStaticProps(context) {
 
     const posts = JSON.parse(JSON.stringify(article.reverse()));
 
-    console.log('getting static props', posts);
+    //console.log('getting static props', posts);
 
     const moreCount = await prisma.geschichte.count();
     const skip = Math.floor(Math.random() * moreCount);
@@ -85,11 +91,10 @@ export async function getStaticProps(context) {
     const moreArticle = await prisma.geschichte.findMany({
         skip: skip,
         take: 3,
-        
     });
 
     const more = JSON.parse(JSON.stringify(moreArticle.reverse()));
     return {
-        props: { posts,more }, // will be passed to the page component as props
+        props: { posts, more }, // will be passed to the page component as props
     };
 }

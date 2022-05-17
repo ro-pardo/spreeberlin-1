@@ -28,7 +28,7 @@ const Layout = ({ children }) => {
                         {router.pathname == '/' && <Map />}
 
                         {children}
-                        <div class='push'></div>
+                        <div className='push'></div>
                     </div>
                     <div className='myFooter'>
                     <Footer /></div>

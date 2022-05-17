@@ -77,7 +77,7 @@ export async function getServerSideProps(context) {
 
     const posts = JSON.parse(JSON.stringify(article.reverse()));
 
-    console.log('getting static props', posts);
+    //console.log('getting static props', posts);
 
     const moreCount = await prisma.aktuelles.count();
     const skip = Math.floor(Math.random() * moreCount);

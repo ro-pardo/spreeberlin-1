@@ -16,7 +16,7 @@ export default async function handler(req, res) {
 
     //await console.log("data from thingsspeak: ",response,"data",response.data)
 
-    await console.log('data from thingsspeak: result ', result);
+    
 
     await res.status(200).json(result);
     return(result)

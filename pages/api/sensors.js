@@ -5,7 +5,7 @@ export default async function handler(req, res) {
         `https://api.thingspeak.com/channels.json?api_key=OVE9Q2S2S33RE0U3`
     );
     const resJson= await response.json()
-    await console.log("result api",resJson)
+    // console.log("result api",resJson)
     await res.status(200).json(resJson)
 
 }

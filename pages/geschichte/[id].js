@@ -57,12 +57,12 @@ export default function Artikel(props) {
 }
 
 export async function getServerSideProps(context) {
-    console.log('loading article context', context.query.id);
+    //console.log('loading article context', context.query.id);
     const article = await prisma.geschichte.findMany({
         where: { id: parseInt(context.query.id) },
     });
 
-    console.log(article[0]);
+    //console.log(article[0]);
     //const post = article[0];
 
     //console.log('resulting post data', post);
@@ -71,7 +71,7 @@ export async function getServerSideProps(context) {
         where: { type: 'geschichte', article_id: parseInt(context.query.id) },
     });
 
-    console.log('images', images);
+    //console.log('images', images);
 
     const post = article[0];
 

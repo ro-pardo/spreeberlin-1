@@ -4201,7 +4201,7 @@ blockquote {
     }
 }
 
-@media screen and (max-width: 991px) {
+@media screen and (max-width: 891px) {
     body {
         font-size: 14px;
     }
@@ -5194,7 +5194,7 @@ blockquote {
     }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 667px) {
     .container-rubrik {
         display: block;
         width: auto;
@@ -5675,7 +5675,7 @@ blockquote {
     }
 }
 
-@media screen and (max-width: 479px) {
+@media screen and (max-width: 379px) {
     .container-rubrik {
         display: block;
         padding-right: 10px;

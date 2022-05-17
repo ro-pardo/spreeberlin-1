@@ -14,7 +14,7 @@ import axios from 'axios';
 
 //pure
 const genChart = (timeData, title, color) => {
-    console.log('generating Chart Data', timeData);
+    //console.log('generating Chart Data', timeData);
 
     return {
         labels: timeData.map((d) => {
@@ -78,8 +78,8 @@ const Modal = ({ data }) => {
     const [chartActive, setChartActive] = useState(0);
 
     const handleClick = (e) => {
-        console.log('chart clicked');
-        console.log(e);
+        //console.log('chart clicked');
+        //console.log(e);
         setChartActive(e);
     };
     return (
@@ -309,13 +309,7 @@ export const getServerSideProps = async (context) => {
         const chartData = genChart(dataComplete, title, color);
         dataArray.push(chartData);
     }
-    console.log(
-        `Chart number ${i} generated`,
-        dataArray[0].datasets[0],
-        dataArray[1].datasets[0],
-        dataArray[2].datasets[0],
-        dataArray[3].datasets[0]
-    );
+
 
     return {
         props: {
