@@ -206,3 +206,16 @@
     border: red solid 3px;
     z-index: 100000;
 }
+
+.mySpacer {
+    height: 30px;
+}
+
+.myGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.myGrid_item {
+    display: grid;
+}

@@ -10,7 +10,7 @@ export default function Aktuelles(props) {
         <>
             <div className='content'>
                 <div className='container-rubriken'>
-                    <h1 className='heading-3'>GESCHICHTE</h1>
+                    <h1 className='heading-3'>AKTUELLES</h1>
                     <div className='w-layout-grid grid'>
                         {props.posts.map((item) => {
                             return (
