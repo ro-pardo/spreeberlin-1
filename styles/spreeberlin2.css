@@ -972,6 +972,7 @@ blockquote {
     -webkit-align-items: center;
     -ms-flex-align: center;
     align-items: center;
+    text-align: center;
     border: 1.5px solid #000;
     border-radius: 20px;
     background-color: #2b2e34;
@@ -995,6 +996,7 @@ blockquote {
     -webkit-align-items: center;
     -ms-flex-align: center;
     align-items: center;
+    text-align: center;
     border: 1.5px solid #000;
     border-radius: 20px;
     background-color: #2b2e34;
@@ -1135,15 +1137,6 @@ blockquote {
 .heading-3.info {
     margin-top: 0px;
     margin-bottom: 0px;
-}
-
-.heading-4 {
-    margin-bottom: 10px;
-    font-family: Edumaxisharp, sans-serif;
-    color: #fff;
-    font-size: 38px;
-    font-weight: 300;
-    text-transform: uppercase;
 }
 
 .heading-5 {
@@ -2565,6 +2558,7 @@ blockquote {
     -webkit-align-items: center;
     -ms-flex-align: center;
     align-items: center;
+    text-align: center;
     border: 1.5px solid transparent;
     border-radius: 20px;
     background-color: #ff5d15;
@@ -5055,18 +5049,6 @@ blockquote {
         height: 250px;
     }
 
-    .map-control-item-buoys {
-        padding-right: 15px;
-    }
-
-    .map-control-item-history {
-        padding-right: 15px;
-    }
-
-    .map-control-item-future {
-        padding-right: 15px;
-    }
-
     .marquee-text {
         font-size: 2vw;
     }
@@ -5997,11 +5979,6 @@ blockquote {
     .heading-3 {
         width: auto;
         font-size: 30px;
-    }
-
-    .heading-4 {
-        margin-bottom: 10px;
-        font-size: 29px;
     }
 
     .text-button-2 {

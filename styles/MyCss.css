@@ -2,7 +2,7 @@
     position: absolute;
     top: 100px;
     background-color: rgba(36, 115, 255, 1);
-    width: 100vw;
+    width: 98vw;
     height: 100%;
 }
 
@@ -10,10 +10,6 @@
     background-color: rgba(36, 115, 255, 0.88);
     width: 400px;
 }
-
-/* .mapboxgl-popup {
-    max-width: 300px;
-} */
 
 .mapboxgl-popup-content {
     background-color: rgba(36, 115, 255, 0.88);
@@ -228,6 +224,47 @@ body {
 .push {
     height: 20px;
     background-color: white;
+}
+
+.infoBox {
+    display: flex;
+}
+
+.myContainer {
+    display: flex;
+    flex-direction: column;
+}
+.rightSide {
+    flex: 1 1 0;
+    width: 0;
+}
+.leftSide {
+    flex: 1 1 0;
+    width: 0;
+}
+
+.myContainerItem {
+    position: relative;
+    flex: 1 1 0;
+    height: 0;
+}
+
+.heading-4 {
+    z-index: 10;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    width: 450px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #2473ff;
+    font-family: Edumaxisharp, sans-serif;
+    color: #fff;
+    font-size: 60px;
+    font-weight: 300;
+    text-transform: uppercase;
+    margin-left: 0px;
 }
 
 @media screen and (max-width: 767px) {
