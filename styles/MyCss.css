@@ -283,6 +283,9 @@ body {
     margin-left: 0px;
 }
 
+.myToggleButton {
+}
+
 @media screen and (max-width: 767px) {
     .myMenu {
         /* border: red solid 5px; */

@@ -896,7 +896,7 @@ blockquote {
     padding-left: 3px;
     font-family: Peakrounded, sans-serif;
     color: #fff;
-    font-size: 18px;
+    /* font-size: 14px; */
     font-weight: 300;
     text-align: left;
     text-transform: uppercase;
@@ -2619,7 +2619,7 @@ blockquote {
     padding-right: 0px;
     font-family: Peakrounded, sans-serif;
     color: #ff5d15;
-    font-size: 18px;
+    /* font-size: 18px; */
     font-weight: 300;
     text-align: left;
     text-transform: uppercase;
