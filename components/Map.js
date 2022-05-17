@@ -165,11 +165,18 @@ const Map = (props) => {
     };
     useEffect(() => {
         console.log('map mounting new');
+        let isApiSubscribed = true;
+
         fetchData();
-        setGeschichteVisible(true);
-        setBojenVisible(true);
-        setAktuellesVisible(true);
-        setVisionenVisible(true);
+        if (isApiSubscribed) {
+            setGeschichteVisible(true);
+            setBojenVisible(true);
+            setAktuellesVisible(true);
+            setVisionenVisible(true);
+        }
+        return () => {
+            isApiSubscribed = false;
+        };
     }, []);
 
     // useEffect(() => {
@@ -295,12 +302,8 @@ const Map = (props) => {
                     >
                         <ClickAwayListener onClickAway={closeSmallPopUp}>
                             <div className='markerPopUp'>
-                                <h2 >
-                                    {smallPopUpObj.name}
-                                </h2>
-                                <h5 >
-                                    {smallPopUpObj.excerpt}
-                                </h5>
+                                <h2>{smallPopUpObj.name}</h2>
+                                <h5>{smallPopUpObj.excerpt}</h5>
                                 <Link href={smallPopUpObj.url} passHref>
                                     <a className='infos'>INFOS</a>
                                 </Link>
@@ -341,7 +344,7 @@ const Map = (props) => {
                                 geschichteVisible ? `` : `_toggled`
                             }`}
                         >
-                            History
+                            Geschichte
                         </div>
                     </div>
                     <div

@@ -45,7 +45,6 @@ const Header = () => {
                     <div className='main-nav-menu'>
                         <Link href='/'>
                             <a
-                                aria-current='page'
                                 className={`nav-link w-nav-link ${
                                     router.pathname == '/' ? `w--current` : ''
                                 }`}

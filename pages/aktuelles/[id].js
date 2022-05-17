@@ -1,5 +1,5 @@
 import Image from 'next/image';
-
+import Link from 'next/link';
 import prisma from '../../lib/prisma.tsx';
 
 export default function Artikel(props) {
@@ -14,11 +14,11 @@ export default function Artikel(props) {
                     <p className='flowing-text'>{props.text}</p>
                     <div>
                         {props.images != undefined &&
-                            props.images.map((item) => {
+                            props.images.map((item, index) => {
                                 return (
                                     <>
                                         <Image
-                                            src={`/static/images/${item.pic_url}`}
+                                            src={`/static/images/${props.images[index].pic_url}`}
                                             loading='lazy'
                                             sizes='100vw'
                                             // layout="fill"
@@ -27,7 +27,23 @@ export default function Artikel(props) {
                                             alt=''
                                             key={item.id}
                                         ></Image>
-                                        <div className='mySpacer'></div>
+                                        {/* <div className='mySpacer'></div> */}
+                                    </>
+                                );
+                            })}
+                    </div>
+                    <div className='quellen'>{props.quellen}</div>
+                    <div className='quellen'>
+                        Bilder: 
+                        {props.images != undefined &&
+                            props.images.map((item) => {
+                                return (
+                                    <>
+                                        <Link
+                                            href={`/static/images/${item.pic_url}`}
+                                        >
+                                            <a className='quellen'>{` Weblink ${item.id} `} </a>
+                                        </Link>
                                     </>
                                 );
                             })}
@@ -64,6 +80,7 @@ export async function getServerSideProps(context) {
             subheading2: post.subheading2,
             text: post.text,
             images: images,
+            quellen: post.quellen,
         },
     };
 }

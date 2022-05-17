@@ -1,5 +1,5 @@
 import Image from 'next/image';
-
+import Link from 'next/link';
 import prisma from '../../lib/prisma.tsx';
 
 export default function Artikel(props) {
@@ -32,6 +32,24 @@ export default function Artikel(props) {
                                 );
                             })}
                     </div>
+                    <div className='quellen'>{props.quellen}</div>
+                    <div className='quellen'>
+                        Bilder:
+                        {props.images != undefined &&
+                            props.images.map((item) => {
+                                return (
+                                    <>
+                                        <Link
+                                            href={`/static/images/${item.pic_url}`}
+                                        >
+                                            <a className='quellen'>
+                                                {` Weblink ${item.id} `}{' '}
+                                            </a>
+                                        </Link>
+                                    </>
+                                );
+                            })}
+                    </div>
                 </div>
             </div>
         </>
@@ -39,7 +57,7 @@ export default function Artikel(props) {
 }
 
 export async function getServerSideProps(context) {
-    console.log("loading article context", context.query.id)
+    console.log('loading article context', context.query.id);
     const article = await prisma.geschichte.findMany({
         where: { id: parseInt(context.query.id) },
     });

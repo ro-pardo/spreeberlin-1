@@ -185,30 +185,9 @@ blockquote {
     font-family: Acuminpro, sans-serif;
 }
 
-.nav-link {
-    padding: 0px 20px;
-    -webkit-box-flex: 0;
-    -webkit-flex: 0 auto;
-    -ms-flex: 0 auto;
-    flex: 0 auto;
-    font-family: Peakrounded, sans-serif;
-    color: #fff;
-    font-size: 17px;
-    font-weight: 300;
-    text-align: center;
-    text-transform: uppercase;
-}
+
 
 .nav-link:hover {
-    color: #00ff48;
-    text-decoration: underline;
-}
-
-.nav-link.w--current {
-    margin-right: 20px;
-    margin-left: 20px;
-    padding-right: 0px;
-    padding-left: 0px;
     color: #00ff48;
     text-decoration: underline;
 }
@@ -535,26 +514,10 @@ blockquote {
     align-content: center;
 }
 
-.footer-desktop-nav-link {
-    padding-top: 8px;
-    padding-bottom: 5px;
-    font-family: Acuminpro, sans-serif;
-    color: #878787;
-    font-size: 14px;
-    font-weight: 400;
-}
+
 
 .footer-desktop-nav-link:hover {
     color: #00f;
-}
-
-.footer-desktop-nav-link.w--current {
-    margin-right: 20px;
-    margin-left: 20px;
-    padding-right: 0px;
-    padding-left: 0px;
-    border-bottom: 3px solid #000;
-    color: #000;
 }
 
 .boje-number {
@@ -863,18 +826,7 @@ blockquote {
     background-color: #ff5d15;
 }
 
-.map-control-item {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    padding-bottom: 10px;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-    cursor: pointer;
-}
+
 
 .news-overlay {
     position: fixed;
@@ -1421,23 +1373,10 @@ blockquote {
         padding: 8px;
     }
 
-    .nav-link {
-        margin-right: 0px;
-        margin-left: 0px;
-        padding-top: 10px;
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 auto;
-        -ms-flex: 0 auto;
-        flex: 0 auto;
-        font-size: 30px;
-    }
+
 
     .nav-link:hover {
         color: #00f;
-    }
-
-    .nav-link.w--current {
-        font-size: 30px;
     }
 
     .content-wrapper {
@@ -1603,34 +1542,10 @@ blockquote {
         margin-right: 0px;
     }
 
-    .footer-desktop-nav-link {
-        width: 90%;
-        margin-right: auto;
-        margin-left: auto;
-        padding-right: 0px;
-        padding-bottom: 10px;
-        padding-left: 0px;
-        font-family: "Suisse Int'l Condensed", sans-serif;
-        color: #2b2e34;
-        font-size: 20px;
-        font-weight: 700;
-        text-align: left;
-        text-transform: none;
-    }
+
 
     .footer-desktop-nav-link:hover {
         color: #00f;
-    }
-
-    .footer-desktop-nav-link.w--current {
-        width: 100%;
-        margin-right: 0px;
-        margin-left: 0px;
-        padding-right: 20px;
-        padding-left: 20px;
-        border-bottom-width: 0px;
-        color: #00f;
-        font-weight: 400;
     }
 
     .desktop-footer {
@@ -1919,13 +1834,8 @@ blockquote {
         margin-left: auto;
     }
 
-    .nav-link {
-        font-size: 25px;
-    }
 
-    .nav-link.w--current {
-        font-size: 25px;
-    }
+
 
     .content-wrapper {
         width: 90%;
@@ -2103,17 +2013,7 @@ blockquote {
 }
 
 @media screen and (max-width: 479px) {
-    .nav-link {
-        padding-right: 5px;
-        padding-left: 5px;
-    }
 
-    .nav-link.w--current {
-        margin-right: 0px;
-        margin-left: 0px;
-        padding-right: 5px;
-        padding-left: 5px;
-    }
 
     .content-wrapper {
         -ms-grid-columns: 1fr 1fr;
