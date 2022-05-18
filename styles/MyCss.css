@@ -204,7 +204,7 @@
     height: 100px;
 }
 .myImageSpacer {
-    height: 20px;
+    height: 10px;
 }
 .myGrid {
     display: grid;
@@ -275,6 +275,7 @@ body {
     margin-top: 10px;
     margin-bottom: 10px;
     background-color: #2473ff;
+
     font-family: Edumaxisharp, sans-serif;
     color: rgb(255, 255, 255);
     font-size: 60px;
@@ -284,6 +285,11 @@ body {
 }
 
 .myToggleButton {
+}
+
+.myFlex {
+    display: flex;
+    flex-direction: column;
 }
 
 @media screen and (max-width: 767px) {

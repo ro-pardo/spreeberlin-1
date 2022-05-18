@@ -21,7 +21,7 @@ export default function Artikel(props) {
                                             src={`/static/images/${item.pic_url}`}
                                             loading='lazy'
                                             sizes='100vw'
-                                            // layout="fill"
+                                            // layout="instrinsic"
                                             width='100%'
                                             height='66%'
                                             alt=''

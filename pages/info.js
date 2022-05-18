@@ -1,8 +1,8 @@
 import Head from 'next/head';
 import Image from 'next/image';
 
-import Fade from 'react-reveal/Fade';
-import Slide from 'react-reveal/Slide';
+import Grid from '@mui/material/Grid';
+import Link from 'next/link';
 
 import { Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
 
@@ -24,6 +24,7 @@ export default function Info(props) {
                     className='heading-4'
                     sx={{
                         backgroundColor: '#2473ff',
+                        color: '#ffffff',
                     }}
                     elevation={0}
                 >
@@ -109,108 +110,207 @@ export default function Info(props) {
                         </div>
                     </AccordionDetails>
                 </Accordion>
-                <Accordion className='heading-4' elevation={0}>
+                <Accordion
+                    className='heading-4'
+                    sx={{
+                        backgroundColor: '#2473ff',
+                        color: '#ffffff',
+                    }}
+                    elevation={0}
+                >
                     <AccordionSummary>Relevanz</AccordionSummary>
                     <AccordionDetails>
-                        <div className='infoBox'>
-                            <div className='section-2'>
-                                <p className='flowing-text'>
-                                    Während der umfangreichen Recherchen wurden
-                                    viele Probleme identifiziert. Das Projekt
-                                    SpreeBerlin konzentriert sich auf die
-                                    Beziehung zwischen uns und dem Wasser und
-                                    geht konkret auf das Sauerstoffproblem der
-                                    Spree im innerstädtischen Bereich ein. Durch
-                                    die Bildung über Probleme wie
-                                    Kanalisationsüberläufe, die
-                                    Flussarchitektur, die Nutzung der Gewässer
-                                    durch Schifffahrt und Verkehr,
-                                    Reifenverschleiß, Düngereintrag aus der
-                                    Landwirtschaft, Sulfatbelastung aus dem
-                                    Kohlebergbau oder Klimawandel kann ein
-                                    Bewusstsein der Bürger*innen gestärkt
-                                    werden. Im besten Fall inspiriert,
-                                    mobilisiert und führt SpreeBerlin zu einer
-                                    neuen Sichtweise auf unsere wertvolle
-                                    Stadtnatur. Die Sensibilisierung durch Daten
-                                    zur Wasserqualität lässt eine breite Masse
-                                    von Menschen zu kleinen
-                                    "Wissenschaftlern*innen" werden. Das Projekt
-                                    ist auch ein praktischer Lösungsvorschlag
-                                    für das Problem des Sauerstoffmangels in den
-                                    Kanälen und des dadurch verursachten
-                                    Fischsterbens. Derzeit ist eine der einzigen
-                                    Lösungen das Sauerstoffpumpboot "Rudolf
-                                    Kloos". Doch wie sinnvoll ist der
-                                    kostspielige, arbeitsintensive, zeitraubende
-                                    und umweltschädliche Einsatz des Bootes? Die
-                                    Bojen könnten eine Alternative sein, die mit
-                                    nachhaltiger Energie betrieben werden kann.
-                                </p>
-                                <div className='myContainer'>
-                                    <div className='myContainerItem'>
-                                        <img
-                                            src={`/static/images/Blaualgen_Kanal-p-500.jpeg`}
-                                            // width='490px'
-                                            // height='420px'
-                                            //  layout='intrinsic'
-                                            className='infoImage'
-                                        ></img>
-                                    </div>
-                                    <div className='myContainerItem'>
-                                        <img
-                                            src={`/static/images/Fischsterben.jpg`}
-                                            //   width='490px'
-                                            // height='420px'
-                                            //  layout='intrinsic'
-                                            className='infoImage'
-                                        ></img>
-                                    </div>
-                                </div>
-                                <div className='myContainer'>
-                                    <div className='myContainerItem'>
-                                        <img
-                                            src={`/static/images/Rudolf_Kloos.png`}
-                                            // width='375px'
-                                            // height='250px'
-                                            // layout='fill'
-                                            // layout='intrinsic'
-                                            className='infoImage'
-                                        ></img>
-                                    </div>
-                                    <div className='myContainerItem'>
-                                        <img
-                                            src={`/static/images/Reederei-Riedel.png`}
-                                            // width='375px'
-                                            // height='250px'
-                                            // layout='fill'
-                                            //layout='intrinsic'
-                                            className='infoImage'
-                                        ></img>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <Grid container spacing={2}>
+                            <Grid
+                                item
+                                xs={8}
+                                className='flowing-text'
+                                container
+                            ></Grid>
+                        </Grid>
                     </AccordionDetails>
                 </Accordion>
 
-                <Accordion className='heading-4' elevation={0}>
+                <Accordion
+                    className='heading-4'
+                    elevation={0}
+                    sx={{
+                        backgroundColor: '#2473ff',
+                        color: '#ffffff',
+                    }}
+                >
                     <AccordionSummary>Buoys</AccordionSummary>
-                    <AccordionDetails><div className='infoBox'></div></AccordionDetails>
+                    <AccordionDetails>
+                        <Grid container spacing={2}>
+                            <Grid
+                                item
+                                xs={8}
+                                className='flowing-text'
+                                container
+                            >
+                                <Grid item xs={6}>
+                                    Die Boje schwimmt im Spreekanal und versorgt
+                                    das Wasser mit Sauerstoff. Oberhalb der
+                                    Wasseroberfläche wird die Wasserqualität
+                                    reflektiert. Die Energieversorgung kann zum
+                                    einen durch das Ökostromnetz der Stadt, zum
+                                    anderen durch menschliche Kraft (Sportgeräte
+                                    o.ä.) erfolgen.
+                                </Grid>
+                                <Grid item xs={6}>
+                                    <img src='/static/images/SpreeBerlin_Bodemuseum.jpg'></img>
+                                </Grid>
+                                <Grid item xs={6}>
+                                    <img src='/static/images/Boje_Sideview.jpg'></img>
+                                </Grid>
+                                <Grid item xs={6}>
+                                    <img src='/static/images/Boje_Modellfunktion.jpg'></img>
+                                </Grid>
+                            </Grid>
+                            <Grid
+                                item
+                                xs={4}
+                                className='flowing-text'
+                                container
+                            >
+                                <img src='/static/images/Boje_Descritpion-p-2000.jpeg'></img>
+                            </Grid>
+                        </Grid>
+                    </AccordionDetails>
                 </Accordion>
-                <Accordion className='heading-4' elevation={0}>
+                <Accordion
+                    className='heading-4'
+                    elevation={0}
+                    sx={{
+                        backgroundColor: '#2473ff',
+                        color: '#ffffff',
+                    }}
+                >
                     <AccordionSummary>Open Source</AccordionSummary>
-                    <AccordionDetails><div className='infoBox'></div></AccordionDetails>
+                    <AccordionDetails>
+                        <Grid container spacing={2}>
+                            <Grid item xs={6} className='flowing-text'>
+                                <h6>COMING SOON</h6>
+                                SpreeBerlin ist Mitglied des
+                                <Link href='https://opennext.eu/'>
+                                    <a> OpenNext! </a>
+                                </Link>
+                                Formates. Derzeit werden Module für ein Open
+                                Source Zugang vorbereitet und schon bald zur
+                                Verfügung gestellt! Das Projekt hat den Anspruch
+                                der Open Source & Open Hardware gedanken zu
+                                verkörpern.
+                            </Grid>
+                            <Grid item xs={6}></Grid>
+                        </Grid>
+                    </AccordionDetails>
                 </Accordion>
-                <Accordion className='heading-4' elevation={0}>
+                <Accordion
+                    className='heading-4'
+                    elevation={0}
+                    sx={{
+                        backgroundColor: '#2473ff',
+                        color: '#ffffff',
+                    }}
+                >
                     <AccordionSummary>Partner</AccordionSummary>
-                    <AccordionDetails><div className='infoBox'></div></AccordionDetails>
+                    <AccordionDetails>
+                        <Grid container spacing={2}>
+                            <Grid item xs={2}>
+                                <img src='/static/images/BMBF_Logo_DE.jpg'></img>
+                            </Grid>
+                            <Grid item xs={2}>
+                                <img src='/static/images/Logo_Biooekonomie.jpg'></img>
+                            </Grid>
+                            <Grid item xs={2}>
+                                <img src='/static/images/WID_Logo_DE.jpg'></img>
+                            </Grid>
+                            <Grid item xs={2}>
+                                <img src='/static/images/Logo_WID.jpg'></img>
+                            </Grid>
+                            <Grid item xs={2}>
+                                <img src='/static/images/WID_Logo_DE.jpg'></img>
+                            </Grid>
+                            <Grid item xs={2}>
+                                <img src='/static/images/TU_Logo.jpg'></img>
+                            </Grid>
+
+                            <Grid item xs={2}>
+                                <img src='/static/images/GDG_Preis_Logo.jpg'></img>
+                            </Grid>
+                            <Grid item xs={2}>
+                                <img src='/static/images/BHT_Logo.jpg'></img>
+                            </Grid>
+                            <Grid item xs={2}>
+                                <img src='/static/images/Logo_OpenNext.jpg'></img>
+                            </Grid>
+                            <Grid item xs={2}>
+                                <img src='/static/images/Logo_CityLab.jpg'></img>
+                            </Grid>
+                            <Grid item xs={2}>
+                                <img src='/static/images/Logo_TechnologieStiftung.jpg'></img>
+                            </Grid>
+                            <Grid item xs={2}>
+                                <img src='/static/images/Logo_SustainALL.jpg'></img>
+                            </Grid>
+                        </Grid>
+                    </AccordionDetails>
                 </Accordion>
-                <Accordion className='heading-4' elevation={0}>
+                <Accordion
+                    className='heading-4'
+                    elevation={0}
+                    sx={{
+                        backgroundColor: '#2473ff',
+                        color: '#ffffff',
+                    }}
+                >
                     <AccordionSummary>Kontakt</AccordionSummary>
-                    <AccordionDetails><div className='infoBox'></div></AccordionDetails>
+                    <AccordionDetails>
+                        <div className='infoBox'>
+                            <Grid container spacing={2}>
+                                <Grid item xs={6} className='myFlex'>
+                                    <p className='flowing-text'>
+                                        <strong>Symbiotic LAB</strong>
+                                    </p>
+                                    <Link href='mailto:info@symbiotic-lab.com'>
+                                        <a className='flowing-text'>
+                                            info(at)symbiotic-lab.com
+                                        </a>
+                                    </Link>
+                                    <Link href='https://www.symbiotic-lab.com'>
+                                        <a className='flowing-text'>
+                                            www.symbiotic-lab.com
+                                        </a>
+                                    </Link>
+                                </Grid>
+
+                                <Grid item xs={6} className='myFlex'>
+                                    <p className='flowing-text'>
+                                        <strong>JKUKULA</strong>
+                                    </p>
+                                    <Link href='mailto:info@jakobkukula.com'>
+                                        <a className='flowing-text'>
+                                            info(at)jakobkukula.com
+                                        </a>
+                                    </Link>
+                                    <Link href='https://www.jakobkukula.com'>
+                                        <a className='flowing-text'>
+                                            www.jakobkukula.com
+                                        </a>
+                                    </Link>
+                                </Grid>
+                            </Grid>
+                        </div>
+                    </AccordionDetails>
                 </Accordion>
-                <Accordion className='heading-4' elevation={0}>
+                <Accordion
+                    className='heading-4'
+                    elevation={0}
+                    sx={{
+                        backgroundColor: '#2473ff',
+                        color: '#ffffff',
+                    }}
+                >
                     <AccordionSummary>Impressum</AccordionSummary>
                     <AccordionDetails>
                         <div className='infoBox'>
