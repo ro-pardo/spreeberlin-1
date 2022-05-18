@@ -28,10 +28,10 @@ export default function Info(props) {
                     }}
                     elevation={0}
                 >
-                    <AccordionSummary>INFO</AccordionSummary>
-                    <AccordionDetails>
-                        <div className='infoBox'>
-                            <div className='section-2'>
+                    <AccordionSummary elevation={0}>INFO</AccordionSummary>
+                    <AccordionDetails elevation={0}>
+                        <Grid container spacing={2}>
+                            <Grid item xs={4} className='flowing-text'>
                                 <p className='flowing-text'>
                                     Im Kontext der Klimakrise und des damit
                                     einhergehenden gesellschaftlichen Wandels
@@ -64,50 +64,36 @@ export default function Info(props) {
                                     gesünderes Gleichgewicht zwischen den
                                     beteiligten Akteuren.
                                 </p>
-                                <div className='myContainer'>
-                                    <div className='myContainerItem'>
-                                        <img
-                                            src={`/static/images/SpreeBerlin_DASBILD_klein.jpg`}
-                                            // width='490px'
-                                            // height='420px'
-                                            //  layout='intrinsic'
-                                            className='infoImage'
-                                        ></img>
-                                    </div>
-                                    <div className='myContainerItem'>
-                                        <img
-                                            src={`/static/images/Bouye03.jpg`}
-                                            //   width='490px'
-                                            // height='420px'
-                                            //  layout='intrinsic'
-                                            className='infoImage'
-                                        ></img>
-                                    </div>
-                                </div>
-                                <div className='myContainer'>
-                                    <div className='myContainerItem'>
-                                        <img
-                                            src={`/static/images/HC-PCDesign-p-500.png`}
-                                            // width='375px'
-                                            // height='250px'
-                                            // layout='fill'
-                                            // layout='intrinsic'
-                                            className='infoImage'
-                                        ></img>
-                                    </div>
-                                    <div className='myContainerItem'>
-                                        <img
-                                            src={`/static/images/SpreeVision01.png`}
-                                            // width='375px'
-                                            // height='250px'
-                                            // layout='fill'
-                                            //layout='intrinsic'
-                                            className='infoImage'
-                                        ></img>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                            </Grid>
+                            <Grid
+                                item
+                                xs={4}
+                                className='flowing-text'
+                                container
+                                spacing={2}
+                            >
+                                <Grid item xs={12}>
+                                    <img src='/static/images/SpreeBerlin_DASBILD_klein.jpg'></img>
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <img src='/static/images/Bouye03.jpg'></img>
+                                </Grid>
+                            </Grid>
+                            <Grid
+                                item
+                                xs={4}
+                                className='flowing-text'
+                                container
+                            >
+                                <Grid item xs={12}>
+                                    <img src='/static/images/HC-PCDesign-p-500.png'></img>
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <img src='/static/images/SpreeVision01.png'></img>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                        
                     </AccordionDetails>
                 </Accordion>
                 <Accordion
@@ -118,15 +104,71 @@ export default function Info(props) {
                     }}
                     elevation={0}
                 >
-                    <AccordionSummary>Relevanz</AccordionSummary>
-                    <AccordionDetails>
+                    <AccordionSummary elevation={0}>Relevanz</AccordionSummary>
+                    <AccordionDetails elevation={0}>
                         <Grid container spacing={2}>
+                            <Grid item xs={4} className='flowing-text'>
+                                <p>
+                                    Während der umfangreichen Recherchen wurden
+                                    viele Probleme identifiziert. Das Projekt
+                                    SpreeBerlin konzentriert sich auf die
+                                    Beziehung zwischen uns und dem Wasser und
+                                    geht konkret auf das Sauerstoffproblem der
+                                    Spree im innerstädtischen Bereich ein. Durch
+                                    die Bildung über Probleme wie
+                                    Kanalisationsüberläufe, die
+                                    Flussarchitektur, die Nutzung der Gewässer
+                                    durch Schifffahrt und Verkehr,
+                                    Reifenverschleiß, Düngereintrag aus der
+                                    Landwirtschaft, Sulfatbelastung aus dem
+                                    Kohlebergbau oder Klimawandel kann ein
+                                    Bewusstsein der Bürger*innen gestärkt
+                                    werden. Im besten Fall inspiriert,
+                                    mobilisiert und führt SpreeBerlin zu einer
+                                    neuen Sichtweise auf unsere wertvolle
+                                    Stadtnatur. Die Sensibilisierung durch Daten
+                                    zur Wasserqualität lässt eine breite Masse
+                                    von Menschen zu kleinen
+                                    "Wissenschaftlern*innen" werden. Das Projekt
+                                    ist auch ein praktischer Lösungsvorschlag
+                                    für das Problem des Sauerstoffmangels in den
+                                    Kanälen und des dadurch verursachten
+                                    Fischsterbens. Derzeit ist eine der einzigen
+                                    Lösungen das Sauerstoffpumpboot "Rudolf
+                                    Kloos". Doch wie sinnvoll ist der
+                                    kostspielige, arbeitsintensive, zeitraubende
+                                    und umweltschädliche Einsatz des Bootes? Die
+                                    Bojen könnten eine Alternative sein, die mit
+                                    nachhaltiger Energie betrieben werden kann.
+                                </p>
+                            </Grid>
                             <Grid
                                 item
-                                xs={8}
+                                xs={4}
                                 className='flowing-text'
                                 container
-                            ></Grid>
+                                spacing={2}
+                            >
+                                <Grid item xs={12}>
+                                    <img src='/static/images/Blaualgen_Kanal.jpg'></img>
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <img src='/static/images/Reederei_Riedel.jpeg'></img>
+                                </Grid>
+                            </Grid>
+                            <Grid
+                                item
+                                xs={4}
+                                className='flowing-text'
+                                container
+                            >
+                                <Grid item xs={12}>
+                                    <img src='/static/images/Fischsterben.jpg'></img>
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <img src='/static/images/Rudolf_Kloos01.jpg'></img>
+                                </Grid>
+                            </Grid>
                         </Grid>
                     </AccordionDetails>
                 </Accordion>
@@ -139,14 +181,15 @@ export default function Info(props) {
                         color: '#ffffff',
                     }}
                 >
-                    <AccordionSummary>Buoys</AccordionSummary>
-                    <AccordionDetails>
+                    <AccordionSummary elevation={0}>Buoys</AccordionSummary>
+                    <AccordionDetails elevation={0}>
                         <Grid container spacing={2}>
                             <Grid
                                 item
                                 xs={8}
                                 className='flowing-text'
                                 container
+                                spacing={2}
                             >
                                 <Grid item xs={6}>
                                     Die Boje schwimmt im Spreekanal und versorgt

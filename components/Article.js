@@ -13,8 +13,8 @@ const Article = (props) => {
                 <div className='card_content'>
                     <Image
                         src={`/static/images/${props.pic_url}`}
-                         width='468px'
-                         height='350px'
+                         width='600x'
+                         height='400x'
                         layout='intrinsic'
                         z-index={101}
                         className='content_image'

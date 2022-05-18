@@ -1,8 +1,8 @@
-
 import Image from 'next/image';
 
 import Article from '../components/Article';
-
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
 import { useEffect, useState } from 'react';
 
 import prisma from '../lib/prisma.tsx';
@@ -14,22 +14,33 @@ export default function Geschichte(props) {
         <>
             <div className='content'>
                 <div className='container-rubriken'>
+                    <Box>
                     <h1 className='heading-3'>GESCHICHTE</h1>
-                    <div className='w-layout-grid grid'>
+                    <Grid
+                        container
+                        spacing={2}
+                        sx={{
+                             maxWidth: '100%',
+                            marginLeft: 'auto',
+                            marginRight: 'auto',
+                        }}
+                    >
                         {props.posts.map((item) => {
                             return (
                                 <>
-                                    <Article
-                                        name={item.name}
-                                        pic_url={item.pic_url}
-                                        subheading1={item.subheading1}
-                                        subheading2={item.subheading2}
-                                        link={`/geschichte/${item.id}`}
-                                    />
+                                    <Grid item xl={4} sm={12} md={6}>
+                                        <Article
+                                            name={item.name}
+                                            pic_url={item.pic_url}
+                                            subheading1={item.subheading1}
+                                            subheading2={item.subheading2}
+                                            link={`/geschichte/${item.id}`}
+                                        />{' '}
+                                    </Grid>
                                 </>
                             );
                         })}
-                    </div>
+                    </Grid></Box>
                 </div>
                 <div className='container-rubriken'>
                     <div
@@ -50,26 +61,31 @@ export default function Geschichte(props) {
                             </div>
                         </div>
                         {moreOpen && (
-                            <div className='w-layout-grid grid'>
+                            <Grid container spacing={2}>
                                 {props.more.map((item) => {
                                     return (
                                         <>
-                                            <Article
-                                                name={item.name}
-                                                pic_url={item.pic_url}
-                                                subheading1={item.subheading1}
-                                                subheading2={item.subheading2}
-                                                link={`/visionen/${item.id}`}
-                                            />
+                                            <Grid item xs={4}>
+                                                <Article
+                                                    name={item.name}
+                                                    pic_url={item.pic_url}
+                                                    subheading1={
+                                                        item.subheading1
+                                                    }
+                                                    subheading2={
+                                                        item.subheading2
+                                                    }
+                                                    link={`/visionen/${item.id}`}
+                                                />
+                                            </Grid>
                                         </>
                                     );
                                 })}
-                            </div>
+                            </Grid>
                         )}
                     </div>
                 </div>
             </div>
-            
         </>
     );
 }
@@ -87,7 +103,6 @@ export async function getStaticProps(context) {
     const moreArticle = await prisma.visionen.findMany({
         skip: skip,
         take: 3,
-        
     });
 
     const more = JSON.parse(JSON.stringify(moreArticle.reverse()));

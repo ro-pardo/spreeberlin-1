@@ -4522,6 +4522,7 @@ blockquote {
 
     .map-control-overlay {
         margin-left: 20px;
+        bottom: -8px;
     }
 
     .map-control-container {
