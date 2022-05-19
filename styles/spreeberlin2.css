@@ -1111,11 +1111,9 @@ blockquote {
 
 .heading-3 {
     z-index: 10;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
+
     display: flex;
-    width: 450px;
+    /* width: 450px; */
     margin-top: 10px;
     margin-bottom: 10px;
     background-color: #2473ff;
@@ -1124,7 +1122,6 @@ blockquote {
     font-size: 30px;
     font-weight: 300;
     text-transform: uppercase;
-    margin-left: 0px;
 }
 
 .heading-3.info {
@@ -4551,7 +4548,7 @@ blockquote {
         border-bottom-color: #d2d1d9;
     }
 
-    .heading-3 {
+    /* .heading-3 {
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -4569,7 +4566,7 @@ blockquote {
         -webkit-flex: 0 auto;
         -ms-flex: 0 auto;
         flex: 0 auto;
-    }
+    } */
 
     .footer-2 {
         display: none;

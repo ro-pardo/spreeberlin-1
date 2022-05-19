@@ -185,8 +185,6 @@ blockquote {
     font-family: Acuminpro, sans-serif;
 }
 
-
-
 .nav-link:hover {
     color: #00ff48;
     text-decoration: underline;
@@ -514,8 +512,6 @@ blockquote {
     align-content: center;
 }
 
-
-
 .footer-desktop-nav-link:hover {
     color: #00f;
 }
@@ -826,8 +822,6 @@ blockquote {
     background-color: #ff5d15;
 }
 
-
-
 .news-overlay {
     position: fixed;
     left: 0%;
@@ -929,7 +923,7 @@ blockquote {
     font-size: 60px;
     font-weight: 300;
     text-transform: uppercase;
-    padding: 15px;
+    padding-top: 15px;
 }
 
 .heading-3.info {
@@ -1373,8 +1367,6 @@ blockquote {
         padding: 8px;
     }
 
-
-
     .nav-link:hover {
         color: #00f;
     }
@@ -1541,8 +1533,6 @@ blockquote {
         display: flex;
         margin-right: 0px;
     }
-
-
 
     .footer-desktop-nav-link:hover {
         color: #00f;
@@ -1834,9 +1824,6 @@ blockquote {
         margin-left: auto;
     }
 
-
-
-
     .content-wrapper {
         width: 90%;
         padding-bottom: 1em;
@@ -2013,8 +2000,6 @@ blockquote {
 }
 
 @media screen and (max-width: 479px) {
-
-
     .content-wrapper {
         -ms-grid-columns: 1fr 1fr;
         grid-template-columns: 1fr 1fr;

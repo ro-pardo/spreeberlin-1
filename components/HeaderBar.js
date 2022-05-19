@@ -2,20 +2,39 @@ import React from 'react';
 
 import Hamburger from 'hamburger-react';
 
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
 import Link from 'next/link';
 import Image from 'next/image';
 
-const Header = () => {
+const HeaderBar = () => {
     //const [menuVisible, setMenuVisible] = useState(true);
     const router = useRouter();
     const [isOpen, setOpen] = useState(false);
 
     return (
         <>
-            <div
+            <Box sx={{ flexGrow: 1 }}>
+                <AppBar position='static'>
+                    <Toolbar>
+                        <Box
+                            size='large'
+                            edge='start'
+                            sx={{ mr: 2, backgroundColor: '#2473ff' }}
+                        >
+                            Blub
+                        </Box>
+                        <Box sx={{ flexGrow: 1 }}>News</Box>
+                        <Box sx={{}}>Login</Box>
+                    </Toolbar>
+                </AppBar>
+            </Box>
+            {/* <div
                 data-collapse='medium'
                 data-animation='default'
                 data-duration='400'
@@ -197,9 +216,9 @@ const Header = () => {
                         </nav>
                     )}
                 </div>
-            </div>
+            </div> */}
         </>
     );
 };
 
-export default Header;
+export default HeaderBar;

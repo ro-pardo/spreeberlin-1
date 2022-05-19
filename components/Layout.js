@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react';
 import Header from './Header';
+import HeaderBar from './HeaderBar';
 import Footer from './Footer';
 
+import AppBar from '@mui/material/AppBar';
+import CssBaseline from '@mui/material/CssBaseline';
 import { useRouter } from 'next/router';
 
 import dynamic from 'next/dynamic';
@@ -20,7 +23,8 @@ const Layout = ({ children }) => {
     const router = useRouter();
     console.log(router);
     return (
-        <div>
+        <>
+            <CssBaseline />
             <div>
                 <div>
                     <Header />
@@ -30,14 +34,25 @@ const Layout = ({ children }) => {
                         {children}
                         <div className='push'></div>
                     </div>
-                    <div className='myFooter'>
-                    <Footer /></div>
+
+                    <AppBar
+                        position='fixed'
+                        // color='primary'
+                        sx={{
+                            top: 'auto',
+                            bottom: 0,
+                            backgroundColor: '#ffffff',
+                        }}
+                    >
+                        <Footer />
+                    </AppBar>
+
                     <Script src='https://api.mapbox.com/mapbox-gl-js/v2.5.1/mapbox-gl.js'></Script>
                     <Script src='https://code.jquery.com/jquery-3.6.0.min.js' />
                     {/* <Script src='/webflow.js' /> */}
                 </div>
             </div>
-        </div>
+        </>
     );
 };
 export default Layout;

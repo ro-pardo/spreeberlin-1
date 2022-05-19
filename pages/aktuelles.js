@@ -68,6 +68,7 @@ export default function Aktuelles(props) {
                                             </>
                                         );
                                     })}
+                                    <div className='mySpacer'></div>
                                 </div>
                             </Fade>
                         )}

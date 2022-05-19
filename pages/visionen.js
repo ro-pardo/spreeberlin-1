@@ -13,7 +13,7 @@ export default function Visionen(props) {
         <>
             <div className='content'>
                 <div className='container-rubriken'>
-                    <h1 className='heading-3'>GESCHICHTE</h1>
+                    <h1 className='heading-3'>VISIONEN</h1>
                     <div className='w-layout-grid grid'>
                         {props.posts.map((item) => {
                             return (
@@ -63,6 +63,7 @@ export default function Visionen(props) {
                                         </>
                                     );
                                 })}
+                                <div className='mySpacer'></div>
                             </div>
                         )}
                     </div>

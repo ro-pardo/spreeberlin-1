@@ -14,32 +14,31 @@ const data = [
 const Footer = () => {
     return (
         <>
-            
-                <Ticker offset={'-100%'}>
-                    {() => (
-                        <>
-                            <div className='myTicker'>
-                                <Link href='https://www.instagram.com/spree.berlin/'>
-                                    <div className='news-control'>
-                                        ● FOLLOW US ON INSTAGRAM ● NEWS: A
-                                        POLITICAL VOICE FOR THE SPREE ●
-                                        FOLLOW US ON INSTAGRAM ● NEWS: A
-                                        POLITICAL VOICE FOR THE SPREE ●
-                                        FOLLOW US ON INSTAGRAM ● NEWS: A
-                                        POLITICAL VOICE FOR THE SPREE ●
-                                        FOLLOW US ON INSTAGRAM ● NEWS: A
-                                        POLITICAL VOICE FOR THE SPREE ●
-                                        FOLLOW US ON INSTAGRAM ● NEWS: A
-                                        POLITICAL VOICE FOR THE SPREE ●
-                                        FOLLOW US ON INSTAGRAM ● NEWS: A
-                                        POLITICAL VOICE FOR THE SPREE 
-                                    </div>
-                                </Link>
-                            </div>
-                        </>
-                    )}
-                </Ticker>
-          
+            <div className='myFooterContainer'></div>
+            <Ticker offset={'-100%'}>
+                {() => (
+                    <>
+                        <div className='myTicker'>
+                            <Link href='https://www.instagram.com/spree.berlin/'>
+                                <div className='news-control'>
+                                    ● FOLLOW US ON INSTAGRAM ● NEWS: A
+                                    POLITICAL VOICE FOR THE SPREE ● FOLLOW US ON
+                                    INSTAGRAM ● NEWS: A
+                                    POLITICAL VOICE FOR THE SPREE ● FOLLOW US ON
+                                    INSTAGRAM ● NEWS: A
+                                    POLITICAL VOICE FOR THE SPREE ● FOLLOW US ON
+                                    INSTAGRAM ● NEWS: A
+                                    POLITICAL VOICE FOR THE SPREE ● FOLLOW US ON
+                                    INSTAGRAM ● NEWS: A
+                                    POLITICAL VOICE FOR THE SPREE ● FOLLOW US ON
+                                    INSTAGRAM ● NEWS: A
+                                    POLITICAL VOICE FOR THE SPREE 
+                                </div>
+                            </Link>
+                        </div>
+                    </>
+                )}
+            </Ticker>
         </>
     );
 };

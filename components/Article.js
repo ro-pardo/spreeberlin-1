@@ -3,12 +3,15 @@ import React from 'react';
 import Link from 'next/link';
 
 import Image from 'next/image';
+import { Fade } from 'react-reveal';
+7
 
 const Article = (props) => {
 
 
     return (
         <>
+        <Fade>
             <Link href={props.link} passHref>
                 <div className='card_content'>
                     <Image
@@ -27,6 +30,7 @@ const Article = (props) => {
                     </div>
                 </div>
             </Link>
+            </Fade>
         </>
     );
 };

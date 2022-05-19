@@ -176,6 +176,7 @@
     /* border: red solid 5px; */
     color: white;
     margin-top: -12px;
+    /* height: 100%; */
 }
 
 .myOpenMenu {
@@ -183,6 +184,7 @@
     z-index: -1;
     top: 0vh;
     left: 0;
+    height: 100vh;
     background-color: rgba(36, 115, 255, 1);
 }
 
@@ -218,6 +220,7 @@ html,
 body {
     height: 100%;
     margin: 0;
+    background-color: #2473ff;
 }
 .wrapper {
     min-height: 100%;
@@ -230,6 +233,10 @@ body {
 .push {
     height: 20px;
     background-color: white;
+}
+
+.myFooterContainer {
+    background-color: #fff;
 }
 
 .infoBox {

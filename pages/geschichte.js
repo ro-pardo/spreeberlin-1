@@ -7,6 +7,8 @@ import { useEffect, useState } from 'react';
 
 import prisma from '../lib/prisma.tsx';
 
+import Footer from '../components/Footer';
+
 export default function Geschichte(props) {
     const [moreOpen, setMoreOpen] = useState(false);
 
@@ -14,33 +16,22 @@ export default function Geschichte(props) {
         <>
             <div className='content'>
                 <div className='container-rubriken'>
-                    <Box>
                     <h1 className='heading-3'>GESCHICHTE</h1>
-                    <Grid
-                        container
-                        spacing={2}
-                        sx={{
-                             maxWidth: '100%',
-                            marginLeft: 'auto',
-                            marginRight: 'auto',
-                        }}
-                    >
+                    <div className='w-layout-grid grid'>
                         {props.posts.map((item) => {
                             return (
                                 <>
-                                    <Grid item xl={4} sm={12} md={6}>
-                                        <Article
-                                            name={item.name}
-                                            pic_url={item.pic_url}
-                                            subheading1={item.subheading1}
-                                            subheading2={item.subheading2}
-                                            link={`/geschichte/${item.id}`}
-                                        />{' '}
-                                    </Grid>
+                                    <Article
+                                        name={item.name}
+                                        pic_url={item.pic_url}
+                                        subheading1={item.subheading1}
+                                        subheading2={item.subheading2}
+                                        link={`/geschichte/${item.id}`}
+                                    />
                                 </>
                             );
                         })}
-                    </Grid></Box>
+                    </div>
                 </div>
                 <div className='container-rubriken'>
                     <div
@@ -50,7 +41,7 @@ export default function Geschichte(props) {
                         // style='height:80px'
                         className='accordion-item-2 w-dropdown'
                     >
-                        <div className='accordion-toggle-2 w-dropdown-toggle'>
+                        <div>
                             <div
                                 className='heading-3'
                                 onClick={() => {
@@ -65,7 +56,7 @@ export default function Geschichte(props) {
                                 {props.more.map((item) => {
                                     return (
                                         <>
-                                            <Grid item xs={4}>
+                                            <Grid item xs={12} md={6} xl={4}>
                                                 <Article
                                                     name={item.name}
                                                     pic_url={item.pic_url}
@@ -83,9 +74,11 @@ export default function Geschichte(props) {
                                 })}
                             </Grid>
                         )}
+                        <div className='mySpacer'></div>
                     </div>
                 </div>
             </div>
+            <Footer />
         </>
     );
 }
