@@ -19,18 +19,84 @@ const HeaderBar = () => {
 
     return (
         <>
-            <Box sx={{ flexGrow: 1 }}>
-                <AppBar position='static'>
-                    <Toolbar>
+            <Box sx={{ flexGrow: 1, backgroundColor: '#2473ff', xs: 8 }}>
+                <AppBar position='static' color='transparent' size='large'>
+                    <Toolbar size='large'>
                         <Box
                             size='large'
                             edge='start'
-                            sx={{ mr: 2, backgroundColor: '#2473ff' }}
+                            sx={{
+                                m: 2,
+                                backgroundColor: '#2473ff',
+                                flexGrow: 1,
+                            }}
                         >
-                            Blub
+                            <Image
+                                src='/static/images/SpreeBerlin_Logo2.svg'
+                                width='480'
+                                height='65'
+                                alt=''
+                                className='logo-image'
+                            ></Image>
                         </Box>
-                        <Box sx={{ flexGrow: 1 }}>News</Box>
-                        <Box sx={{}}>Login</Box>
+                        <Box>
+                            <Link href='/'>
+                                <a
+                                    className={`nav-link w-nav-link ${
+                                        router.pathname == '/'
+                                            ? `w--current`
+                                            : ''
+                                    }`}
+                                >
+                                    KARTE
+                                </a>
+                            </Link>
+                            <Link href='/geschichte'>
+                                <a
+                                    className={`nav-link w-nav-link ${
+                                        router.pathname == '/geschichte'
+                                            ? `w--current`
+                                            : ''
+                                    }`}
+                                >
+                                    GESCHICHTE
+                                </a>
+                            </Link>
+                            <Link href='/aktuelles'>
+                                <a
+                                    className={`nav-link w-nav-link ${
+                                        router.pathname == '/aktuelles'
+                                            ? `w--current`
+                                            : ''
+                                    }`}
+                                >
+                                    AKTUELLES
+                                </a>
+                            </Link>
+
+                            <Link href='/visionen'>
+                                <a
+                                    className={`nav-link w-nav-link ${
+                                        router.pathname == '/visionen'
+                                            ? `w--current`
+                                            : ''
+                                    }`}
+                                >
+                                    VISIONEN
+                                </a>
+                            </Link>
+                            <Link href='/info'>
+                                <a
+                                    className={`nav-link w-nav-link ${
+                                        router.pathname == '/info'
+                                            ? `w--current`
+                                            : ''
+                                    }`}
+                                >
+                                    Info
+                                </a>
+                            </Link>
+                        </Box>
                     </Toolbar>
                 </AppBar>
             </Box>

@@ -78,7 +78,7 @@ export default function Geschichte(props) {
                     </div>
                 </div>
             </div>
-            <Footer />
+      
         </>
     );
 }

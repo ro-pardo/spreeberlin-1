@@ -273,10 +273,6 @@ blockquote {
     box-shadow: 4px 4px 20px 0 rgba(0, 123, 255, 0.38);
 }
 
-.body {
-    background-color: #fff;
-}
-
 .button-global {
     width: 170px;
     height: 35px;

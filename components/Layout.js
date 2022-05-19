@@ -32,12 +32,12 @@ const Layout = ({ children }) => {
                         {router.pathname == '/' && <Map />}
 
                         {children}
-                        <div className='push'></div>
+                        {/* <div className='push'></div> */}
                     </div>
 
                     <AppBar
                         position='fixed'
-                        // color='primary'
+                        elevation={0}
                         sx={{
                             top: 'auto',
                             bottom: 0,
