@@ -128,8 +128,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    /* word-break: break-all; */
-    width: 80%;
+    overflow-wrap: break-word;
+    width: 90%;
 }
 
 .mid h3 {

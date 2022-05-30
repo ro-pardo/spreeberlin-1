@@ -1118,6 +1118,7 @@ blockquote {
     font-size: 30px;
     font-weight: 300;
     text-transform: uppercase;
+    margin-bottom: 30px;
 }
 
 .heading-3.info {
