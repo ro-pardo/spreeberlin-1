@@ -15,6 +15,7 @@ body {
     color: #333;
     font-size: 1vw;
     line-height: 1.6;
+    background-color: #2473ff;
 }
 
 h1 {
@@ -225,6 +226,7 @@ blockquote {
 .body {
     /* background-color: #fff; */
     line-height: 1.6;
+    background-color: #2473ff;
 }
 
 .button-global {
