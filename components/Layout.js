@@ -32,7 +32,7 @@ const Layout = ({ children }) => {
                         {router.pathname == '/' && <Map />}
 
                         {children}
-                        {/* <div className='push'></div> */}
+                   
                     </div>
 
                     <AppBar
