@@ -57,42 +57,40 @@ export default function Artikel(props) {
                             })}
                     </div>
                     <div className='containerRubriken'>
-  
-                            <div className='accordion-toggle-2 w-dropdown-toggle'>
-                                <div
-                                    className='heading-3'
-                                    onClick={() => {
-                                        setMoreOpen(!moreOpen);
-                                    }}
-                                >
-                                    WEITERES
-                                </div>
+                        <div className='accordion-toggle-2 w-dropdown-toggle'>
+                            <div
+                                className='heading-3'
+                                onClick={() => {
+                                    setMoreOpen(!moreOpen);
+                                }}
+                            >
+                                WEITERES
                             </div>
-                            {moreOpen && (
-                                <>
-                                    {props.more.map((item) => {
-                                        return (
-                                            <>
-                                                <div className='w-layout-grid grid'>
-                                                    <Article
-                                                        name={item.name}
-                                                        pic_url={item.pic_url}
-                                                        subheading1={
-                                                            item.subheading1
-                                                        }
-                                                        subheading2={
-                                                            item.subheading2
-                                                        }
-                                                        link={`/geschichte/${item.id}`}
-                                                    />
-                                                </div>
-                                            </>
-                                        );
-                                    })}
-                                </>
-                            )}
                         </div>
-             
+                        {moreOpen && (
+                            <div className='w-layout-grid grid'>
+                                {props.more.map((item) => {
+                                    return (
+                                        <>
+                                            <div>
+                                                <Article
+                                                    name={item.name}
+                                                    pic_url={item.pic_url}
+                                                    subheading1={
+                                                        item.subheading1
+                                                    }
+                                                    subheading2={
+                                                        item.subheading2
+                                                    }
+                                                    link={`/geschichte/${item.id}`}
+                                                />
+                                            </div>
+                                        </>
+                                    );
+                                })}
+                            </div>
+                        )}
+                    </div>
                 </div>
             </div>
         </>
