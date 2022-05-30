@@ -14,7 +14,7 @@ export default async function handler(req, res) {
 
     //const feed = await prisma.post.findMany();
 
-    //console.log('prisma feed', marker_geschichte);
+    console.log('prisma feed', marker_geschichte);
 
     return res.status(200).json(marker_geschichte);
 }

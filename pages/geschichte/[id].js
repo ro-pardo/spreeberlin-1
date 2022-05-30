@@ -56,49 +56,44 @@ export default function Artikel(props) {
                                 );
                             })}
                     </div>
-<div className='containerRubriken'>                    <div
-                        data-hover='false'
-                        data-delay='0'
-                        data-w-id='6d69fd2e-6599-3690-d5d8-89a8224017c4'
-                        // style='height:80px'
-                        className='accordion-item-2 w-dropdown'
-                    >
-                        <div className='accordion-toggle-2 w-dropdown-toggle'>
-                            <div
-                                className='heading-3'
-                                onClick={() => {
-                                    setMoreOpen(!moreOpen);
-                                }}
-                            >
-                                WEITERES
+                    <div className='containerRubriken'>
+  
+                            <div className='accordion-toggle-2 w-dropdown-toggle'>
+                                <div
+                                    className='heading-3'
+                                    onClick={() => {
+                                        setMoreOpen(!moreOpen);
+                                    }}
+                                >
+                                    WEITERES
+                                </div>
                             </div>
+                            {moreOpen && (
+                                <>
+                                    {props.more.map((item) => {
+                                        return (
+                                            <>
+                                                <div className='w-layout-grid grid'>
+                                                    <Article
+                                                        name={item.name}
+                                                        pic_url={item.pic_url}
+                                                        subheading1={
+                                                            item.subheading1
+                                                        }
+                                                        subheading2={
+                                                            item.subheading2
+                                                        }
+                                                        link={`/geschichte/${item.id}`}
+                                                    />
+                                                </div>
+                                            </>
+                                        );
+                                    })}
+                                </>
+                            )}
                         </div>
-                        {moreOpen && (
-                            <div>
-                                {props.more.map((item) => {
-                                    return (
-                                        <>
-                                            <div className='w-layout-grid grid'>
-                                                <Article
-                                                    name={item.name}
-                                                    pic_url={item.pic_url}
-                                                    subheading1={
-                                                        item.subheading1
-                                                    }
-                                                    subheading2={
-                                                        item.subheading2
-                                                    }
-                                                    link={`/visionen/${item.id}`}
-                                                />
-                                            </div>
-                                        </>
-                                    );
-                                })}
-                            </div>
-                        )}
-                    </div>
-                </div></div>
-
+             
+                </div>
             </div>
         </>
     );
@@ -118,10 +113,10 @@ export async function getServerSideProps(context) {
 
     const post = article[0];
 
-    const moreCount = await prisma.visionen.count();
+    const moreCount = await prisma.geschichte.count();
     const skip = Math.floor(Math.random() * moreCount);
 
-    const moreArticle = await prisma.visionen.findMany({
+    const moreArticle = await prisma.geschichte.findMany({
         skip: skip,
         take: 3,
     });

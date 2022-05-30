@@ -2,7 +2,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import prisma from '../../lib/prisma.tsx';
 
+import Grid from '@mui/material/Grid';
+import Article from '../../components/Article';
+import { useEffect, useState } from 'react';
+
 export default function Artikel(props) {
+    const [moreOpen, setMoreOpen] = useState(false);
+
     return (
         <>
             <div className='content'>
@@ -14,14 +20,14 @@ export default function Artikel(props) {
                     <p className='flowing-text'>{props.text}</p>
                     <div>
                         {props.images != undefined &&
-                            props.images.map((item, index) => {
+                            props.images.map((item) => {
                                 return (
                                     <>
                                         <Image
-                                            src={`/static/images/${props.images[index].pic_url}`}
+                                            src={`/static/images/${item.pic_url}`}
                                             loading='lazy'
                                             sizes='100vw'
-                                            // layout="fill"
+                                            // layout="instrinsic"
                                             width='100%'
                                             height='66%'
                                             alt=''
@@ -50,6 +56,50 @@ export default function Artikel(props) {
                                 );
                             })}
                     </div>
+                    <div className='containerRubriken'>
+                        {' '}
+                        <div
+                            data-hover='false'
+                            data-delay='0'
+                            data-w-id='6d69fd2e-6599-3690-d5d8-89a8224017c4'
+                            // style='height:80px'
+                            className='accordion-item-2 w-dropdown'
+                        >
+                            <div className='accordion-toggle-2 w-dropdown-toggle'>
+                                <div
+                                    className='heading-3'
+                                    onClick={() => {
+                                        setMoreOpen(!moreOpen);
+                                    }}
+                                >
+                                    WEITERES
+                                </div>
+                            </div>
+                            {moreOpen && (
+                                <div>
+                                    {props.more.map((item) => {
+                                        return (
+                                            <>
+                                                <div className='w-layout-grid grid'>
+                                                    <Article
+                                                        name={item.name}
+                                                        pic_url={item.pic_url}
+                                                        subheading1={
+                                                            item.subheading1
+                                                        }
+                                                        subheading2={
+                                                            item.subheading2
+                                                        }
+                                                        link={`/visionen/${item.id}`}
+                                                    />
+                                                </div>
+                                            </>
+                                        );
+                                    })}
+                                </div>
+                            )}
+                        </div>
+                    </div>
                 </div>
             </div>
         </>
@@ -57,23 +107,29 @@ export default function Artikel(props) {
 }
 
 export async function getServerSideProps(context) {
-    const article = await prisma.aktuelles.findMany({
+    //console.log('loading article context', context.query.id);
+    const article = await prisma.geschichte.findMany({
         where: { id: parseInt(context.query.id) },
     });
 
-    console.log(article[0]);
-    //const post = article[0];
-
-    //console.log('resulting post data', post);
-
     const images = await prisma.images.findMany({
-        where: { type: 'aktuelles', article_id: parseInt(context.query.id) },
+        where: { type: 'geschichte', article_id: parseInt(context.query.id) },
     });
 
-    console.log('images', images);
+    //console.log('images', images);
 
     const post = article[0];
 
+    const moreCount = await prisma.aktuelles.count();
+    const skip = Math.floor(Math.random() * moreCount);
+
+    const moreArticle = await prisma.aktuelles.findMany({
+        skip: skip,
+        take: 3,
+    });
+
+    const more = JSON.parse(JSON.stringify(moreArticle.reverse()));
+    console.log('more', more);
     return {
         props: {
             id: post.id,
@@ -82,7 +138,7 @@ export async function getServerSideProps(context) {
             subheading2: post.subheading2,
             text: post.text,
             images: images,
-            quellen: post.quellen,
+            more: more,
         },
     };
 }
