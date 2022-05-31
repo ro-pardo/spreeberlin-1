@@ -223,6 +223,7 @@ body {
     height: 100%;
     margin: 0;
     background-color: #2473ff;
+    color: rgb(255, 255, 255);
 }
 .wrapper {
     min-height: 100%;
@@ -299,6 +300,10 @@ body {
 .myFlex {
     display: flex;
     flex-direction: column;
+}
+.ticker {
+    background-color: #fff;
+    height: 100%;
 }
 
 @media screen and (max-width: 767px) {

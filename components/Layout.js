@@ -28,6 +28,7 @@ const myTheme = createTheme({
         background: {
             default: '#2473ff',
         },
+        color: "#fff"
     },
 });
 
@@ -53,7 +54,7 @@ const Layout = ({ children }) => {
                             sx={{
                                 top: 'auto',
                                 bottom: 0,
-                                backgroundColor: '#ffffff',
+                                backgroundColor: '#2473ff',
                             }}
                         >
                             <Footer />

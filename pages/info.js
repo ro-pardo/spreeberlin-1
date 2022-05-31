@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 
 import Grid from '@mui/material/Grid';
+import B from '@mui/material/Box';
 import Link from 'next/link';
 
 import { Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
@@ -20,6 +21,10 @@ export default function Info(props) {
     return (
         <>
             <div className='content'>
+                <img
+                    src='/static/images/Stroke-1.svg'
+                    className='divider info'
+                />
                 <Accordion
                     className='heading-4'
                     sx={{
@@ -93,9 +98,12 @@ export default function Info(props) {
                                 </Grid>
                             </Grid>
                         </Grid>
-                        
                     </AccordionDetails>
-                </Accordion>
+                </Accordion>{' '}
+                <img
+                    src='/static/images/Stroke-1.svg'
+                    className='divider info'
+                />
                 <Accordion
                     className='heading-4'
                     sx={{
@@ -172,7 +180,10 @@ export default function Info(props) {
                         </Grid>
                     </AccordionDetails>
                 </Accordion>
-
+                <img
+                    src='/static/images/Stroke-1.svg'
+                    className='divider info'
+                />
                 <Accordion
                     className='heading-4'
                     elevation={0}
@@ -221,6 +232,10 @@ export default function Info(props) {
                         </Grid>
                     </AccordionDetails>
                 </Accordion>
+                <img
+                    src='/static/images/Stroke-1.svg'
+                    className='divider info'
+                />
                 <Accordion
                     className='heading-4'
                     elevation={0}
@@ -230,7 +245,7 @@ export default function Info(props) {
                     }}
                 >
                     <AccordionSummary>Open Source</AccordionSummary>
-                    <AccordionDetails>
+                    <AccordionDetails elevation={0}>
                         <Grid container spacing={2}>
                             <Grid item xs={6} className='flowing-text'>
                                 <h6>COMING SOON</h6>
@@ -247,7 +262,11 @@ export default function Info(props) {
                             <Grid item xs={6}></Grid>
                         </Grid>
                     </AccordionDetails>
-                </Accordion>
+                </Accordion>{' '}
+                <img
+                    src='/static/images/Stroke-1.svg'
+                    className='divider info'
+                />
                 <Accordion
                     className='heading-4'
                     elevation={0}
@@ -257,7 +276,7 @@ export default function Info(props) {
                     }}
                 >
                     <AccordionSummary>Partner</AccordionSummary>
-                    <AccordionDetails>
+                    <AccordionDetails elevation={0}>
                         <Grid container spacing={2}>
                             <Grid item xs={2}>
                                 <img src='/static/images/BMBF_Logo_DE.jpg'></img>
@@ -298,7 +317,11 @@ export default function Info(props) {
                             </Grid>
                         </Grid>
                     </AccordionDetails>
-                </Accordion>
+                </Accordion>{' '}
+                <img
+                    src='/static/images/Stroke-1.svg'
+                    className='divider info'
+                />
                 <Accordion
                     className='heading-4'
                     elevation={0}
@@ -308,7 +331,7 @@ export default function Info(props) {
                     }}
                 >
                     <AccordionSummary>Kontakt</AccordionSummary>
-                    <AccordionDetails>
+                    <AccordionDetails elevation={0}>
                         <div className='infoBox'>
                             <Grid container spacing={2}>
                                 <Grid item xs={6} className='myFlex'>
@@ -345,7 +368,11 @@ export default function Info(props) {
                             </Grid>
                         </div>
                     </AccordionDetails>
-                </Accordion>
+                </Accordion>{' '}
+                <img
+                    src='/static/images/Stroke-1.svg'
+                    className='divider info'
+                />
                 <Accordion
                     className='heading-4'
                     elevation={0}
@@ -355,7 +382,7 @@ export default function Info(props) {
                     }}
                 >
                     <AccordionSummary>Impressum</AccordionSummary>
-                    <AccordionDetails>
+                    <AccordionDetails elevation={0}>
                         <div className='infoBox'>
                             <div>
                                 <p className='flowing-text'>
@@ -381,12 +408,29 @@ export default function Info(props) {
                                     MORGEN.JETZT // MARTHA STARKE 
                                     FLUSSBAD BERLIN // CARSTEN RIECHELMANN 
                                     RALF STEEG 
-                                    NIKLAS LIEBETRAU 
-                                    +DATENSCHUTZ + IMPRESSUM KOMPLETT`}
+                                    NIKLAS LIEBETRAU`}
                                 </p>
+                                <div>
+                                    <Link href='/datenschutz'>
+                                        <a className='flowing-text'>
+                                            + DATENSCHUTZ
+                                        </a>
+                                    </Link>
+                                </div>
+                                <div>
+                                    <Link href='/impressum'>
+                                        <a className='flowing-text'>
+                                            + IMPRESSUM KOMPLETT
+                                        </a>
+                                    </Link>
+                                </div>
                             </div>
                         </div>
                     </AccordionDetails>
+                    <img
+                        src='/static/images/Stroke-1.svg'
+                        className='divider info'
+                    />
                 </Accordion>
             </div>
         </>
