@@ -30,6 +30,9 @@ export default function Info(props) {
                     sx={{
                         backgroundColor: '#2473ff',
                         color: '#ffffff',
+                        '&:before': {
+                            display: 'none',
+                        },
                     }}
                     elevation={0}
                 >
@@ -99,7 +102,7 @@ export default function Info(props) {
                             </Grid>
                         </Grid>
                     </AccordionDetails>
-                </Accordion>{' '}
+                </Accordion>
                 <img
                     src='/static/images/Stroke-1.svg'
                     className='divider info'
@@ -109,6 +112,9 @@ export default function Info(props) {
                     sx={{
                         backgroundColor: '#2473ff',
                         color: '#ffffff',
+                        '&:before': {
+                            display: 'none',
+                        },
                     }}
                     elevation={0}
                 >
@@ -190,6 +196,9 @@ export default function Info(props) {
                     sx={{
                         backgroundColor: '#2473ff',
                         color: '#ffffff',
+                        '&:before': {
+                            display: 'none',
+                        },
                     }}
                 >
                     <AccordionSummary elevation={0}>Buoys</AccordionSummary>
@@ -242,6 +251,9 @@ export default function Info(props) {
                     sx={{
                         backgroundColor: '#2473ff',
                         color: '#ffffff',
+                        '&:before': {
+                            display: 'none',
+                        },
                     }}
                 >
                     <AccordionSummary>Open Source</AccordionSummary>
@@ -273,6 +285,9 @@ export default function Info(props) {
                     sx={{
                         backgroundColor: '#2473ff',
                         color: '#ffffff',
+                        '&:before': {
+                            display: 'none',
+                        },
                     }}
                 >
                     <AccordionSummary>Partner</AccordionSummary>
@@ -328,6 +343,9 @@ export default function Info(props) {
                     sx={{
                         backgroundColor: '#2473ff',
                         color: '#ffffff',
+                        '&:before': {
+                            display: 'none',
+                        },
                     }}
                 >
                     <AccordionSummary>Kontakt</AccordionSummary>
@@ -368,7 +386,7 @@ export default function Info(props) {
                             </Grid>
                         </div>
                     </AccordionDetails>
-                </Accordion>{' '}
+                </Accordion>
                 <img
                     src='/static/images/Stroke-1.svg'
                     className='divider info'
@@ -379,6 +397,9 @@ export default function Info(props) {
                     sx={{
                         backgroundColor: '#2473ff',
                         color: '#ffffff',
+                        '&:before': {
+                            display: 'none',
+                        },
                     }}
                 >
                     <AccordionSummary>Impressum</AccordionSummary>
