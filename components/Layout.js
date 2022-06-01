@@ -8,7 +8,6 @@ import CssBaseline from '@mui/material/CssBaseline';
 
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
-
 import { useRouter } from 'next/router';
 
 import dynamic from 'next/dynamic';
@@ -28,7 +27,7 @@ const myTheme = createTheme({
         background: {
             default: '#2473ff',
         },
-        color: "#fff"
+        text: { primary: '#ffffff' },
     },
 });
 
