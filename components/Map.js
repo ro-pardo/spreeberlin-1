@@ -367,61 +367,37 @@ const Map = (props) => {
             <div className='map-control-overlay'>
                 <div className='map-control-container'>
                     <div
-                        className={`map-control-item-buoys${
+                        className={`myButton_Bojen${
                             bojenVisible ? `` : `_toggled`
                         }`}
                         onClick={() => setBojenVisible(!bojenVisible)}
                     >
-                        <div
-                            className={`map-control-buoys${
-                                bojenVisible ? `` : `_toggled`
-                            }`}
-                        >
-                            Bojen
-                        </div>
+                        BOJEN
                     </div>
                     <div
-                        className={`map-control-item-history${
+                        className={`myButton_Geschichte${
                             geschichteVisible ? `` : `_toggled`
                         }`}
                         onClick={() => setGeschichteVisible(!geschichteVisible)}
                     >
-                        <div
-                            className={`map-control-history${
-                                geschichteVisible ? `` : `_toggled`
-                            }`}
-                        >
-                            Geschichte
-                        </div>
+                        GESCHICHTE
                     </div>
                     <div
-                        className={`map-control-item-aktuelles${
+                        className={`myButton_Aktuelles${
                             aktuellesVisible ? `` : `_toggled`
                         }`}
                         onClick={() => setAktuellesVisible(!aktuellesVisible)}
                     >
-                        <div
-                            className={`map-control-aktuelles${
-                                aktuellesVisible ? `` : `_toggled`
-                            }`}
-                        >
-                            Projekte
-                        </div>
+                        PROJEKTE
                     </div>
 
                     <div
-                        className={`map-control-item-visionen${
+                        className={`myButton_Visionen${
                             visionenVisible ? `` : `_toggled`
                         }`}
                         onClick={() => setVisionenVisible(!visionenVisible)}
                     >
-                        <div
-                            className={`map-control-visionen${
-                                visionenVisible ? `` : `_toggled`
-                            }`}
-                        >
-                            Visionen
-                        </div>
+                        VISIONEN
                     </div>
                 </div>
             </div>

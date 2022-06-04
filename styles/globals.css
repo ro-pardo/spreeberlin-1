@@ -2185,7 +2185,7 @@ blockquote {
     }
 
     .map-control-container {
-        margin-left: 20px;
+        /* margin-left: 20px; */
         padding-left: 0.5em;
     }
 

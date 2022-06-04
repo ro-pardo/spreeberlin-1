@@ -4521,7 +4521,6 @@ blockquote {
 
     .map-control-container {
         padding-right: 15px;
-        padding-left: 15px;
     }
 
     .map-control-item {
@@ -5899,8 +5898,6 @@ blockquote {
     }
 
     .map-control-container {
-        margin-left: 20px;
-        padding-left: 0.5em;
     }
 
     .news-overlay {
