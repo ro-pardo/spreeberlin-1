@@ -8,7 +8,7 @@ export default function Imprint(props) {
     return (
         <>
             <div class='content'>
-                <div class='section-6 wf-section'>
+                <div class='myContent'>
                     <img
                         src='images/Stroke-1.svg'
                         loading='lazy'

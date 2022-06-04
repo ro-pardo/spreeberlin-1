@@ -49,27 +49,21 @@ export default function Geschichte(props) {
                             </div>
                         </div>
                         {moreOpen && (
-                            <Grid container spacing={2}>
+                            <div className='w-layout-grid grid'>
                                 {props.more.map((item) => {
                                     return (
                                         <>
-                                            <Grid item xs={12} md={6} xl={4}>
-                                                <Article
-                                                    name={item.name}
-                                                    pic_url={item.pic_url}
-                                                    subheading1={
-                                                        item.subheading1
-                                                    }
-                                                    subheading2={
-                                                        item.subheading2
-                                                    }
-                                                    link={`/visionen/${item.id}`}
-                                                />
-                                            </Grid>
+                                            <Article
+                                                name={item.name}
+                                                pic_url={item.pic_url}
+                                                subheading1={item.subheading1}
+                                                subheading2={item.subheading2}
+                                                link={`/visionen/${item.id}`}
+                                            />
                                         </>
                                     );
                                 })}
-                            </Grid>
+                            </div>
                         )}
                         <div className='mySpacer'></div>
                     </div>

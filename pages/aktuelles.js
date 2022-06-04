@@ -30,17 +30,14 @@ export default function Aktuelles(props) {
                         })}
                     </div>
                 </div>
-                <div className='container-rubriken'>
+             <div className='container-rubriken'>
                     <div
-                        data-hover='false'
-                        data-delay='0'
-                        data-w-id='6d69fd2e-6599-3690-d5d8-89a8224017c4'
                         // style='height:80px'
                         className='accordion-item-2 w-dropdown'
                     >
-                        <div className='accordion-toggle-2 w-dropdown-toggle'>
+                        <div>
                             <div
-                                className='heading-3'
+                                className='moreButton'
                                 onClick={() => {
                                     setMoreOpen(!moreOpen);
                                 }}
@@ -49,29 +46,23 @@ export default function Aktuelles(props) {
                             </div>
                         </div>
                         {moreOpen && (
-                            <Fade>
-                                <div className='w-layout-grid grid'>
-                                    {props.more.map((item) => {
-                                        return (
-                                            <>
-                                                <Article
-                                                    name={item.name}
-                                                    pic_url={item.pic_url}
-                                                    subheading1={
-                                                        item.subheading1
-                                                    }
-                                                    subheading2={
-                                                        item.subheading2
-                                                    }
-                                                    link={`/geschichte/${item.id}`}
-                                                />
-                                            </>
-                                        );
-                                    })}
-                                    <div className='mySpacer'></div>
-                                </div>
-                            </Fade>
+                            <div className='w-layout-grid grid'>
+                                {props.more.map((item) => {
+                                    return (
+                                        <>
+                                            <Article
+                                                name={item.name}
+                                                pic_url={item.pic_url}
+                                                subheading1={item.subheading1}
+                                                subheading2={item.subheading2}
+                                                link={`/geschichte/${item.id}`}
+                                            />
+                                        </>
+                                    );
+                                })}
+                            </div>
                         )}
+                        <div className='mySpacer'></div>
                     </div>
                 </div>
             </div>
