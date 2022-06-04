@@ -230,7 +230,7 @@ export default function Info(props) {
                                     container
                                     spacing={2}
                                 >
-                                    <Grid item xs={6}>
+                                    <Grid item xs={12} md={6}>
                                         Die Boje schwimmt im Spreekanal und
                                         versorgt das Wasser mit Sauerstoff.
                                         Oberhalb der Wasseroberfläche wird die
@@ -347,13 +347,13 @@ export default function Info(props) {
                                 <Grid item xs={12} md={4}>
                                     <img src='/static/images/Logo_OpenNext.jpg'></img>
                                 </Grid>
-                                <Grid item xs={12} md={4} >
+                                <Grid item xs={12} md={4}>
                                     <img src='/static/images/Logo_CityLab.jpg'></img>
                                 </Grid>
-                                <Grid item xs={12} md={4} >
+                                <Grid item xs={12} md={4}>
                                     <img src='/static/images/Logo_TechnologieStiftung.jpg'></img>
                                 </Grid>
-                                <Grid item xs={12} md={4} >
+                                <Grid item xs={12} md={4}>
                                     <img src='/static/images/Logo_SustainALL.jpg'></img>
                                 </Grid>
                             </Grid>
@@ -378,7 +378,12 @@ export default function Info(props) {
                         <AccordionDetails elevation={0}>
                             <div className='infoBox'>
                                 <Grid container spacing={2}>
-                                    <Grid item xs={12} md={6}  className='myFlex'>
+                                    <Grid
+                                        item
+                                        xs={12}
+                                        
+                                        className='myFlex'
+                                    >
                                         <p className='flowing-text'>
                                             <strong>Symbiotic LAB</strong>
                                         </p>
@@ -394,7 +399,12 @@ export default function Info(props) {
                                         </Link>
                                     </Grid>
 
-                                    <Grid item xs={12} md={6} className='myFlex'>
+                                    <Grid
+                                        item
+                                        xs={12}
+                                 
+                                        className='myFlex'
+                                    >
                                         <p className='flowing-text'>
                                             <strong>JKUKULA</strong>
                                         </p>
