@@ -40,7 +40,12 @@ export default function Info(props) {
                         <AccordionSummary elevation={0}>INFO</AccordionSummary>
                         <AccordionDetails elevation={0}>
                             <Grid container spacing={2}>
-                                <Grid item xs={4} className='flowing-text'>
+                                <Grid
+                                    item
+                                    xs={12}
+                                    md={4}
+                                    className='flowing-text'
+                                >
                                     <p className='flowing-text'>
                                         Im Kontext der Klimakrise und des damit
                                         einhergehenden gesellschaftlichen
@@ -78,7 +83,8 @@ export default function Info(props) {
                                 </Grid>
                                 <Grid
                                     item
-                                    xs={4}
+                                    xs={12}
+                                    md={4}
                                     className='flowing-text'
                                     container
                                     spacing={2}
@@ -92,7 +98,8 @@ export default function Info(props) {
                                 </Grid>
                                 <Grid
                                     item
-                                    xs={4}
+                                    xs={12}
+                                    md={4}
                                     className='flowing-text'
                                     container
                                 >
@@ -126,7 +133,7 @@ export default function Info(props) {
                         </AccordionSummary>
                         <AccordionDetails elevation={0}>
                             <Grid container spacing={2}>
-                                <Grid item xs={4} className='flowing-text'>
+                                <Grid xs={12} md={4} className='flowing-text'>
                                     <p>
                                         Während der umfangreichen Recherchen
                                         wurden viele Probleme identifiziert. Das
@@ -167,7 +174,8 @@ export default function Info(props) {
                                 </Grid>
                                 <Grid
                                     item
-                                    xs={4}
+                                    xs={12}
+                                    md={4}
                                     className='flowing-text'
                                     container
                                     spacing={2}
@@ -181,7 +189,8 @@ export default function Info(props) {
                                 </Grid>
                                 <Grid
                                     item
-                                    xs={4}
+                                    xs={12}
+                                    md={4}
                                     className='flowing-text'
                                     container
                                 >
@@ -215,7 +224,8 @@ export default function Info(props) {
                             <Grid container spacing={2}>
                                 <Grid
                                     item
-                                    xs={8}
+                                    xs={12}
+                                    md={8}
                                     className='flowing-text'
                                     container
                                     spacing={2}
@@ -230,19 +240,20 @@ export default function Info(props) {
                                         durch menschliche Kraft (Sportgeräte
                                         o.ä.) erfolgen.
                                     </Grid>
-                                    <Grid item xs={6}>
+                                    <Grid item xs={12} md={6}>
                                         <img src='/static/images/SpreeBerlin_Bodemuseum.jpg'></img>
                                     </Grid>
-                                    <Grid item xs={6}>
+                                    <Grid item xs={12} md={6}>
                                         <img src='/static/images/Boje_Sideview.jpg'></img>
                                     </Grid>
-                                    <Grid item xs={6}>
+                                    <Grid item xs={12} md={6}>
                                         <img src='/static/images/Boje_Modellfunktion.jpg'></img>
                                     </Grid>
                                 </Grid>
                                 <Grid
                                     item
-                                    xs={4}
+                                    xs={12}
+                                    md={4}
                                     className='flowing-text'
                                     container
                                 >
@@ -269,7 +280,12 @@ export default function Info(props) {
                         <AccordionSummary>Open Source</AccordionSummary>
                         <AccordionDetails elevation={0}>
                             <Grid container spacing={2}>
-                                <Grid item xs={6} className='flowing-text'>
+                                <Grid
+                                    item
+                                    xs={12}
+                                    md={6}
+                                    className='flowing-text'
+                                >
                                     <h6>COMING SOON</h6>
                                     SpreeBerlin ist Mitglied des
                                     <Link href='https://opennext.eu/'>
@@ -284,7 +300,7 @@ export default function Info(props) {
                                 <Grid item xs={6}></Grid>
                             </Grid>
                         </AccordionDetails>
-                    </Accordion>{' '}
+                    </Accordion>
                     <img
                         src='/static/images/Stroke-1.svg'
                         className='divider info'
@@ -303,46 +319,46 @@ export default function Info(props) {
                         <AccordionSummary>Partner</AccordionSummary>
                         <AccordionDetails elevation={0}>
                             <Grid container spacing={2}>
-                                <Grid item xs={2}>
+                                <Grid item xs={12} md={4}>
                                     <img src='/static/images/BMBF_Logo_DE.jpg'></img>
                                 </Grid>
-                                <Grid item xs={2}>
+                                <Grid item xs={12} md={4}>
                                     <img src='/static/images/Logo_Biooekonomie.jpg'></img>
                                 </Grid>
-                                <Grid item xs={2}>
+                                <Grid item xs={12} md={4}>
                                     <img src='/static/images/WID_Logo_DE.jpg'></img>
                                 </Grid>
-                                <Grid item xs={2}>
+                                <Grid item xs={12} md={4}>
                                     <img src='/static/images/Logo_WID.jpg'></img>
                                 </Grid>
-                                <Grid item xs={2}>
+                                <Grid item xs={12} md={4}>
                                     <img src='/static/images/WID_Logo_DE.jpg'></img>
                                 </Grid>
-                                <Grid item xs={2}>
+                                <Grid item xs={12} md={4}>
                                     <img src='/static/images/TU_Logo.jpg'></img>
                                 </Grid>
 
-                                <Grid item xs={2}>
+                                <Grid item xs={12} md={4}>
                                     <img src='/static/images/GDG_Preis_Logo.jpg'></img>
                                 </Grid>
-                                <Grid item xs={2}>
+                                <Grid item xs={12} md={4}>
                                     <img src='/static/images/BHT_Logo.jpg'></img>
                                 </Grid>
-                                <Grid item xs={2}>
+                                <Grid item xs={12} md={4}>
                                     <img src='/static/images/Logo_OpenNext.jpg'></img>
                                 </Grid>
-                                <Grid item xs={2}>
+                                <Grid item xs={12} md={4} >
                                     <img src='/static/images/Logo_CityLab.jpg'></img>
                                 </Grid>
-                                <Grid item xs={2}>
+                                <Grid item xs={12} md={4} >
                                     <img src='/static/images/Logo_TechnologieStiftung.jpg'></img>
                                 </Grid>
-                                <Grid item xs={2}>
+                                <Grid item xs={12} md={4} >
                                     <img src='/static/images/Logo_SustainALL.jpg'></img>
                                 </Grid>
                             </Grid>
                         </AccordionDetails>
-                    </Accordion>{' '}
+                    </Accordion>
                     <img
                         src='/static/images/Stroke-1.svg'
                         className='divider info'
@@ -362,7 +378,7 @@ export default function Info(props) {
                         <AccordionDetails elevation={0}>
                             <div className='infoBox'>
                                 <Grid container spacing={2}>
-                                    <Grid item xs={6} className='myFlex'>
+                                    <Grid item xs={12} md={6}  className='myFlex'>
                                         <p className='flowing-text'>
                                             <strong>Symbiotic LAB</strong>
                                         </p>
@@ -378,7 +394,7 @@ export default function Info(props) {
                                         </Link>
                                     </Grid>
 
-                                    <Grid item xs={6} className='myFlex'>
+                                    <Grid item xs={12} md={6} className='myFlex'>
                                         <p className='flowing-text'>
                                             <strong>JKUKULA</strong>
                                         </p>
