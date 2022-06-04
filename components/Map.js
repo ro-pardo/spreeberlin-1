@@ -56,17 +56,64 @@ const Map = (props) => {
         zoom: 11,
     });
 
-    const zoomToLocation = function (id) {
-        if (!bojen[bojenIds.indexOf(id)]) {
-            return;
+    const zoomToLocation = function (id, type) {
+        if (type == 'bojen') {
+            if (!bojen[bojenIds.indexOf(id)]) {
+                return;
+            }
+            setViewport({
+                longitude: parseFloat(bojen[bojenIds.indexOf(id)].longitude),
+                latitude: parseFloat(bojen[bojenIds.indexOf(id)].latitude),
+                zoom: 13,
+                transitionDuration: 1000,
+                transitionInterpolator: new FlyToInterpolator(),
+            });
+        } else if (type == 'aktuelles') {
+            if (!aktuelles[aktuellesIds.indexOf(id)]) {
+                return;
+            }
+            setViewport({
+                longitude: parseFloat(
+                    aktuelles[aktuellesIds.indexOf(id)].longitude
+                ),
+                latitude: parseFloat(
+                    aktuelles[aktuellesIds.indexOf(id)].latitude
+                ),
+                zoom: 13,
+                transitionDuration: 1000,
+                transitionInterpolator: new FlyToInterpolator(),
+            });
+        } else if (type == 'geschichte') {
+            if (!geschichte[geschichteIds.indexOf(id)]) {
+                return;
+            }
+            setViewport({
+                longitude: parseFloat(
+                    geschichte[geschichteIds.indexOf(id)].longitude
+                ),
+                latitude: parseFloat(
+                    geschichte[geschichteIds.indexOf(id)].latitude
+                ),
+                zoom: 13,
+                transitionDuration: 1000,
+                transitionInterpolator: new FlyToInterpolator(),
+            });
+        } else if (type == 'visionen') {
+            if (!visionen[visionenIds.indexOf(id)]) {
+                return;
+            }
+            setViewport({
+                longitude: parseFloat(
+                    visionen[visionenIds.indexOf(id)].longitude
+                ),
+                latitude: parseFloat(
+                    visionen[visionenIds.indexOf(id)].latitude
+                ),
+                zoom: 13,
+                transitionDuration: 1000,
+                transitionInterpolator: new FlyToInterpolator(),
+            });
         }
-        setViewport({
-            longitude: parseFloat(bojen[bojenIds.indexOf(id)].longitude),
-            latitude: parseFloat(bojen[bojenIds.indexOf(id)].latitude),
-            zoom: 13,
-            transitionDuration: 1000,
-            transitionInterpolator: new FlyToInterpolator(),
-        });
     };
 
     const toggleSmallPopUp = function (id, type) {
@@ -187,7 +234,7 @@ const Map = (props) => {
             <ReactMapGL
                 {...viewport}
                 width='100vw'
-                height='96vh'
+                height='100vh'
                 onViewportChange={(nextViewport) => setViewport(nextViewport)}
                 mapboxApiAccessToken={
                     'pk.eyJ1IjoianVsaXVzYm9ybiIsImEiOiJja3pjczM2cXQyMmlwMnZueGZpcWw5ZmM2In0.hJKj_m9lxXdIN0EOws_CYA'
@@ -213,7 +260,7 @@ const Map = (props) => {
                                     onClick={() => {
                                         //console.log(item);
                                         toggleSmallPopUp(item.id, 'bojen');
-                                        zoomToLocation(item.id);
+                                        zoomToLocation(item.id, 'bojen');
                                     }}
                                 ></Image>
                             </Marker>
@@ -238,7 +285,7 @@ const Map = (props) => {
                                     onClick={() => {
                                         //console.log(item);
                                         toggleSmallPopUp(item.id, 'aktuelles');
-                                        zoomToLocation(item.id);
+                                        zoomToLocation(item.id, 'aktuelles');
                                     }}
                                 ></Image>
                             </Marker>
@@ -263,7 +310,7 @@ const Map = (props) => {
                                     onClick={() => {
                                         //console.log(item);
                                         toggleSmallPopUp(item.id, 'geschichte');
-                                        zoomToLocation(item.id);
+                                        zoomToLocation(item.id, 'geschichte');
                                     }}
                                 ></Image>
                             </Marker>
@@ -287,7 +334,7 @@ const Map = (props) => {
                                     onClick={() => {
                                         //console.log(item);
                                         toggleSmallPopUp(item.id, 'visionen');
-                                        zoomToLocation(item.id);
+                                        zoomToLocation(item.id, 'visionen');
                                     }}
                                 ></Image>
                             </Marker>

@@ -186,7 +186,8 @@
     z-index: -1;
     top: 0vh;
     left: 0;
-    height: 100vh;
+    min-height: 100vh;
+    /* min-height: -webkit-fill-available; */
     background-color: rgba(36, 115, 255, 1);
 }
 
@@ -220,7 +221,7 @@
 }
 html,
 body {
-    height: 100%;
+    /* height: 100%; */
     margin: 0;
     background-color: #2473ff;
     color: rgb(255, 255, 255);
@@ -306,6 +307,14 @@ body {
     height: 100%;
 }
 
+.moreButton {
+    cursor: pointer;
+    text-align: center;
+    color: #fff;
+    font-size: 30px;
+    font-weight: 300;
+    font-family: Edumaxisharp, sans-serif;
+}
 @media screen and (max-width: 767px) {
     .myMenu {
         /* border: red solid 5px; */

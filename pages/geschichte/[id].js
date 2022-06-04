@@ -59,7 +59,7 @@ export default function Artikel(props) {
                     <div className='containerRubriken'>
                         <div className='accordion-toggle-2 w-dropdown-toggle'>
                             <div
-                                className='heading-3'
+                                className='moreButton'
                                 onClick={() => {
                                     setMoreOpen(!moreOpen);
                                 }}

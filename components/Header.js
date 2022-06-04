@@ -38,6 +38,7 @@ const Header = () => {
                                 height='65'
                                 alt=''
                                 className='logo-image'
+                                marginLeft={16}
                             ></Image>
                         </a>
                     </Link>
