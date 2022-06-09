@@ -1,19 +1,31 @@
 import Image from 'next/image';
 
-import Article from '../components/Article';
+import Article from '../../components/Article';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import { useEffect, useState } from 'react';
 
-import prisma from '../lib/prisma.tsx';
+import prisma from '../../lib/prisma.tsx';
 
-export default function Aktuelles(props) {
+import { useRouter } from 'next/router';
+
+export default function Geschichte(props) {
     const [moreOpen, setMoreOpen] = useState(false);
+
+    const router = useRouter();
+    console.log(router.query);
 
     return (
         <>
-            <h1 className='heading-3'>AKTUELLES</h1>
-
+            {router.query.type == 'geschichte' && (
+                <h1 className='heading-3'>GESCHICHTE</h1>
+            )}
+            {router.query.type == 'aktuelles' && (
+                <h1 className='heading-3'>AKTUELLES</h1>
+            )}
+            {router.query.type == 'visionen' && (
+                <h1 className='heading-3'>VISIONEN</h1>
+            )}
             <Box display='flex' alignItems='center' margin={2}>
                 <Grid container spacing={1}>
                     {props.posts.map((item) => {
@@ -25,7 +37,7 @@ export default function Aktuelles(props) {
                                         pic_url={item.pic_url}
                                         subheading1={item.subheading1}
                                         subheading2={item.subheading2}
-                                        link={`/aktuelles/${item.id}`}
+                                        link={`/${router.query.type}/${item.id}`}
                                     />
                                 </Grid>
                             </>
@@ -33,7 +45,6 @@ export default function Aktuelles(props) {
                     })}
                 </Grid>{' '}
             </Box>
-
             <div>
                 <div
                     className='moreButton'
@@ -65,25 +76,53 @@ export default function Aktuelles(props) {
                         })}
                     </Grid>
                 </Box>
-            )}<div className='mySpacer'></div>
+            )}{' '}
+            <div className='mySpacer'></div>
         </>
     );
 }
 
-export async function getStaticProps(context) {
-    const article = await prisma.aktuelles.findMany();
+export async function getServerSideProps(context) {
+    console.log('context', context.query.type);
+
+    let article = [];
+
+    let moreCount = 0;
+    let moreArticle = [];
+
+    if (context.query.type == 'geschichte') {
+        article = await prisma.geschichte.findMany();
+        moreCount = await prisma.aktuelles.count();
+        const skip = Math.floor(Math.random() * moreCount);
+        moreArticle = await prisma.aktuelles.findMany({
+            skip: skip,
+            take: 3,
+        });
+    }
+
+    if (context.query.type == 'aktuelles') {
+        article = await prisma.aktuelles.findMany();
+        moreCount = await prisma.visionen.count();
+        const skip = Math.floor(Math.random() * moreCount);
+        moreArticle = await prisma.visionen.findMany({
+            skip: skip,
+            take: 3,
+        });
+    }
+
+    if (context.query.type == 'visionen') {
+        article = await prisma.visionen.findMany();
+        moreCount = await prisma.geschichte.count();
+        const skip = Math.floor(Math.random() * moreCount);
+        moreArticle = await prisma.geschichte.findMany({
+            skip: skip,
+            take: 3,
+        });
+    }
 
     const posts = JSON.parse(JSON.stringify(article.reverse()));
 
     //console.log('getting static props', posts);
-
-    const moreCount = await prisma.visionen.count();
-    const skip = Math.floor(Math.random() * moreCount);
-
-    const moreArticle = await prisma.visionen.findMany({
-        skip: skip,
-        take: 3,
-    });
 
     const more = JSON.parse(JSON.stringify(moreArticle.reverse()));
 
