@@ -239,7 +239,7 @@ export default function Info(props) {
                             '&:before': {
                                 display: 'none',
                             },
-                            maxHeight: '48px',
+                        
                         }}
                         disableGutters
                     >
@@ -312,7 +312,7 @@ export default function Info(props) {
                             '&:before': {
                                 display: 'none',
                             },
-                            maxHeight: '48px',
+                           
                         }}
                     >
                         <AccordionSummary>
@@ -353,7 +353,7 @@ export default function Info(props) {
                             '&:before': {
                                 display: 'none',
                             },
-                            maxHeight: '48px',
+                        
                         }}
                     >
                         <AccordionSummary>
@@ -413,7 +413,7 @@ export default function Info(props) {
                             '&:before': {
                                 display: 'none',
                             },
-                            maxHeight: '48px',
+                        
                         }}
                     >
                         <AccordionSummary>
@@ -469,7 +469,7 @@ export default function Info(props) {
                             '&:before': {
                                 display: 'none',
                             },
-                            maxHeight: '32px',
+                        
                         }}
                     >
                         <AccordionSummary>
