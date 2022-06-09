@@ -76,7 +76,7 @@ export default function Artikel(props) {
                     WEITERES
                 </div>
                 {moreOpen && (
-                    <Box display='flex' alignItems='center'>
+                    <Box display='flex' alignItems='center'  m={1}>
                         <Grid container spacing={1}>
                             {props.more.map((item) => {
                                 return (

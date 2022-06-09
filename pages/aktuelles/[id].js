@@ -86,7 +86,7 @@ export default function Artikel(props) {
                                             pic_url={item.pic_url}
                                             subheading1={item.subheading1}
                                             subheading2={item.subheading2}
-                                            link={`/aktuelles/${item.id}`}
+                                            link={`/visionen/${item.id}`}
                                         />
                                     </Grid>
                                 </>
