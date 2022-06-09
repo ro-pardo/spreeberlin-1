@@ -914,24 +914,9 @@ blockquote {
     background-color: #2473ff;
 }
 
-.heading-3 {
-    z-index: 9999;
-    width: 450px;
-    margin-top: 10px;
-    margin-bottom: 10px;
 
-    font-family: Edumaxisharp, sans-serif;
-    color: #fff;
-    font-size: 60px;
-    font-weight: 300;
-    text-transform: uppercase;
-    padding-top: 15px;
-}
 
-.heading-3.info {
-    margin-top: 0px;
-    margin-bottom: 0px;
-}
+
 
 .heading-4 {
     font-family: Edumaxisharp, sans-serif;

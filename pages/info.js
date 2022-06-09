@@ -423,12 +423,13 @@ export default function Info(props) {
                             <div className='infoBox'>
                                 <Grid container spacing={1}>
                                     <Grid item xs={12} className='myFlex'>
-                                        <p className='flowing-text'>
-                                            <strong>Symbiotic LAB</strong>
+                                        <p className='flowing-text'>{"  "}
+                                            <strong> Symbiotic LAB </strong>{"  "}
                                         </p>
                                         <Link href='mailto:info@symbiotic-lab.com'>
                                             <a className='flowing-text'>
-                                                info(at)symbiotic-lab.com
+                                                {"  "}
+                                                 info(at)symbiotic-lab.com {"  "}
                                             </a>
                                         </Link>
                                         <Link href='https://www.symbiotic-lab.com'>
