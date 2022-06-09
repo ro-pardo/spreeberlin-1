@@ -4,10 +4,12 @@ import prisma from '../../lib/prisma.tsx';
 
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
+
 import Article from '../../components/Article';
 import { useEffect, useState } from 'react';
 
 import { useRouter } from 'next/router';
+import { Typography } from '@mui/material';
 
 export default function Artikel(props) {
     const router = useRouter();
@@ -20,7 +22,9 @@ export default function Artikel(props) {
             <Grid container p={1}>
                 <Grid item xs={0} md={2}></Grid>
                 <Grid item xs={12} md={8}>
-                    <h1 className='heading-4'>{props.name}</h1>
+                   
+                        <p className='heading-4'>{props.name}</p>
+                  
                     <div className='description'>
                         <strong>{props.subheading}</strong>
                     </div>
@@ -110,7 +114,7 @@ export async function getServerSideProps(context) {
     let moreCount = 0;
     let moreArticle = [];
     let images = [];
-    let moreType=""
+    let moreType = '';
 
     if (context.query.type == 'geschichte') {
         article = await prisma.geschichte.findMany({
@@ -129,8 +133,7 @@ export async function getServerSideProps(context) {
             skip: skip,
             take: 3,
         });
-        moreType = "aktuelles"
-
+        moreType = 'aktuelles';
     }
 
     if (context.query.type == 'aktuelles') {
@@ -150,7 +153,7 @@ export async function getServerSideProps(context) {
             skip: skip,
             take: 3,
         });
-        moreType = "visionen"
+        moreType = 'visionen';
     }
 
     if (context.query.type == 'visionen') {
@@ -170,14 +173,13 @@ export async function getServerSideProps(context) {
             skip: skip,
             take: 3,
         });
-          moreType = "geschichte"
+        moreType = 'geschichte';
     }
 
     const post = article[0];
 
     const more = JSON.parse(JSON.stringify(moreArticle.reverse()));
     console.log('more', more);
-
 
     return {
         props: {

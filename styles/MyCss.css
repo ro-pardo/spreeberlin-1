@@ -267,9 +267,6 @@ body {
 
 .heading-4 {
     z-index: 10;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
     display: flex;
     flex-direction: column;
     margin-top: 10px;
@@ -278,10 +275,13 @@ body {
 
     font-family: Edumaxisharp, sans-serif;
     color: rgb(255, 255, 255);
-    font-size: 60px;
+    font-size: 40px;
     font-weight: 300;
     text-transform: uppercase;
     margin-left: 0px;
+    word-break: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .articleText {
