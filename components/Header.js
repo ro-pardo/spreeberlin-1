@@ -49,7 +49,7 @@ const Header = () => {
                         <Link href='/geschichte'>
                             <a
                                 className={`nav-link w-nav-link ${
-                                    router.pathname == '/geschichte'
+                                    router.pathname == '/geschichte' || router.pathname.slice(0,11)=="/geschichte"
                                         ? `w--current`
                                         : ''
                                 }`}
@@ -60,7 +60,7 @@ const Header = () => {
                         <Link href='/aktuelles'>
                             <a
                                 className={`nav-link w-nav-link ${
-                                    router.pathname == '/aktuelles'
+                                    router.pathname == '/aktuelles' || router.pathname.slice(0,10)=="/aktuelles"
                                         ? `w--current`
                                         : ''
                                 }`}
@@ -72,7 +72,7 @@ const Header = () => {
                         <Link href='/visionen'>
                             <a
                                 className={`nav-link w-nav-link ${
-                                    router.pathname == '/visionen'
+                                    router.pathname == '/visionen' || router.pathname.slice(0,9)=="/visionen"
                                         ? `w--current`
                                         : ''
                                 }`}
@@ -83,7 +83,7 @@ const Header = () => {
                         <Link href='/info'>
                             <a
                                 className={`nav-link w-nav-link ${
-                                    router.pathname == '/info'
+                                    router.pathname == '/info' || router.pathname.slice(0,5)=="/info"
                                         ? `w--current`
                                         : ''
                                 }`}

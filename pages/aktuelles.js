@@ -25,7 +25,7 @@ export default function Aktuelles(props) {
                                         pic_url={item.pic_url}
                                         subheading1={item.subheading1}
                                         subheading2={item.subheading2}
-                                        link={`/geschichte/${item.id}`}
+                                        link={`/aktuelles/${item.id}`}
                                     />
                                 </Grid>
                             </>

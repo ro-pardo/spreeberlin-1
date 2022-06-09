@@ -284,6 +284,15 @@ body {
     margin-left: 0px;
 }
 
+.articleText {
+    font-family: Peakrounded, sans-serif;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 300;
+    text-align: left;
+    white-space: pre-line;
+}
+
 .myToggleButton {
 }
 
