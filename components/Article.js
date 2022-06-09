@@ -16,7 +16,7 @@ const Article = (props) => {
                             src={`/static/images/${props.pic_url}`}
                             // width='600px'
                             // height='450px'
-                            // layout="fixed"
+                            // layout="fill"
                             z-index={101}
                             className='content_image'
                             opacity={0.5}
