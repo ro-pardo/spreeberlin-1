@@ -68,7 +68,7 @@ export default function Geschichte(props) {
                                             pic_url={item.pic_url}
                                             subheading1={item.subheading1}
                                             subheading2={item.subheading2}
-                                            link={`/visionen/${item.id}`}
+                                            link={`/${props.moreType}/${item.id}`}
                                         />
                                     </Grid>
                                 </>
@@ -89,6 +89,7 @@ export async function getServerSideProps(context) {
 
     let moreCount = 0;
     let moreArticle = [];
+    let moreType = ""
 
     if (context.query.type == 'geschichte') {
         article = await prisma.geschichte.findMany();
@@ -98,6 +99,7 @@ export async function getServerSideProps(context) {
             skip: skip,
             take: 3,
         });
+        moreType = "aktuelles"
     }
 
     if (context.query.type == 'aktuelles') {
@@ -108,6 +110,7 @@ export async function getServerSideProps(context) {
             skip: skip,
             take: 3,
         });
+        moreType = "visionen"
     }
 
     if (context.query.type == 'visionen') {
@@ -118,6 +121,7 @@ export async function getServerSideProps(context) {
             skip: skip,
             take: 3,
         });
+        moreType = "geschichte"
     }
 
     const posts = JSON.parse(JSON.stringify(article.reverse()));
@@ -127,6 +131,6 @@ export async function getServerSideProps(context) {
     const more = JSON.parse(JSON.stringify(moreArticle.reverse()));
 
     return {
-        props: { posts, more }, // will be passed to the page component as props
+        props: { posts, more, moreType }, // will be passed to the page component as props
     };
 }
