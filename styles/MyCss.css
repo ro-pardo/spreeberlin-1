@@ -460,6 +460,18 @@ body {
     font-weight: 300;
     font-family: Peakrounded, sans-serif;
 }
+
+.myInfoImage {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    /* border: red solid 1px; */
+}
+.myInfoDivider {
+    padding-left: 16px;
+    padding-right: 16px;
+    width:auto;
+}
 @media screen and (max-width: 767px) {
     .myMenu {
         /* border: red solid 5px; */
