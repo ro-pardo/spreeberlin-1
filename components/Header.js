@@ -16,22 +16,15 @@ const Header = () => {
     return (
         <>
             <div
-                data-collapse='medium'
-                data-animation='default'
-                data-duration='400'
-                data-w-id='68b847b0-6442-084c-8200-708cd136ca5c'
-                data-easing='ease'
-                data-easing2='ease'
-                role='banner'
-                className='navbar-2 is-map w-nav'
+
             >
-                <div className='container-2 w-container'>
+                <div className='container-2 '>
                     <Link href='/'>
                         <a
                             aria-current='page'
-                            className='brand-2 w-nav-brand w--current'
+                            
                         >
-                            <Image
+                            <img
                                 src='/static/images/SpreeBerlin_Logo2.svg'
                                 loading='lazy'
                                 width='480'
@@ -39,7 +32,7 @@ const Header = () => {
                                 alt=''
                                 className='logo-image'
                                 marginleft={16}
-                            ></Image>
+                            ></img>
                         </a>
                     </Link>
                     <div className='menu-filler'></div>
@@ -100,7 +93,7 @@ const Header = () => {
                         </Link>
                     </div>
 
-                    <div className='menu-button w-nav-button myMenu'>
+                    <div className='myMenu'>
                         <Hamburger toggled={isOpen} toggle={setOpen} />
                         <div
                             data-is-ix2-target='1'
@@ -117,14 +110,13 @@ const Header = () => {
                         ></div>
                     </div>
                     {isOpen && (
-                        <nav role='navigation' className='myOpenMenu'>
+                        <nav className='myOpenMenu'>
                             <div className='mySpacer'></div>
                             <Link href='/'>
                                 <a
-                                    aria-current='page'
-                                    className={`mobile-nav-link-extra w-nav-link ${
+                                    className={`mobileMenuLink  ${
                                         router.pathname == '/'
-                                            ? `w--current`
+                                            ? `current`
                                             : ''
                                     }`}
                                     onClick={() => {
@@ -137,9 +129,9 @@ const Header = () => {
                             <Link href='/aktuelles'>
                                 <a
                                     href='news/news-overview.html'
-                                    className={`mobile-nav-link-extra w-nav-link ${
+                                    className={`mobileMenuLink  ${
                                         router.pathname == '/aktuelles'
-                                            ? `w--current`
+                                            ? `current`
                                             : ''
                                     }`}
                                     onClick={() => {
@@ -153,9 +145,9 @@ const Header = () => {
                                 <a
                                     href='/static/history/geschichte.html'
                                     layout='fill'
-                                    className={`mobile-nav-link-extra w-nav-link ${
+                                    className={`mobileMenuLink  ${
                                         router.pathname == '/geschichte'
-                                            ? `w--current`
+                                            ? `current`
                                             : ''
                                     }`}
                                     onClick={() => {
@@ -168,9 +160,9 @@ const Header = () => {
                             <Link href='/visionen'>
                                 <a
                                     href='vision/vision.html'
-                                    className={`mobile-nav-link-extra w-nav-link ${
+                                    className={`mobileMenuLink  ${
                                         router.pathname == '/visionen'
-                                            ? `w--current`
+                                            ? `current`
                                             : ''
                                     }`}
                                     onClick={() => {
@@ -183,9 +175,9 @@ const Header = () => {
                             <Link href='/info'>
                                 <a
                                     href='info.html'
-                                    className={`mobile-nav-link-extra w-nav-link ${
+                                    className={`mobileMenuLink  ${
                                         router.pathname == '/info'
-                                            ? `w--current`
+                                            ? `current`
                                             : ''
                                     }`}
                                     onClick={() => {

@@ -1,86 +1,87 @@
-import Head from 'next/head';
 import Image from 'next/image';
 
 import Article from '../components/Article';
-
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
 import { useEffect, useState } from 'react';
 
 import prisma from '../lib/prisma.tsx';
 
 export default function Visionen(props) {
     const [moreOpen, setMoreOpen] = useState(false);
+
     return (
         <>
-            <div className='content'>
-                <div className='container-rubriken'>
-                    <h1 className='heading-3'>VISIONEN</h1>
-                    <div className='w-layout-grid grid'>
-                        {props.posts.map((item) => {
-                            return (
-                                <>
+            <h1 className='heading-3'>VISIONEN</h1>
+
+            <Box display='flex' alignItems='center' margin={2}>
+                <Grid container spacing={1}>
+                    {props.posts.map((item) => {
+                        return (
+                            <>
+                                <Grid item xs={12} md={4}>
                                     <Article
                                         name={item.name}
                                         pic_url={item.pic_url}
                                         subheading1={item.subheading1}
                                         subheading2={item.subheading2}
-                                        link={`/visionen/${item.id}`}
+                                        link={`/geschichte/${item.id}`}
                                     />
+                                </Grid>
+                            </>
+                        );
+                    })}
+                </Grid>{' '}
+            </Box>
+
+            <div>
+                <div
+                    className='moreButton'
+                    onClick={() => {
+                        setMoreOpen(!moreOpen);
+                    }}
+                >
+                    WEITERES
+                </div>
+                <div className='mySpacer'></div>
+            </div>
+            {moreOpen && (
+                <Box display='flex' alignItems='center' margin={2}>
+                    <Grid container spacing={1}>
+                        {props.more.map((item) => {
+                            return (
+                                <>
+                                    <Grid item xs={12} md={4}>
+                                        <Article
+                                            name={item.name}
+                                            pic_url={item.pic_url}
+                                            subheading1={item.subheading1}
+                                            subheading2={item.subheading2}
+                                            link={`/visionen/${item.id}`}
+                                        />
+                                    </Grid>
                                 </>
                             );
                         })}
-                    </div>
-                </div>
-                         <div className='container-rubriken'>
-                    <div
-                        // style='height:80px'
-                        className='accordion-item-2 w-dropdown'
-                    >
-                        <div>
-                            <div
-                                className='moreButton'
-                                onClick={() => {
-                                    setMoreOpen(!moreOpen);
-                                }}
-                            >
-                                WEITERES
-                            </div>
-                        </div>
-                        {moreOpen && (
-                            <div className='w-layout-grid grid'>
-                                {props.more.map((item) => {
-                                    return (
-                                        <>
-                                            <Article
-                                                name={item.name}
-                                                pic_url={item.pic_url}
-                                                subheading1={item.subheading1}
-                                                subheading2={item.subheading2}
-                                                link={`/aktuelles/${item.id}`}
-                                            />
-                                        </>
-                                    );
-                                })}
-                            </div>
-                        )}
-                        <div className='mySpacer'></div>
-                    </div>
-                </div>
-            </div>
+                    </Grid>
+                </Box>
+            )}
+            <div className='mySpacer'></div>
         </>
     );
 }
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
     const article = await prisma.visionen.findMany();
 
     const posts = JSON.parse(JSON.stringify(article.reverse()));
 
     //console.log('getting static props', posts);
 
-    const moreCount = await prisma.aktuelles.count();
+    const moreCount = await prisma.geschichte.count();
     const skip = Math.floor(Math.random() * moreCount);
 
-    const moreArticle = await prisma.aktuelles.findMany({
+    const moreArticle = await prisma.geschichte.findMany({
         skip: skip,
         take: 3,
     });

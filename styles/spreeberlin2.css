@@ -411,9 +411,7 @@ blockquote {
     grid-template-rows: auto auto;
 }
 
-.logo-image {
-    display: block;
-}
+
 
 .logo-img-mobile {
     display: block;
@@ -1118,7 +1116,7 @@ blockquote {
     font-size: 30px;
     font-weight: 300;
     text-transform: uppercase;
-    margin-bottom: 30px;
+   margin-left: 16px;
 }
 
 .heading-3.info {
@@ -1262,9 +1260,7 @@ blockquote {
     font-weight: 400;
 }
 
-.logo-image-2 {
-    display: block;
-}
+
 
 .container-3 {
     max-width: 100%;
@@ -1888,7 +1884,7 @@ blockquote {
     flex: 0 0 auto;
     font-family: Edumaxisharp, sans-serif;
     color: #fff;
-    font-size: 60px;
+    font-size: 50px;
     /* text-align: center; */
     white-space: normal;
 }
@@ -4599,9 +4595,6 @@ blockquote {
         font-weight: 400;
     }
 
-    .logo-image-2 {
-        width: 200px;
-    }
 
     .brand-3 {
         display: none;
@@ -5231,9 +5224,7 @@ blockquote {
         padding: 10px 0px 10px 10px;
     }
 
-    .logo-image {
-        max-width: 80%;
-    }
+
 
     .footer {
         padding: 40px 20px;
@@ -5746,10 +5737,7 @@ blockquote {
         height: 120px;
     }
 
-    .logo-image {
-        max-width: 100%;
-        padding-left: 5px;
-    }
+
 
     .mobile-logo.w--current {
         width: 250px;

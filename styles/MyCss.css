@@ -2,10 +2,8 @@
     position: absolute;
     top: 100px;
     background-color: rgba(36, 115, 255, 1);
-    width: 98vw;
+    width: 100vw;
     height: 100%;
-    left: 50%;
-    transform: translate(-50%);
 }
 
 .markerPopup {
@@ -92,26 +90,19 @@
 
 .card_content {
     position: relative;
-    /* padding: 5px; */
     z-index: 1;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
     flex-direction: column;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
     justify-content: center;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
     align-items: center;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     cursor: pointer;
-    /* padding: 5px; */
+    padding-left: 0px;
+    margin-left: 0px;
+    padding-right: 0px;
+    margin-right: 0px;
+    margin-top: 5px;
 }
 
 .card_content:hover {
@@ -141,8 +132,15 @@
 }
 
 .content_image {
+    object-fit: contain;
+    width: 100%;
+
     border-radius: 10px;
     opacity: 0.7;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 0px;
+    margin-right: 0px;
 }
 
 .content_image:hover {
@@ -150,10 +148,6 @@
 }
 .noHover {
     pointer-events: none;
-}
-
-.mySpacer {
-    height: 10px;
 }
 
 .myChart {
@@ -178,16 +172,17 @@
     /* border: red solid 5px; */
     color: white;
     margin-top: -12px;
+    display: none;
     /* height: 100%; */
 }
 
 .myOpenMenu {
     position: absolute;
-    z-index: -1;
+    z-index: 1;
     top: 0vh;
     left: 0;
-    min-height: calc(100vh - calc(100vh - 100%));
-    /* min-height: -webkit-fill-available; */
+    /* min-height: calc(100vh - calc(100vh - 100%)); */
+    min-height: 100vh;
     background-color: rgba(36, 115, 255, 1);
 }
 
@@ -206,7 +201,7 @@
 }
 
 .mySpacer {
-    height: 100px;
+    height: 60px;
 }
 .myImageSpacer {
     height: 10px;
@@ -226,13 +221,7 @@ body {
     background-color: #2473ff;
     color: rgb(255, 255, 255);
 }
-.wrapper {
-    min-height: 100%;
 
-    /* Equal to height of footer */
-    /* But also accounting for potential margin-bottom of last child */
-    margin-bottom: -20px;
-}
 .myFooter,
 .push {
     height: 20px;
@@ -329,7 +318,7 @@ body {
 }
 
 .myContent {
-    margin-left: 16px;
+    /* margin-left: 16px; */
 }
 
 /* BUTTONS */
@@ -470,13 +459,52 @@ body {
 .myInfoDivider {
     padding-left: 16px;
     padding-right: 16px;
-    width:auto;
+    width: auto;
 }
+
+.MuiAccordion-root {
+    max-height: 96px;
+}
+.Mui-expanded {
+    max-height: 100%;
+}
+
+.mobileMenuLink {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 0px;
+    padding-bottom: 10px;
+    padding-left: 0px;
+    font-family: Edumaxisharp, sans-serif;
+    color: #fff;
+    font-size: 50px;
+    font-weight: 300;
+    text-align: center;
+    text-transform: uppercase;
+    z-index: 10000000;
+}
+
+.mobileMenuLink.current {
+    /* border: red solid 1px; */
+    color: #00ff48;
+    text-decoration: underline;
+}
+
+.logo-image {
+}
+
 @media screen and (max-width: 767px) {
+    .logo-image {
+        max-width: 80%;
+    }
     .myMenu {
         /* border: red solid 5px; */
         color: white;
-        margin-top: 24px;
+        display: inline;
+        z-index: 10000000;
     }
     .content {
         position: absolute;

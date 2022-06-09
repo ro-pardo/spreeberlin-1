@@ -29,6 +29,11 @@ const myTheme = createTheme({
         },
         text: { primary: '#ffffff' },
     },
+    accordion:{
+        root: {
+            maxHeight: "3px"
+        }
+    }
 });
 
 const Layout = ({ children }) => {

@@ -1,11 +1,13 @@
-import Head from 'next/head';
-import Image from 'next/image';
-
 import Grid from '@mui/material/Grid';
-import B from '@mui/material/Box';
+import Box from '@mui/material/Box';
 import Link from 'next/link';
 
-import { Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
+import {
+    Accordion,
+    AccordionSummary,
+    AccordionDetails,
+    Typography,
+} from '@mui/material';
 
 import { useEffect, useState } from 'react';
 
@@ -19,7 +21,6 @@ export default function Info(props) {
                         className='myInfoDivider'
                     />
                     <Accordion
-                        className='heading-4'
                         sx={{
                             backgroundColor: '#2473ff',
                             color: '#ffffff',
@@ -28,15 +29,18 @@ export default function Info(props) {
                             },
                         }}
                         elevation={0}
+                        disableGutters
                     >
-                        <AccordionSummary elevation={0}>INFO</AccordionSummary>
+                        <AccordionSummary elevation={0}>
+                            <p className='text-block-4'>INFO</p>
+                        </AccordionSummary>
                         <AccordionDetails elevation={0}>
                             <Grid container spacing={1}>
                                 <Grid
                                     item
                                     xs={12}
                                     md={4}
-                                    className='flowing-text'
+                                   
                                 >
                                     <p className='flowing-text'>
                                         Im Kontext der Klimakrise und des damit
@@ -77,7 +81,7 @@ export default function Info(props) {
                                     item
                                     xs={12}
                                     md={4}
-                                    className='flowing-text'
+                                
                                     container
                                     spacing={1}
                                 >
@@ -123,7 +127,6 @@ export default function Info(props) {
                         className='myInfoDivider'
                     />
                     <Accordion
-                        className='heading-4'
                         sx={{
                             backgroundColor: '#2473ff',
                             color: '#ffffff',
@@ -131,10 +134,12 @@ export default function Info(props) {
                                 display: 'none',
                             },
                         }}
+                        // className={classes.accordion}
                         elevation={0}
+                        disableGutters
                     >
                         <AccordionSummary elevation={0}>
-                            Relevanz
+                            <p className='text-block-4'>RELEVANZ</p>
                         </AccordionSummary>
                         <AccordionDetails elevation={0}>
                             <Grid container spacing={1}>
@@ -227,7 +232,6 @@ export default function Info(props) {
                         className='myInfoDivider'
                     />
                     <Accordion
-                        className='heading-4'
                         elevation={0}
                         sx={{
                             backgroundColor: '#2473ff',
@@ -235,9 +239,13 @@ export default function Info(props) {
                             '&:before': {
                                 display: 'none',
                             },
+                            maxHeight: '48px',
                         }}
+                        disableGutters
                     >
-                        <AccordionSummary elevation={0}>Bojen</AccordionSummary>
+                        <AccordionSummary elevation={0}>
+                            <p className='text-block-4'>BOJEN</p>
+                        </AccordionSummary>
                         <AccordionDetails elevation={0}>
                             <Grid container spacing={1}>
                                 <Grid
@@ -297,7 +305,6 @@ export default function Info(props) {
                         className='myInfoDivider'
                     />
                     <Accordion
-                        className='heading-4'
                         elevation={0}
                         sx={{
                             backgroundColor: '#2473ff',
@@ -305,9 +312,12 @@ export default function Info(props) {
                             '&:before': {
                                 display: 'none',
                             },
+                            maxHeight: '48px',
                         }}
                     >
-                        <AccordionSummary>Open Source</AccordionSummary>
+                        <AccordionSummary>
+                            <p className='text-block-4'>OPEN SOURCE</p>
+                        </AccordionSummary>
                         <AccordionDetails elevation={0}>
                             <Grid container spacing={1}>
                                 <Grid
@@ -336,7 +346,6 @@ export default function Info(props) {
                         className='myInfoDivider'
                     />
                     <Accordion
-                        className='heading-4'
                         elevation={0}
                         sx={{
                             backgroundColor: '#2473ff',
@@ -344,9 +353,12 @@ export default function Info(props) {
                             '&:before': {
                                 display: 'none',
                             },
+                            maxHeight: '48px',
                         }}
                     >
-                        <AccordionSummary>Partner</AccordionSummary>
+                        <AccordionSummary>
+                            <p className='text-block-4'>PARTNER</p>
+                        </AccordionSummary>
                         <AccordionDetails elevation={0}>
                             <Grid container spacing={1}>
                                 <Grid item xs={12} md={2}>
@@ -391,10 +403,9 @@ export default function Info(props) {
                     </Accordion>
                     <img
                         src='/static/images/Stroke-1.svg'
-                         className='myInfoDivider'
+                        className='myInfoDivider'
                     />
                     <Accordion
-                        className='heading-4'
                         elevation={0}
                         sx={{
                             backgroundColor: '#2473ff',
@@ -402,9 +413,12 @@ export default function Info(props) {
                             '&:before': {
                                 display: 'none',
                             },
+                            maxHeight: '48px',
                         }}
                     >
-                        <AccordionSummary>Kontakt</AccordionSummary>
+                        <AccordionSummary>
+                            <p className='text-block-4'>KONTAKT</p>
+                        </AccordionSummary>
                         <AccordionDetails elevation={0}>
                             <div className='infoBox'>
                                 <Grid container spacing={1}>
@@ -445,10 +459,9 @@ export default function Info(props) {
                     </Accordion>
                     <img
                         src='/static/images/Stroke-1.svg'
-                      className='myInfoDivider'
+                        className='myInfoDivider'
                     />
                     <Accordion
-                        className='heading-4'
                         elevation={0}
                         sx={{
                             backgroundColor: '#2473ff',
@@ -456,9 +469,12 @@ export default function Info(props) {
                             '&:before': {
                                 display: 'none',
                             },
+                            maxHeight: '32px',
                         }}
                     >
-                        <AccordionSummary>Impressum</AccordionSummary>
+                        <AccordionSummary>
+                            <p className='text-block-4'>IMPRESSUM</p>
+                        </AccordionSummary>
                         <AccordionDetails elevation={0}>
                             <div className='infoBox'>
                                 <div>
@@ -506,9 +522,10 @@ export default function Info(props) {
                         </AccordionDetails>
                         <img
                             src='/static/images/Stroke-1.svg'
-                           className='myInfoDivider'
+                            className='myInfoDivider'
                         />
                     </Accordion>
+                    <div className='mySpacer'></div>
                 </div>
             </div>
         </>

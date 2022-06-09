@@ -7,20 +7,19 @@ import { useEffect, useState } from 'react';
 
 import prisma from '../lib/prisma.tsx';
 
-import Footer from '../components/Footer';
-
 export default function Geschichte(props) {
     const [moreOpen, setMoreOpen] = useState(false);
 
     return (
         <>
-            <div className='content'>
-                <div className='container-rubriken'>
-                    <h1 className='heading-3'>GESCHICHTE</h1>
-                    <div className='w-layout-grid grid'>
-                        {props.posts.map((item) => {
-                            return (
-                                <>
+            <h1 className='heading-3'>GESCHICHTE</h1>
+
+            <Box display='flex' alignItems='center' margin={2}>
+                <Grid container spacing={1}>
+                    {props.posts.map((item) => {
+                        return (
+                            <>
+                                <Grid item xs={12} md={4}>
                                     <Article
                                         name={item.name}
                                         pic_url={item.pic_url}
@@ -28,47 +27,45 @@ export default function Geschichte(props) {
                                         subheading2={item.subheading2}
                                         link={`/geschichte/${item.id}`}
                                     />
+                                </Grid>
+                            </>
+                        );
+                    })}
+                </Grid>{' '}
+            </Box>
+
+            <div>
+                <div
+                    className='moreButton'
+                    onClick={() => {
+                        setMoreOpen(!moreOpen);
+                    }}
+                >
+                    WEITERES
+                </div>
+                <div className='mySpacer'></div>
+            </div>
+            {moreOpen && (
+                <Box display='flex' alignItems='center' margin={2}>
+                    <Grid container spacing={1}>
+                        {props.more.map((item) => {
+                            return (
+                                <>
+                                    <Grid item xs={12} md={4}>
+                                        <Article
+                                            name={item.name}
+                                            pic_url={item.pic_url}
+                                            subheading1={item.subheading1}
+                                            subheading2={item.subheading2}
+                                            link={`/visionen/${item.id}`}
+                                        />
+                                    </Grid>
                                 </>
                             );
                         })}
-                    </div>
-                </div>
-                <div className='container-rubriken'>
-                    <div
-                        // style='height:80px'
-                        className='accordion-item-2 w-dropdown'
-                    >
-                        <div>
-                            <div
-                                className='moreButton'
-                                onClick={() => {
-                                    setMoreOpen(!moreOpen);
-                                }}
-                            >
-                                WEITERES
-                            </div>
-                        </div>
-                        {moreOpen && (
-                            <div className='w-layout-grid grid'>
-                                {props.more.map((item) => {
-                                    return (
-                                        <>
-                                            <Article
-                                                name={item.name}
-                                                pic_url={item.pic_url}
-                                                subheading1={item.subheading1}
-                                                subheading2={item.subheading2}
-                                                link={`/visionen/${item.id}`}
-                                            />
-                                        </>
-                                    );
-                                })}
-                            </div>
-                        )}
-                        <div className='mySpacer'></div>
-                    </div>
-                </div>
-            </div>
+                    </Grid>
+                </Box>
+            )} <div className='mySpacer'></div>
         </>
     );
 }
@@ -80,10 +77,10 @@ export async function getStaticProps(context) {
 
     //console.log('getting static props', posts);
 
-    const moreCount = await prisma.visionen.count();
+    const moreCount = await prisma.aktuelles.count();
     const skip = Math.floor(Math.random() * moreCount);
 
-    const moreArticle = await prisma.visionen.findMany({
+    const moreArticle = await prisma.aktuelles.findMany({
         skip: skip,
         take: 3,
     });
