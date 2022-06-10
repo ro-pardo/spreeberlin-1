@@ -32,7 +32,7 @@ export default function Info(props) {
                         disableGutters
                     >
                         <AccordionSummary elevation={0}>
-                            <p className='infoAccordionText' >INFO</p>
+                            <p className='infoAccordionText'>INFO</p>
                         </AccordionSummary>
                         <AccordionDetails elevation={0}>
                             <Grid container spacing={1}>
@@ -96,11 +96,11 @@ export default function Info(props) {
                                 >
                                     <Grid item xs={12} m={4}>
                                         <Box p={8}>
-                                        <img
-                                            src='/static/images/HC-PCDesign-p-500.png'
-                                            className='myInfoImage'
-                                            
-                                        ></img></Box>
+                                            <img
+                                                src='/static/images/HC-PCDesign-p-500.png'
+                                                className='myInfoImage'
+                                            ></img>
+                                        </Box>
                                     </Grid>
                                     <Grid item xs={12}>
                                         <img
@@ -462,14 +462,11 @@ export default function Info(props) {
                                 <Grid container spacing={1}>
                                     <Grid item xs={12} className='myFlex'>
                                         <p className='flowing-text'>
-                                            {'  '}
                                             <strong> Symbiotic LAB </strong>
-                                            {'  '}
                                         </p>
                                         <Link href='mailto:info@symbiotic-lab.com'>
                                             <a className='flowing-text'>
-                                                {'  '}
-                                                info(at)symbiotic-lab.com {'  '}
+                                                info(at)symbiotic-lab.com
                                             </a>
                                         </Link>
                                         <Link href='https://www.symbiotic-lab.com'>

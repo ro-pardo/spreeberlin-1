@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Cross as Hamburger } from 'hamburger-react'
+import { Cross as Hamburger } from 'hamburger-react';
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
@@ -139,13 +139,12 @@ const Header = () => {
                     sx={{
                         color: '#fff',
                         backgroundColor: 'rgba(36, 115, 255, 1)',
-                        zIndex: - 1,
+                        zIndex: -1,
                     }}
                     open={isOpen}
                     onClick={handleClose}
                 >
-                    
-                    <Box>
+                    <Box >
                         <Link href='/'>
                             <a
                                 className={`mobileMenuLink  ${
@@ -162,7 +161,6 @@ const Header = () => {
                         <Link href='/geschichte'>
                             <a
                                 href='/static/history/geschichte.html'
-                                layout='fill'
                                 className={`mobileMenuLink  ${
                                     router.asPath == '/geschichte'
                                         ? `current`
