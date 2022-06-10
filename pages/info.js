@@ -1,3 +1,4 @@
+import React from 'react';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Link from 'next/link';
@@ -12,6 +13,14 @@ import {
 import { useEffect, useState } from 'react';
 
 export default function Info(props) {
+    const [expandedPanel, setExpandedPanel] = useState(false);
+
+    const handleAccordionChange = (panel) => (event, isExpanded) => {
+        console.log({ event, isExpanded });
+        setExpandedPanel(isExpanded ? panel : false);
+    };
+
+
     return (
         <>
             <div className='content'>
@@ -30,6 +39,8 @@ export default function Info(props) {
                         }}
                         elevation={0}
                         disableGutters
+                        expanded={expandedPanel === 'panel1'}
+                        onChange={handleAccordionChange('panel1')}
                     >
                         <AccordionSummary elevation={0}>
                             <p className='infoAccordionText'>INFO</p>
@@ -127,6 +138,8 @@ export default function Info(props) {
                         // className={classes.accordion}
                         elevation={0}
                         disableGutters
+                        expanded={expandedPanel === 'panel2'}
+                        onChange={handleAccordionChange('panel2')}
                     >
                         <AccordionSummary elevation={0}>
                             <p className='infoAccordionText'>RELEVANZ</p>
@@ -283,6 +296,8 @@ export default function Info(props) {
                             },
                         }}
                         disableGutters
+                        expanded={expandedPanel === 'panel3'}
+                        onChange={handleAccordionChange('panel3')}
                     >
                         <AccordionSummary elevation={0}>
                             <p className='infoAccordionText'>BOJEN</p>
@@ -354,6 +369,8 @@ export default function Info(props) {
                                 display: 'none',
                             },
                         }}
+                        expanded={expandedPanel === 'panel4'}
+                        onChange={handleAccordionChange('panel4')}
                     >
                         <AccordionSummary>
                             <p className='infoAccordionText'>OPEN SOURCE</p>
@@ -394,6 +411,8 @@ export default function Info(props) {
                                 display: 'none',
                             },
                         }}
+                        expanded={expandedPanel === 'panel5'}
+                        onChange={handleAccordionChange('panel5')}
                     >
                         <AccordionSummary>
                             <p className='infoAccordionText'>PARTNER</p>
@@ -453,6 +472,8 @@ export default function Info(props) {
                                 display: 'none',
                             },
                         }}
+                        expanded={expandedPanel === 'panel6'}
+                        onChange={handleAccordionChange('panel6')}
                     >
                         <AccordionSummary>
                             <p className='infoAccordionText'>KONTAKT</p>
@@ -508,6 +529,8 @@ export default function Info(props) {
                                 display: 'none',
                             },
                         }}
+                        expanded={expandedPanel === 'panel7'}
+                        onChange={handleAccordionChange('panel7')}
                     >
                         <AccordionSummary>
                             <p className='infoAccordionText'>IMPRESSUM</p>

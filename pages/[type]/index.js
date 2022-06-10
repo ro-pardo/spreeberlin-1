@@ -13,22 +13,12 @@ export default function Geschichte(props) {
     const [moreOpen, setMoreOpen] = useState(false);
 
     const router = useRouter();
-    //console.log(router.query);
 
-    // useEffect(() => {
-    //     console.log('content type udated');
-
-    //     setMoreOpen(false);
-
-    // }, []);
-        
-        useEffect(() => {
-            
+    useEffect(() => {
         console.log('content type udated');
 
         setMoreOpen(false);
-
-    },[router.asPath]);
+    }, [router.asPath]);
 
     return (
         <>

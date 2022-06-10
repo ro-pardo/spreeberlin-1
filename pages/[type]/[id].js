@@ -17,6 +17,12 @@ export default function Artikel(props) {
 
     const [moreOpen, setMoreOpen] = useState(false);
 
+    useEffect(() => {
+        console.log('content type udated');
+
+        setMoreOpen(false);
+    }, [router.asPath]);
+
     return (
         <>
             <Box sx={{ minHeight: '128px' }}></Box>
