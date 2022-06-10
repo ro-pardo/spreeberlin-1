@@ -5,6 +5,8 @@ import Hamburger from 'hamburger-react';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
+import { Backdrop, Box, AppBar, Grid, Toolbar } from '@mui/material';
+
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -12,35 +14,51 @@ const Header = () => {
     //const [menuVisible, setMenuVisible] = useState(true);
     const router = useRouter();
     const [isOpen, setOpen] = useState(false);
-
+    console.log('Header', router.query);
+    const handleClose = () => {
+        setOpen(false);
+    };
     return (
         <>
-            <div
-
+            <AppBar
+                sx={{
+                    zIndex: 2100,
+                    backgroundColor: '#2473FF',
+                }}
+                elevation={0}
             >
-                <div className='container-2 '>
-                    <Link href='/'>
-                        <a
-                            aria-current='page'
-                            
-                        >
-                            <img
-                                src='/static/images/SpreeBerlin_Logo2.svg'
-                                loading='lazy'
-                                width='480'
-                                height='65'
-                                alt=''
-                                className='logo-image'
-                                marginleft={16}
-                            ></img>
-                        </a>
-                    </Link>
-                    <div className='menu-filler'></div>
-                    <div className='main-nav-menu'>
+                <Box display='flex'>
+                    <Box sx={{ flexGrow: 1 }} p={1}>
+                        <Link href='/'>
+                            <a>
+                                <Box sx={{ zIndex: 2000 }}>
+                                    <img
+                                        src='/static/images/SpreeBerlin_Logo2.svg'
+                                        loading='lazy'
+                                        width='480'
+                                        height='80px'
+                                        alt=''
+                                        className='logo-image'
+                                        marginleft={16}
+                                        zIndex={1000000}
+                                    ></img>
+                                </Box>
+                            </a>
+                        </Link>
+                    </Box>
+
+                    <Box
+                        sx={{
+                            marginTop: '32px',
+                            marginRight: '16px',
+                            zIndex: 1000,
+                        }}
+                        display={{ xs: 'none', lg: 'inline' }}
+                    >
                         <Link href='/'>
                             <a
-                                className={`nav-link w-nav-link ${
-                                    router.pathname == '/' ? `w--current` : ''
+                                className={`menuLink ${
+                                    router.pathname == '/' ? `current` : ''
                                 }`}
                             >
                                 KARTE
@@ -48,9 +66,9 @@ const Header = () => {
                         </Link>
                         <Link href='/geschichte'>
                             <a
-                                className={`nav-link w-nav-link ${
-                                    router.pathname == '/geschichte' || router.pathname.slice(0,11)=="/geschichte"
-                                        ? `w--current`
+                                className={`menuLink ${
+                                    router.asPath == '/geschichte'
+                                        ? `current`
                                         : ''
                                 }`}
                             >
@@ -59,9 +77,9 @@ const Header = () => {
                         </Link>
                         <Link href='/aktuelles'>
                             <a
-                                className={`nav-link w-nav-link ${
-                                    router.pathname == '/aktuelles' || router.pathname.slice(0,10)=="/aktuelles"
-                                        ? `w--current`
+                                className={`menuLink ${
+                                    router.query.type == 'aktuelles'
+                                        ? `current`
                                         : ''
                                 }`}
                             >
@@ -71,9 +89,9 @@ const Header = () => {
 
                         <Link href='/visionen'>
                             <a
-                                className={`nav-link w-nav-link ${
-                                    router.pathname == '/visionen' || router.pathname.slice(0,9)=="/visionen"
-                                        ? `w--current`
+                                className={`menuLink ${
+                                    router.asPath == '/visionen'
+                                        ? `current`
                                         : ''
                                 }`}
                             >
@@ -82,115 +100,126 @@ const Header = () => {
                         </Link>
                         <Link href='/info'>
                             <a
-                                className={`nav-link w-nav-link ${
-                                    router.pathname == '/info' || router.pathname.slice(0,5)=="/info"
-                                        ? `w--current`
-                                        : ''
+                                className={`menuLink ${
+                                    router.pathname == '/info' ? `current` : ''
                                 }`}
                             >
                                 Info
                             </a>
                         </Link>
-                    </div>
+                    </Box>
 
-                    <div className='myMenu'>
+                    <Box
+                        display={{ xs: 'block', lg: 'none' }}
+                        sx={{
+                            marginTop: 'auto',
+                            marginBottom: 'auto',
+                            marginRight: '16px',
+                            zIndex: 1000000,
+                        }}
+                    >
                         <Hamburger toggled={isOpen} toggle={setOpen} />
-                        <div
-                            data-is-ix2-target='1'
-                            className='lottie-animation'
-                            data-w-id='68b847b0-6442-084c-8200-708cd136ca6b'
-                            data-animation-type='lottie'
-                            data-src='documents/lottieflow-menu-nav-07-ffffff-easey.json'
-                            data-loop='0'
-                            data-direction='1'
-                            data-autoplay='0'
-                            data-renderer='svg'
-                            data-default-duration='2.4791666666666665'
-                            data-duration='0'
-                        ></div>
-                    </div>
-                    {isOpen && (
-                        <nav className='myOpenMenu'>
-                            <div className='mySpacer'></div>
-                            <Link href='/'>
-                                <a
-                                    className={`mobileMenuLink  ${
-                                        router.pathname == '/'
-                                            ? `current`
-                                            : ''
-                                    }`}
-                                    onClick={() => {
-                                        setOpen(false);
-                                    }}
-                                >
-                                    Karte
-                                </a>
-                            </Link>
-                            <Link href='/aktuelles'>
-                                <a
-                                    href='news/news-overview.html'
-                                    className={`mobileMenuLink  ${
-                                        router.pathname == '/aktuelles'
-                                            ? `current`
-                                            : ''
-                                    }`}
-                                    onClick={() => {
-                                        setOpen(false);
-                                    }}
-                                >
-                                    Aktuelles
-                                </a>
-                            </Link>
-                            <Link href='/geschichte'>
-                                <a
-                                    href='/static/history/geschichte.html'
-                                    layout='fill'
-                                    className={`mobileMenuLink  ${
-                                        router.pathname == '/geschichte'
-                                            ? `current`
-                                            : ''
-                                    }`}
-                                    onClick={() => {
-                                        setOpen(false);
-                                    }}
-                                >
-                                    Geschichte
-                                </a>
-                            </Link>
-                            <Link href='/visionen'>
-                                <a
-                                    href='vision/vision.html'
-                                    className={`mobileMenuLink  ${
-                                        router.pathname == '/visionen'
-                                            ? `current`
-                                            : ''
-                                    }`}
-                                    onClick={() => {
-                                        setOpen(false);
-                                    }}
-                                >
-                                    VISIONEN
-                                </a>
-                            </Link>
-                            <Link href='/info'>
-                                <a
-                                    href='info.html'
-                                    className={`mobileMenuLink  ${
-                                        router.pathname == '/info'
-                                            ? `current`
-                                            : ''
-                                    }`}
-                                    onClick={() => {
-                                        setOpen(false);
-                                    }}
-                                >
-                                    info
-                                </a>
-                            </Link>
-                        </nav>
-                    )}
-                </div>
-            </div>
+                        {/* <div
+                                data-is-ix2-target='1'
+                                className='lottie-animation'
+                                data-w-id='68b847b0-6442-084c-8200-708cd136ca6b'
+                                data-animation-type='lottie'
+                                data-src='documents/lottieflow-menu-nav-07-ffffff-easey.json'
+                                data-loop='0'
+                                data-direction='1'
+                                data-autoplay='0'
+                                data-renderer='svg'
+                                data-default-duration='2.4791666666666665'
+                                data-duration='0'
+                            ></div> */}
+                    </Box>
+                </Box>
+
+                <Backdrop
+                    sx={{
+                        color: '#fff',
+                        backgroundColor: 'rgba(36, 115, 255, 1)',
+                        zIndex: 1000,
+                    }}
+                    open={isOpen}
+                    onClick={handleClose}
+                >
+                    <Box>
+                        <Link href='/'>
+                            <a
+                                className={`mobileMenuLink  ${
+                                    router.pathname == '/' ? `current` : ''
+                                }`}
+                                onClick={() => {
+                                    setOpen(false);
+                                }}
+                            >
+                                Karte
+                            </a>
+                        </Link>
+
+                        <Link href='/geschichte'>
+                            <a
+                                href='/static/history/geschichte.html'
+                                layout='fill'
+                                className={`mobileMenuLink  ${
+                                    router.asPath == '/geschichte'
+                                        ? `current`
+                                        : ''
+                                }`}
+                                onClick={() => {
+                                    setOpen(false);
+                                }}
+                            >
+                                Geschichte
+                            </a>
+                        </Link>
+                        <Link href='/aktuelles'>
+                            <a
+                                href='news/news-overview.html'
+                                className={`mobileMenuLink  ${
+                                    router.asPath == '/aktuelles'
+                                        ? `current`
+                                        : ''
+                                }`}
+                                onClick={() => {
+                                    setOpen(false);
+                                }}
+                            >
+                                Aktuelles
+                            </a>
+                        </Link>
+                        <Link href='/visionen'>
+                            <a
+                                href='vision/vision.html'
+                                className={`mobileMenuLink  ${
+                                    router.asPath == '/visionen'
+                                        ? `current`
+                                        : ''
+                                }`}
+                                onClick={() => {
+                                    setOpen(false);
+                                }}
+                            >
+                                VISIONEN
+                            </a>
+                        </Link>
+                        <Link href='/info'>
+                            <a
+                                href='info.html'
+                                className={`mobileMenuLink  ${
+                                    router.asPath == '/info' ? `current` : ''
+                                }`}
+                                onClick={() => {
+                                    setOpen(false);
+                                }}
+                            >
+                                info
+                            </a>
+                        </Link>
+                    </Box>
+                </Backdrop>
+            </AppBar>
         </>
     );
 };

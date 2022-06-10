@@ -29,16 +29,16 @@ const myTheme = createTheme({
         },
         text: { primary: '#ffffff' },
     },
-    accordion:{
+    accordion: {
         root: {
-            maxHeight: "3px"
-        }
-    }
+            maxHeight: '3px',
+        },
+    },
 });
 
 const Layout = ({ children }) => {
     const router = useRouter();
-    console.log(router);
+    console.log('Layout', router);
     return (
         <>
             <ThemeProvider theme={myTheme}>

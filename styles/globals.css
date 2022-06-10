@@ -346,9 +346,7 @@ blockquote {
     grid-template-rows: auto auto;
 }
 
-.logo-image {
-    display: block;
-}
+
 
 .logo-img-mobile {
     display: block;
@@ -1056,9 +1054,7 @@ blockquote {
     font-weight: 400;
 }
 
-.logo-image-2 {
-    display: block;
-}
+
 
 .container-3 {
     max-width: 100%;
@@ -1642,9 +1638,7 @@ blockquote {
         font-weight: 400;
     }
 
-    .logo-image-2 {
-        width: 200px;
-    }
+
 
     .brand-3 {
         display: none;
@@ -1836,9 +1830,6 @@ blockquote {
         left: 0px;
     }
 
-    .logo-image {
-        max-width: 80%;
-    }
 
     .footer {
         padding: 40px 20px;
@@ -2025,9 +2016,7 @@ blockquote {
         height: 110px;
     }
 
-    .logo-image {
-        max-width: 100%;
-    }
+
 
     .mobile-logo.w--current {
         width: 250px;

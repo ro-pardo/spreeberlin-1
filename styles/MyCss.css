@@ -178,7 +178,7 @@
 
 .myOpenMenu {
     position: absolute;
-    z-index: 1;
+    z-index: 2;
     top: 0vh;
     left: 0;
     /* min-height: calc(100vh - calc(100vh - 100%)); */
@@ -283,7 +283,6 @@ body {
     overflow: hidden;
     text-overflow: ellipsis;
 }
-
 .articleText {
     font-family: Peakrounded, sans-serif;
     color: #fff;
@@ -291,9 +290,6 @@ body {
     font-weight: 300;
     text-align: left;
     white-space: pre-line;
-}
-
-.myToggleButton {
 }
 
 .myFlex {
@@ -466,16 +462,29 @@ body {
     /* border: red solid 1px; */
 }
 .myInfoDivider {
-    padding-left: 16px;
-    padding-right: 16px;
-    width: auto;
+    padding-left: 8px;
+    padding-right: 8px;
+    width: 100vw;
+    padding-top: 32px;
 }
 
 .MuiAccordion-root {
-    max-height: 96px;
+    max-height: 64px;
 }
 .Mui-expanded {
     max-height: 100%;
+}
+
+.infoAccordionText {
+    width: 100%;
+    margin-top: auto;
+    margin-bottom: auto;
+    flex: 0 0 auto;
+    font-family: Edumaxisharp, sans-serif;
+    color: #fff;
+    font-size: 50px;
+    /* text-align: center; */
+    white-space: normal;
 }
 
 .mobileMenuLink {
@@ -493,7 +502,6 @@ body {
     font-weight: 300;
     text-align: center;
     text-transform: uppercase;
-    z-index: 10000000;
 }
 
 .mobileMenuLink.current {
@@ -502,12 +510,25 @@ body {
     text-decoration: underline;
 }
 
-.logo-image {
+.menuLink {
+    padding-left: 20px;
+    flex: 0 auto;
+    font-family: Peakrounded, sans-serif;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 300;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.menuLink.current {
+    color: #00ff48;
+    text-decoration: underline;
 }
 
 @media screen and (max-width: 767px) {
     .logo-image {
-        max-width: 80%;
+        max-width: 100%;
     }
     .myMenu {
         /* border: red solid 5px; */

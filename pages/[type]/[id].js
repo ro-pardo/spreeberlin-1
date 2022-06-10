@@ -19,12 +19,12 @@ export default function Artikel(props) {
 
     return (
         <>
+            <Box sx={{ minHeight: '128px' }}></Box>
             <Grid container p={1}>
                 <Grid item xs={0} md={2}></Grid>
                 <Grid item xs={12} md={8}>
-                   
-                        <p className='heading-4'>{props.name}</p>
-                  
+                    <p className='heading-4'>{props.name}</p>
+
                     <div className='description'>
                         <strong>{props.subheading}</strong>
                     </div>
