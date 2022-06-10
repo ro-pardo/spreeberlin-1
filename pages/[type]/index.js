@@ -18,7 +18,7 @@ export default function Geschichte(props) {
     return (
         <>
         
-        <Box sx={{minHeight: "96px"}}></Box>
+        <Box sx={{minHeight: "128px"}}></Box>
             {router.query.type == 'geschichte' && (
                 <h1 className='heading-3'>GESCHICHTE</h1>
             )}
