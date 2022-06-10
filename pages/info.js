@@ -95,10 +95,12 @@ export default function Info(props) {
                                     spacing={1}
                                 >
                                     <Grid item xs={12} m={4}>
+                                        <Box p={8}>
                                         <img
                                             src='/static/images/HC-PCDesign-p-500.png'
                                             className='myInfoImage'
-                                        ></img>
+                                            
+                                        ></img></Box>
                                     </Grid>
                                     <Grid item xs={12}>
                                         <img
