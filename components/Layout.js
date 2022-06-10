@@ -38,7 +38,7 @@ const myTheme = createTheme({
 
 const Layout = ({ children }) => {
     const router = useRouter();
-    console.log('Layout', router);
+    //console.log('Layout', router);
     return (
         <>
             <ThemeProvider theme={myTheme}>

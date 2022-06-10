@@ -13,12 +13,26 @@ export default function Geschichte(props) {
     const [moreOpen, setMoreOpen] = useState(false);
 
     const router = useRouter();
-    console.log(router.query);
+    //console.log(router.query);
+
+    // useEffect(() => {
+    //     console.log('content type udated');
+
+    //     setMoreOpen(false);
+
+    // }, []);
+        
+        useEffect(() => {
+            
+        console.log('content type udated');
+
+        setMoreOpen(false);
+
+    },[router.asPath]);
 
     return (
         <>
-        
-        <Box sx={{minHeight: "132px"}}></Box>
+            <Box sx={{ minHeight: '132px' }}></Box>
             {router.query.type == 'geschichte' && (
                 <h1 className='heading-3'>GESCHICHTE</h1>
             )}
@@ -91,7 +105,7 @@ export async function getServerSideProps(context) {
 
     let moreCount = 0;
     let moreArticle = [];
-    let moreType = ""
+    let moreType = '';
 
     if (context.query.type == 'geschichte') {
         article = await prisma.geschichte.findMany();
@@ -101,7 +115,7 @@ export async function getServerSideProps(context) {
             skip: skip,
             take: 3,
         });
-        moreType = "aktuelles"
+        moreType = 'aktuelles';
     }
 
     if (context.query.type == 'aktuelles') {
@@ -112,7 +126,7 @@ export async function getServerSideProps(context) {
             skip: skip,
             take: 3,
         });
-        moreType = "visionen"
+        moreType = 'visionen';
     }
 
     if (context.query.type == 'visionen') {
@@ -123,7 +137,7 @@ export async function getServerSideProps(context) {
             skip: skip,
             take: 3,
         });
-        moreType = "geschichte"
+        moreType = 'geschichte';
     }
 
     const posts = JSON.parse(JSON.stringify(article.reverse()));
