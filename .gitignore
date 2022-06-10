@@ -5,7 +5,7 @@
 /.pnp
 .pnp.js
 pw
-/db.ts
+db.ts
 .env
 .env.local
 
