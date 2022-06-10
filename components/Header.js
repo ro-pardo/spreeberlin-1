@@ -14,7 +14,7 @@ const Header = () => {
     //const [menuVisible, setMenuVisible] = useState(true);
     const router = useRouter();
     const [isOpen, setOpen] = useState(false);
-    console.log('Header', router.query);
+    //console.log('Header', router.query);
     const handleClose = () => {
         setOpen(false);
     };

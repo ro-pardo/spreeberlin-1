@@ -15,7 +15,7 @@ export default function Geschichte(props) {
     const router = useRouter();
 
     useEffect(() => {
-        console.log('content type udated');
+        //console.log('content type udated');
 
         setMoreOpen(false);
     }, [router.asPath]);
@@ -89,7 +89,7 @@ export default function Geschichte(props) {
 }
 
 export async function getServerSideProps(context) {
-    console.log('context', context.query.type);
+    //console.log('context', context.query.type);
 
     let article = [];
 

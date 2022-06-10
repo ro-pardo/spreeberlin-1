@@ -151,11 +151,56 @@
 }
 
 .myChart {
-    position: absolute;
-    top: 5px;
+    /* position: absolute; */
+    margin-top: 32px;
     height: 100%;
-    width: 100%;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
     z-index: 100000;
+}
+
+.chartButton1 {
+    border: #00ff48 2px solid;
+    border-radius: 20px;
+    height: 40px;
+    width: 160px;
+    
+}
+.chartLabel1 {
+    color: #00ff48;
+}
+
+.chartButton2 {
+    border: #f03c28 2px solid;
+    border-radius: 20px;
+    width: 160px;
+    height: 40px;
+}
+
+.chartLabel2 {
+    color: #f03c28;
+}
+
+.chartButton3 {
+    border: #fff 2px solid;
+    border-radius: 20px;
+    height: 40px;
+    width: 160px;
+}
+
+.chartLabel3 {
+    color: #fff;
+}
+.chartButton4 {
+    border: #000 2px solid;
+    border-radius: 20px;
+    height: 40px;
+    width: 160px;
+}
+
+.chartLabel4 {
+    color: #000;
 }
 
 .myArticle {
@@ -325,7 +370,17 @@ body {
 .myContent {
     /* margin-left: 16px; */
 }
+.button-boje-container {
+    /* display: flex; */
+    /* align-items: center; */
+}
 
+.buttonContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
 /* BUTTONS */
 .myButton_Bojen {
     display: flex;

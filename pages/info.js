@@ -16,10 +16,9 @@ export default function Info(props) {
     const [expandedPanel, setExpandedPanel] = useState(false);
 
     const handleAccordionChange = (panel) => (event, isExpanded) => {
-        console.log({ event, isExpanded });
+        //console.log({ event, isExpanded });
         setExpandedPanel(isExpanded ? panel : false);
     };
-
 
     return (
         <>
@@ -140,6 +139,7 @@ export default function Info(props) {
                         disableGutters
                         expanded={expandedPanel === 'panel2'}
                         onChange={handleAccordionChange('panel2')}
+                        TransitionProps={{ unmountOnExit: true }}
                     >
                         <AccordionSummary elevation={0}>
                             <p className='infoAccordionText'>RELEVANZ</p>
@@ -298,6 +298,7 @@ export default function Info(props) {
                         disableGutters
                         expanded={expandedPanel === 'panel3'}
                         onChange={handleAccordionChange('panel3')}
+                        TransitionProps={{ unmountOnExit: true }}
                     >
                         <AccordionSummary elevation={0}>
                             <p className='infoAccordionText'>BOJEN</p>
@@ -371,6 +372,7 @@ export default function Info(props) {
                         }}
                         expanded={expandedPanel === 'panel4'}
                         onChange={handleAccordionChange('panel4')}
+                        TransitionProps={{ unmountOnExit: true }}
                     >
                         <AccordionSummary>
                             <p className='infoAccordionText'>OPEN SOURCE</p>
@@ -413,13 +415,14 @@ export default function Info(props) {
                         }}
                         expanded={expandedPanel === 'panel5'}
                         onChange={handleAccordionChange('panel5')}
+                        TransitionProps={{ unmountOnExit: true }}
                     >
                         <AccordionSummary>
                             <p className='infoAccordionText'>PARTNER</p>
                         </AccordionSummary>
                         <AccordionDetails elevation={0}>
                             <Grid container spacing={1}>
-                                <Grid item xs={12} lg={2}>
+                                <Grid item xs={12} lg={2} spacing={2}>
                                     <img src='/static/images/BMBF_Logo_DE.jpg'></img>
                                 </Grid>
                                 <Grid item xs={12} lg={2}>
@@ -474,6 +477,7 @@ export default function Info(props) {
                         }}
                         expanded={expandedPanel === 'panel6'}
                         onChange={handleAccordionChange('panel6')}
+                        TransitionProps={{ unmountOnExit: true }}
                     >
                         <AccordionSummary>
                             <p className='infoAccordionText'>KONTAKT</p>
@@ -531,6 +535,7 @@ export default function Info(props) {
                         }}
                         expanded={expandedPanel === 'panel7'}
                         onChange={handleAccordionChange('panel7')}
+                        TransitionProps={{ unmountOnExit: true }}
                     >
                         <AccordionSummary>
                             <p className='infoAccordionText'>IMPRESSUM</p>

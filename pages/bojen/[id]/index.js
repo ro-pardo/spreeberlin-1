@@ -4,6 +4,8 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Image from 'next/image';
 
+import { Box, Typography, Button, Grid } from '@mui/material';
+
 import { bojen } from '../../../bojen';
 
 import { Line } from 'react-chartjs-2';
@@ -143,105 +145,111 @@ const Modal = ({ data }) => {
                                     </div>
                                 </div>
                             </div>
-                            <div className='boje-inner-container'>
-                                <div
-                                    data-w-tab='PH-Wert'
-                                    className='button-global-4 is-boje w-inline-block'
-                                    onClick={() => {
-                                        handleClick(0);
-                                    }}
+                             
+                            <Grid container className='buttonContainer'>
+                               
+                                <Grid
+                                    // display={'flex'}
+                                    item
+                                    xs={12}
+        
+                                    lg={3}
                                 >
-                                    <div className='button-boje-container'>
-                                        <div className='small-circle-2'></div>
-                                        <div className='description-3 boje'>
-                                            PH - Wert
+                                    <Button
+                                        className='chartButton1'
+                                        onClick={() => {
+                                            handleClick(0);
+                                        }}
+                                    >
+                                        <div className='button-boje-container'>
+                                            <div className='small-circle-2'></div>
+                                            <div className='chartLabel1'>
+                                                PH - Wert
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div
-                                    data-w-tab='Temperatur'
-                                    className='button-global-4 is-boje red w-inline-block w-tab-link w--current'
-                                    onClick={() => {
-                                        handleClick(1);
-                                    }}
-                                >
-                                    <div className='button-boje-container'>
-                                        <div className='small-circle-2 red'></div>
-                                        <div className='description-3 boje'>
-                                            Temperatur
+                                    </Button>
+                                </Grid>
+                                <Grid item xs={12} lg={3}>
+                                    <Button
+                                        className='chartButton2'
+                                        onClick={() => {
+                                            handleClick(1);
+                                        }}
+                                    >
+                                        <div className='button-boje-container'>
+                                            <div className='small-circle-2 red'></div>
+                                            <div className='chartLabel2'>
+                                                Temperatur
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <a
-                                    data-w-tab='Sauerstoffgehalt'
-                                    className='button-global-4 is-boje white w-inline-block w-tab-link'
-                                    onClick={() => {
-                                        handleClick(2);
-                                    }}
-                                >
-                                    <div className='button-boje-container'>
-                                        <div className='small-circle-2 white'></div>
-                                        <div className='description-3 boje'>
-                                            O2
+                                    </Button>
+                                </Grid>
+                                <Grid item xs={12} lg={3}>
+                                    <Button
+                                        className='chartButton3'
+                                        onClick={() => {
+                                            handleClick(2);
+                                        }}
+                                    >
+                                        <div className='button-boje-container'>
+                                            <div className='small-circle-2 white'></div>
+                                            <div className='chartLabel3'>
+                                                O2
+                                            </div>
                                         </div>
-                                    </div>
-                                </a>
-                                <a
-                                    data-w-tab='Leitfähigkeit'
-                                    className='button-global-4 is-boje black w-inline-block w-tab-link'
-                                    onClick={() => {
-                                        handleClick(3);
-                                    }}
-                                >
-                                    <div className='button-boje-container'>
-                                        <div className='small-circle-2 black'></div>
-                                        <div className='description-3 boje'>
-                                            Leitfähigkeit
+                                    </Button>
+                                </Grid>
+                                <Grid item xs={12} lg={3}>
+                                    <Button
+                                        className='chartButton4'
+                                        onClick={() => {
+                                            handleClick(3);
+                                        }}
+                                    >
+                                        <div className='button-boje-container'>
+                                            <div className='small-circle-2 black'></div>
+                                            <div className='chartLabel4'>
+                                                Leitfähigkeit
+                                            </div>
                                         </div>
-                                    </div>
-                                </a>
-                                <div
-                                    data-duration-in='300'
-                                    data-duration-out='100'
-                                    data-current='Temperatur'
-                                    data-easing='ease'
-                                    className='tabs w-tabs'
-                                >
+                                    </Button>
+                                </Grid>
+                                <Grid item xs={12}>
                                     <div className='myChart'>
                                         {/* <div className='mySpacer'></div> */}
                                         {chartActive == 0 && (
                                             <Line
                                                 data={data.chartData1}
-                                                height={120}
+                                                height={160}
                                                 options={options}
                                             />
                                         )}
                                         {chartActive == 1 && (
                                             <Line
                                                 data={data.chartData2}
-                                                height={120}
+                                                height={160}
                                                 options={options}
                                             />
                                         )}
                                         {chartActive == 2 && (
                                             <Line
                                                 data={data.chartData3}
-                                                height={120}
+                                                height={160}
                                                 options={options}
                                             />
                                         )}
                                         {chartActive == 3 && (
                                             <Line
                                                 data={data.chartData4}
-                                                height={120}
+                                                height={160}
                                                 options={options}
                                             />
                                         )}
                                     </div>
 
-                                    <div className='myChartToggle'></div>
-                                </div>
-                            </div>
+                                    {/* <div className='myChartToggle'></div> */}
+                                </Grid>
+                            </Grid>
                         </div>
                     </div>
                 </div>
@@ -309,7 +317,6 @@ export const getServerSideProps = async (context) => {
         const chartData = genChart(dataComplete, title, color);
         dataArray.push(chartData);
     }
-
 
     return {
         props: {

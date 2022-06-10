@@ -13,12 +13,12 @@ import { Typography } from '@mui/material';
 
 export default function Artikel(props) {
     const router = useRouter();
-    console.log(router.pathname.slice(0, 11));
+    //console.log(router.pathname.slice(0, 11));
 
     const [moreOpen, setMoreOpen] = useState(false);
 
     useEffect(() => {
-        console.log('content type udated');
+        //console.log('content type udated');
 
         setMoreOpen(false);
     }, [router.asPath]);
@@ -113,7 +113,7 @@ export default function Artikel(props) {
 export async function getServerSideProps(context) {
     //console.log('loading article context', context.query.id);
 
-    console.log('context', context.query.type);
+    //console.log('context', context.query.type);
 
     let article = [];
 
@@ -185,7 +185,7 @@ export async function getServerSideProps(context) {
     const post = article[0];
 
     const more = JSON.parse(JSON.stringify(moreArticle.reverse()));
-    console.log('more', more);
+    //console.log('more', more);
 
     return {
         props: {
