@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Hamburger from 'hamburger-react';
+import { Cross as Hamburger } from 'hamburger-react'
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
@@ -139,11 +139,12 @@ const Header = () => {
                     sx={{
                         color: '#fff',
                         backgroundColor: 'rgba(36, 115, 255, 1)',
-                        zIndex: 1000,
+                        zIndex: - 1,
                     }}
                     open={isOpen}
                     onClick={handleClose}
                 >
+                    
                     <Box>
                         <Link href='/'>
                             <a
