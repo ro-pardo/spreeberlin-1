@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 import { Box, Typography, Button, Grid } from '@mui/material';
 
-import { bojen } from '../../../bojen';
+import { bojen } from '../../../config/bojen';
 
 import { Line } from 'react-chartjs-2';
 import { de } from 'date-fns/locale';

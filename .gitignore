@@ -4,10 +4,8 @@
 /node_modules
 /.pnp
 .pnp.js
-/pw
-./db.ts
-./.env
-
+db.ts
+.env
 
 # testing
 /coverage
