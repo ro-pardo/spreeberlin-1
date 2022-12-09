@@ -160,47 +160,65 @@
     z-index: 100000;
 }
 
+.chartCard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chartBox {
+    width: 1100px;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    padding-top: 30px;
+    border-radius: 20px;
+}
+
 .chartButton1 {
-    border: #00ff48 2px solid;
+    border: #9af25c 2px solid;
     border-radius: 20px;
     height: 40px;
     width: 160px;
-    
+
 }
 .chartLabel1 {
-    color: #00ff48;
+    color: #9af25c;
 }
 
 .chartButton2 {
-    border: #f03c28 2px solid;
+    /*border: #f03c28 2px solid;*/
+    border: #ecf298 2px solid;
     border-radius: 20px;
     width: 160px;
     height: 40px;
 }
 
 .chartLabel2 {
-    color: #f03c28;
+    /*color: #f03c28;*/
+    color: #ecf298;
 }
 
 .chartButton3 {
-    border: #fff 2px solid;
+    border: #DF4D4D 2px solid;
     border-radius: 20px;
     height: 40px;
     width: 160px;
 }
 
 .chartLabel3 {
-    color: #fff;
+    color: #c6b1ed;
 }
+
 .chartButton4 {
-    border: #000 2px solid;
+    border: #ffb266 2px solid;
     border-radius: 20px;
     height: 40px;
     width: 160px;
 }
 
 .chartLabel4 {
-    color: #000;
+    color: #ffb266;
 }
 
 .myArticle {
@@ -594,7 +612,7 @@ body {
     .content {
         position: absolute;
         top: 100px;
-        background-color: rgba(36, 115, 255, 1);
+        background-color: #0C5959;
         width: 98vw;
         height: 100%;
         left: 50%;

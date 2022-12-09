@@ -375,7 +375,7 @@ blockquote {
     height: 170px;
     margin-top: -20px;
     border-radius: 100px;
-    background-color: #001660;
+    background-color: #1a4f93;
 }
 
 .boje-t-wert {
@@ -383,7 +383,7 @@ blockquote {
     height: 200px;
     margin-left: -20px;
     border-radius: 110px;
-    background-color: #ff5f5f;
+    background-color: #ecf298;
 }
 
 .boje-daten {
@@ -1508,12 +1508,15 @@ blockquote {
 } */
 
 .boje-diagramm-messdaten {
+    padding-top: 3em;
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
     margin-right: 2em;
     margin-left: 2em;
+    align-items: center;
+    justify-content: center;
 }
 
 .boje-inner-container {
@@ -3876,7 +3879,7 @@ blockquote {
     width: 170px;
     height: 170px;
     border-radius: 110px;
-    background-color: #00ff48;
+    background-color: #9af25c;
 }
 
 .boje-mg-wert-3 {
@@ -3884,13 +3887,13 @@ blockquote {
     height: 230px;
     margin-top: -40px;
     border-radius: 120px;
-    background-color: #fff;
+    background-color: #DB3D3D;
 }
 
 .mg-text-3 {
     margin-top: 79px;
     font-family: Edumaxisharp, sans-serif;
-    color: #2473ff;
+    color: #fff;
     font-size: 80px;
     line-height: 60px;
     text-align: center;
@@ -3901,7 +3904,7 @@ blockquote {
     height: 20px;
     margin-right: 10px;
     border-radius: 14px;
-    background-color: #00ff48;
+    background-color: #9af25c;
 }
 
 .small-circle-2.black {
@@ -3912,8 +3915,16 @@ blockquote {
     background-color: #fff;
 }
 
+.small-circle-2.darkblue {
+    background-color: #ffb266;
+}
+
+.small-circle-2.violet {
+    background-color: #DF4D4D;
+}
+
 .small-circle-2.red {
-    background-color: #f03c28;
+    background-color: #ecf298;
 }
 
 .boje-control-icon-3 {
